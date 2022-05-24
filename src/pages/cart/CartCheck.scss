@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.cartCheck {
+  @include flexSpaceBetween;
+  padding: 1rem 0.5rem;
+  border-bottom: 2px solid $textBlack;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: $textGray;
+    font-size: 0.813rem;
+    cursor: pointer;
+  }
+}
