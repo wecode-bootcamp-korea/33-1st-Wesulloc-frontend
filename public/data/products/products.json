@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "category": "best",
+    "name": "product1",
+    "price": "10,000원"
+  },
+  {
+    "id": 2,
+    "category": "best",
+    "name": "product2",
+    "price": "11,000원"
+  },
+  {
+    "id": 3,
+    "category": "summer",
+    "name": "product3",
+    "price": "14,000원"
+  },
+  {
+    "id": 4,
+    "category": "best",
+    "name": "product4",
+    "price": "15,000원"
+  },
+  {
+    "id": 5,
+    "category": "summer",
+    "name": "product5",
+    "price": "10,000원"
+  },
+  {
+    "id": 6,
+    "category": "summer",
+    "name": "product6",
+    "price": "10,000원"
+  },
+  {
+    "id": 7,
+    "category": "summer",
+    "name": "product7",
+    "price": "10,000원"
+  },
+  {
+    "id": 8,
+    "category": "best",
+    "name": "product8",
+    "price": "10,000원"
+  },
+  {
+    "id": 9,
+    "category": "summer",
+    "name": "product7",
+    "price": "10,000원"
+  },
+  {
+    "id": 10,
+    "category": "best",
+    "name": "product8",
+    "price": "10,000원"
+  }
+]
