@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.cartCheck {
+  @include flexSpaceBetween;
+  padding: 1rem 0.5rem;
+  border-bottom: 2px solid $textBlack;
+
+  .checkBoxWrapper {
+    input {
+      display: none;
+
+      &:checked + label {
+        div {
+          background-color: $primaryColor;
+        }
+      }
+    }
+
+    input + label {
+      div {
+        display: inline-block;
+        width: 1.375rem;
+        height: 1.375rem;
+        margin-right: 0.625rem;
+        border: $border;
+        border-radius: 0.2rem;
+        background: url(./images/chk_icon.png) 0 0 no-repeat;
+        background-position: center center;
+        background-color: $bgWhite;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: $textGray;
+    font-size: 0.813rem;
+    cursor: pointer;
+  }
+}

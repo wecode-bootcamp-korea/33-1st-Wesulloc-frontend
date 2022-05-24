@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.cartItemList {
+  ul {
+    @include flexColumn;
+    justify-content: center;
+
+    .emptyCartMessage {
+      width: 65vw;
+      height: 8rem;
+      border-bottom: $border;
+      text-align: center;
+      line-height: 8rem;
+      color: $textBlack;
+      font-size: 1rem;
+    }
+  }
+}

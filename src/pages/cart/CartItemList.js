@@ -1,23 +1,64 @@
+import { useState, useEffect } from 'react';
 import CartItem from './CartItem';
-import CartCheck from './CartCheck';
+import CartControlBar from './CartControlBar';
+import './CartItemList.scss';
 
 const CartItemList = props => {
-  const { onChecked } = props;
+  const { onChangeCost } = props;
+
+  const [itemList, setItemList] = useState(DUMMY_ITEM_LIST);
+  const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(true);
+
+  const totalCheckboxHandler = value => {
+    setItemList(prevState => {
+      return prevState.map(obj => {
+        return { ...obj, isChecked: value };
+      });
+    });
+    setTotalCheckboxisChecked(value);
+  };
+
+  const deleteItems = () => {
+    setItemList(prevState => {
+      return prevState.filter(obj => {
+        return !obj.isChecked;
+      });
+    });
+  };
+
+  const onChangeProps = (id, key, value) => {
+    setItemList(prevState => {
+      return prevState.map(obj => {
+        if (obj.id === id) {
+          return { ...obj, [key]: value };
+        } else {
+          return { ...obj };
+        }
+      });
+    });
+  };
+
+  useEffect(() => {
+    const totalPrice = itemList.reduce((acc, obj) => {
+      return (acc += obj.isChecked ? obj.amount * obj.price : 0);
+    }, 0);
+    onChangeCost(totalPrice);
+  }, [itemList]);
 
   return (
     <div className="cartItemList">
-      <CartCheck />
+      <CartControlBar
+        onChecked={totalCheckboxHandler}
+        onClicked={deleteItems}
+        checked={totalCheckboxisChecked}
+      />
       <ul>
-        {DUMMY_ITEM_LIST.map(item => {
+        {!itemList.length && (
+          <p className="emptyCartMessage">장바구니에 담긴 상품이 없습니다.</p>
+        )}
+        {itemList.map(item => {
           return (
-            <CartItem
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              packingState={item.packingState}
-              price={item.price}
-              onChecked={onChecked}
-            />
+            <CartItem key={item.id} item={item} onChangeProps={onChangeProps} />
           );
         })}
       </ul>
@@ -31,18 +72,24 @@ const DUMMY_ITEM_LIST = [
     name: '영귤섬 아이스티',
     packingState: '포장불가',
     price: 13000,
+    amount: 1,
+    isChecked: true,
   },
   {
     id: 2,
     name: '러블리 티 박스',
     packingState: '포장가능',
     price: 20000,
+    amount: 1,
+    isChecked: true,
   },
   {
     id: 3,
     name: '그린티 랑드샤 세트',
     packingState: '포장불가',
     price: 36000,
+    amount: 1,
+    isChecked: true,
   },
 ];
 
