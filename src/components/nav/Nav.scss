@@ -1,0 +1,50 @@
+@import '../../styles/variables.scss';
+
+.wesullocHead {
+  @include flexCenter;
+  max-width: 100%;
+  padding: 0 13rem;
+  width: 100%;
+  height: 5rem;
+  background-color: $border;
+  position: fixed;
+  border-bottom: 1px solid transparent;
+  z-index: 100;
+  .navInnerBox {
+    @include flexSpaceBetween;
+    width: 100%;
+    align-items: center;
+
+    .leftBox {
+      @include flexCenter;
+
+      .navList {
+        @include flexCenter;
+        padding-left: 40px;
+        .navTitle {
+          padding: 0 0 0 6rem;
+        }
+      }
+    }
+    .rightBox {
+      display: flex;
+
+      .navUtility {
+        width: 5rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .navDrop {
+        display: flex;
+        padding-left: 1rem;
+
+        .loginTitle {
+          padding: 0 1rem 0 3rem;
+        }
+      }
+    }
+  }
+  .grayLogoImg {
+    width: 6.5rem;
+  }
+}
