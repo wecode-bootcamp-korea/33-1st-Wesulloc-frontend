@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ProductList from './components/ProductList';
+import ProductItems from './components/ProductItems';
 import './Products.scss';
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
+
+  /*
   const [tabState, setTabState] = useState({
     tabBest: true,
     tabSummer: false,
@@ -12,28 +14,26 @@ const Products = () => {
   const handleTabChange = () => {
     setTabState(tabState);
   };
+  */
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/products/products.json')
+    fetch('/data/products/products.json')
       .then(res => res.json())
       .then(productsData => setProductList(productsData));
   }, []);
+
   return (
     <>
-      <header>
+      <header className="pageHeader">
         <div className="headImage">
           <p>베스트</p>
         </div>
       </header>
-      <article>
+      <article className="recommendContents">
         <div className="topButtonWrapper">
           <div className="topButtons">
-            <button name="tabBest" onClick={handleTabChange}>
-              위클리 베스트
-            </button>
-            <button name="tabSummer" onClick={handleTabChange}>
-              여름맞이 선물
-            </button>
+            <button name="tabBest">위클리 베스트</button>
+            <button name="tabSummer">여름맞이 선물</button>
           </div>
         </div>
         <div className="productListWrapper">
@@ -46,7 +46,7 @@ const Products = () => {
           </div>
           <ul className="productList">
             {productList.map(productsData => (
-              <ProductList key={productsData.id} data={productsData} />
+              <ProductItems key={productsData.id} data={productsData} />
             ))}
           </ul>
         </div>

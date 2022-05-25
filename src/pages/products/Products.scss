@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-header {
+.pageHeader {
   .headImage {
     @include flexCenter;
     margin-bottom: 2.5rem;
@@ -15,7 +15,7 @@ header {
   }
 }
 
-article {
+.recommendContents {
   height: 100vh;
 
   .topButtonWrapper {
@@ -28,16 +28,16 @@ article {
 
       button {
         display: inline-block;
-        padding: 0.87rem 1.5rem;
-        margin-right: 0.5rem;
-        text-align: center;
         width: 9.5rem;
-        background-color: $bgGray;
+        margin-right: 0.5rem;
+        padding: 0.87rem 1.5rem;
         color: $textGray;
-        font-size: 1.125rem;
-        font-weight: $fontRegular;
+        background-color: $bgGray;
         border: none;
         border-radius: 9rem;
+        font-size: 1.125rem;
+        text-align: center;
+        font-weight: $fontRegular;
         cursor: pointer;
 
         &:active {
