@@ -43,7 +43,7 @@ const CartItemList = props => {
       return (acc += obj.isChecked ? obj.amount * obj.price : 0);
     }, 0);
     onChangeCost(totalPrice);
-  }, [itemList]);
+  }, [itemList, onChangeCost]);
 
   return (
     <div className="cartItemList">
