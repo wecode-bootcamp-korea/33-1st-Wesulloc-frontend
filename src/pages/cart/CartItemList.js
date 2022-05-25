@@ -3,8 +3,12 @@ import CartItem from './CartItem';
 import CartControlBar from './CartControlBar';
 import './CartItemList.scss';
 
-const CartItemList = ({ onChangeCost }) => {
-  const [itemList, setItemList] = useState(DUMMY_ITEM_LIST);
+const CartItemList = ({ onChangeCost, onErrorInput, onChangeList }) => {
+  const [itemList, setItemList] = useState(
+    DUMMY_ITEM_LIST.map(obj => {
+      return { ...obj, isChecked: true };
+    })
+  );
   const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(true);
 
   const totalCheckboxHandler = value => {
@@ -41,7 +45,8 @@ const CartItemList = ({ onChangeCost }) => {
       return (acc += obj.isChecked ? obj.amount * obj.price : 0);
     }, 0);
     onChangeCost(totalPrice);
-  }, [itemList, onChangeCost]);
+    onChangeList(itemList);
+  }, [itemList, onChangeCost, onChangeList]);
 
   return (
     <div className="cartItemList">
@@ -56,7 +61,12 @@ const CartItemList = ({ onChangeCost }) => {
         )}
         {itemList.map(item => {
           return (
-            <CartItem key={item.id} item={item} onChangeProps={onChangeProps} />
+            <CartItem
+              key={item.id}
+              item={item}
+              onChangeProps={onChangeProps}
+              onErrorInput={onErrorInput}
+            />
           );
         })}
       </ul>
@@ -71,7 +81,6 @@ const DUMMY_ITEM_LIST = [
     packingState: '포장불가',
     price: 13000,
     amount: 1,
-    isChecked: true,
   },
   {
     id: 2,
@@ -79,7 +88,6 @@ const DUMMY_ITEM_LIST = [
     packingState: '포장가능',
     price: 20000,
     amount: 1,
-    isChecked: true,
   },
   {
     id: 3,
@@ -87,7 +95,6 @@ const DUMMY_ITEM_LIST = [
     packingState: '포장불가',
     price: 36000,
     amount: 1,
-    isChecked: true,
   },
 ];
 

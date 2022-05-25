@@ -1,31 +1,13 @@
 import ItemPrice from './ItemPrice';
 import './SideBar.scss';
 
-const SideBar = ({ totalPrice }) => {
+const SideBar = ({ totalPrice, onClickBtn }) => {
   const deliveryCost = totalPrice < 30000 ? (totalPrice ? 2500 : 0) : 0;
 
-  const PRICE_CATEGORY_LIST = [
-    {
-      id: 1,
-      title: '상품 금액',
-    },
-    {
-      id: 2,
-      title: '상품 할인',
-    },
-    {
-      id: 3,
-      title: '포장비',
-    },
-    {
-      id: 4,
-      title: '부가 쇼핑백',
-    },
-    {
-      id: 5,
-      title: '배송비',
-    },
-  ];
+  const orderHandler = event => {
+    event.preventDefault();
+    onClickBtn(event.target.className);
+  };
 
   return (
     <section className="sidebar">
@@ -42,12 +24,35 @@ const SideBar = ({ totalPrice }) => {
             <span>원</span>
           </p>
         </div>
-        <button>{`${(totalPrice + deliveryCost).toLocaleString(
-          'en'
-        )}원 주문하기`}</button>
+        <button className="orderSelectedBtn" onClick={orderHandler}>{`${(
+          totalPrice + deliveryCost
+        ).toLocaleString('en')}원 주문하기`}</button>
       </div>
     </section>
   );
 };
+
+const PRICE_CATEGORY_LIST = [
+  {
+    id: 1,
+    title: '상품 금액',
+  },
+  {
+    id: 2,
+    title: '상품 할인',
+  },
+  {
+    id: 3,
+    title: '포장비',
+  },
+  {
+    id: 4,
+    title: '부가 쇼핑백',
+  },
+  {
+    id: 5,
+    title: '배송비',
+  },
+];
 
 export default SideBar;

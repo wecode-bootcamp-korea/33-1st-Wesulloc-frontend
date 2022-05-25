@@ -91,6 +91,10 @@ $urlCheckIcon: url(./images/chk_icon.png);
         color: $textGray;
         font-size: 1.2rem;
         cursor: pointer;
+
+        &:disabled {
+          cursor: auto;
+        }
       }
 
       input {

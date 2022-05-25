@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .cart {
+  position: relative;
   padding: 0 3.75rem;
 
   .cartPageTitle {
@@ -11,7 +12,8 @@
   }
 
   form {
-    @include flexSpaceBetween;
+    display: flex;
+    justify-content: flex-start;
 
     .orderedItem {
       border-top: $border;

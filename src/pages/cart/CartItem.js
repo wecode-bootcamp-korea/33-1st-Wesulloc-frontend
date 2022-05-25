@@ -1,16 +1,28 @@
 import { useState, useEffect } from 'react';
 import './CartItem.scss';
 
-const CartItem = ({ item, onChangeProps }) => {
+const CartItem = ({ item, onChangeProps, onErrorInput }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
 
   const amountInputHandler = event => {
-    onChangeProps(item.id, 'amount', +event.target.value);
+    if (event.target.value.length >= 3) {
+      onChangeProps(item.id, 'amount', 99);
+      onErrorInput('inputValueExceeded');
+    } else {
+      +event.target.value === 0
+        ? onChangeProps(item.id, 'amount', 1)
+        : onChangeProps(item.id, 'amount', +event.target.value);
+    }
   };
 
   const amountIncreaseHandler = event => {
     event.preventDefault();
-    onChangeProps(item.id, 'amount', item.amount + 1);
+    if (item.amount === 99) {
+      onChangeProps(item.id, 'amount', 99);
+      onErrorInput('inputValueExceeded');
+    } else {
+      onChangeProps(item.id, 'amount', item.amount + 1);
+    }
   };
 
   const amountDecreaseHandler = event => {
@@ -22,7 +34,7 @@ const CartItem = ({ item, onChangeProps }) => {
     setIsBtnValid(item.amount > 1);
   }, [item.amount]);
 
-  const checkboxHandler = event => {
+  const checkboxHandler = () => {
     onChangeProps(item.id, 'isChecked', !item.isChecked);
   };
 
