@@ -1,8 +1,6 @@
 import './CartControlBar.scss';
 
-const CartControlBar = props => {
-  const { onChecked, onClicked, checked } = props;
-
+const CartControlBar = ({ onChecked, onClicked, checked }) => {
   const checkboxHandler = event => {
     onChecked(event.target.checked);
   };

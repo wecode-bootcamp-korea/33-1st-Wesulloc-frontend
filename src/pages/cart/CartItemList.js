@@ -3,9 +3,7 @@ import CartItem from './CartItem';
 import CartControlBar from './CartControlBar';
 import './CartItemList.scss';
 
-const CartItemList = props => {
-  const { onChangeCost } = props;
-
+const CartItemList = ({ onChangeCost }) => {
   const [itemList, setItemList] = useState(DUMMY_ITEM_LIST);
   const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(true);
 

@@ -1,5 +1,7 @@
 @import '../../styles/variables.scss';
 
+$urlCheckIcon: url(./images/chk_icon.png);
+
 .cartCheck {
   @include flexSpaceBetween;
   padding: 1rem 0.5rem;
@@ -24,7 +26,7 @@
         margin-right: 0.625rem;
         border: $border;
         border-radius: 0.2rem;
-        background: url(./images/chk_icon.png) 0 0 no-repeat;
+        background: $urlCheckIcon 0 0 no-repeat;
         background-position: center center;
         background-color: $bgWhite;
         vertical-align: middle;
@@ -35,6 +37,7 @@
   button {
     background-color: transparent;
     border: none;
+    border-left: $border;
     color: $textGray;
     font-size: 0.813rem;
     cursor: pointer;

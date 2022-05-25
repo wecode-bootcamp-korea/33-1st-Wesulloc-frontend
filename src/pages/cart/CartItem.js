@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import './CartItem.scss';
 
-const CartItem = props => {
-  const { item, onChangeProps } = props;
-
+const CartItem = ({ item, onChangeProps }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
 
   const amountInputHandler = event => {

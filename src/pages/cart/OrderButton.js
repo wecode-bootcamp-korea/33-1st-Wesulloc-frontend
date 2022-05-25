@@ -1,7 +1,6 @@
 import './OrderButton.scss';
 
-const OrderButton = props => {
-  const { category } = props;
+const OrderButton = ({ category }) => {
   return (
     <>
       {category === 'orderSelected' && (
