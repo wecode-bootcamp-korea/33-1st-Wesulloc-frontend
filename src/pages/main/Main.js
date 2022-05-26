@@ -1,5 +1,13 @@
 import './Main.scss';
-import '../../styles/common.scss';
+import Nav from '../../components/nav/Nav';
+import Footer from '../../components/footer/Footer';
 
-function Main() {}
+function Main() {
+  return (
+    <>
+      <Nav />
+      <Footer />
+    </>
+  );
+}
 export default Main;

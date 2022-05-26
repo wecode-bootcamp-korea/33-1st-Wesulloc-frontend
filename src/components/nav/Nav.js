@@ -1,39 +1,50 @@
 import './Nav.scss';
 import { Link } from 'react-router-dom';
-import './Nav.scss';
 
 function Nav() {
+  const NAV_LIST = [
+    {
+      id: 1,
+      link: '/',
+      title: '제품',
+    },
+    {
+      id: 2,
+      link: '/',
+      title: '선물추천',
+    },
+    {
+      id: 3,
+      link: '/',
+      title: '다다일상',
+    },
+  ];
+
   return (
     <header className="wesullocHead">
       <div className="navInnerBox">
         <div className="leftBox">
           <h1 className="wesullocLogo">
-            <Link to="/" className="grayLogo">
+            <Link to="/" className="whiteLogoImg">
               <img
-                className="grayLogoImg"
-                src="/images/logoGray.png"
+                className="whiteLogoImg"
+                src="/images/logoWhite.png"
                 alt="오설록 로고"
               />
             </Link>
           </h1>
           <nav className="wesullocNav">
             <ul className="navList">
-              <li className="navItems">
-                <Link to="/" className="navTitle">
-                  제품
-                </Link>
-              </li>
-              <li className="navItems">
-                <Link to="/" className="navTitle">
-                  선물추천
-                </Link>
-              </li>
-              <li className="navItems">
-                <Link to="/" className="navTitle">
-                  다다일상
-                </Link>
-              </li>
+              {NAV_LIST.map(({ id, link, title }) => (
+                <li key={id} className="navItems">
+                  <Link to={link} className="navTitle">
+                    {title}
+                  </Link>
+                </li>
+              ))}
             </ul>
+
+            <ul className="nav" />
           </nav>
         </div>
 
@@ -55,10 +66,7 @@ function Nav() {
                 로그인
               </Link>
             </li>
-            <li className="itemArr">
-              KOREAN
-              <span className="iconDrop" />
-            </li>
+            <li className="itemArr">KOREAN</li>
           </ul>
         </div>
       </div>
