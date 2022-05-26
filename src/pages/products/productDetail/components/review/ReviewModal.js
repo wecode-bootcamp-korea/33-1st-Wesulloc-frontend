@@ -12,15 +12,12 @@ const ReviewModal = ({ setModal }) => {
   let starArr = [0, 1, 2, 3, 4];
 
   const handleStarClicked = e => {
-    console.log(typeof e.target.id);
     let id = parseInt(e.target.id);
     let clicked = [...star];
     clicked.fill(true, 0, id + 1);
     clicked.fill(false, id + 1, 5);
     setStar(clicked);
   };
-
-  console.log(star);
 
   useEffect(() => {
     document.body.style.cssText = `
@@ -57,18 +54,7 @@ const ReviewModal = ({ setModal }) => {
                 id={el}
                 handleStarClicked={handleStarClicked}
                 star={star}
-                // onClick={e => {
-                //   handleStarClicked(e);
-                // }}
               />
-              // <i
-              //   className="fa-solid fa-star"
-              //   key={el}
-              //   id={el}
-              //   onClick={e => {
-              //     handleStarClicked(e);
-              //   }}
-              // />
             );
           })}
         </div>

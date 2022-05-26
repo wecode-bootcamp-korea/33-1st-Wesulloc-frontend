@@ -18,7 +18,7 @@ const Review = () => {
           </div>
           <div className="reviewPicCollect">
             <div className="reviewPic">
-              <img src="https://www.osulloc.com/upload/kr/ko/adminImage/CV/PI/20191213161646687QE.png?quality=80" />
+              <img src="/images/drink.jpg" alt="img" />
             </div>
           </div>
         </div>

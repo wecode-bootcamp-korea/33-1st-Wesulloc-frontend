@@ -7,7 +7,7 @@ const Detail = () => {
           <div className="detailLeft">
             <div className="itemWrapper">
               <div className="itemImg">
-                <img src="/images/drink.jpg" />
+                <img src="/images/drink.jpg" alt="img" />
               </div>
               <ul className="customerBenefit">
                 <li>
