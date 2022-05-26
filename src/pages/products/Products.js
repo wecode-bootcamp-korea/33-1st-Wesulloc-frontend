@@ -26,18 +26,22 @@ const Products = () => {
             ))}
           </ul>
         </div>
-        <button className="btn1">명차</button>
-        <button className="btn2" onClick={moveLeft}>
-          녹차/발효차/홍차
-        </button>
-        <button className="btn3" onClick={moveLeft}>
-          허브티
-        </button>
-        <button className="btn4" onClick={moveLeft}>
-          블렌디드티
-        </button>
+        <div className="slideButtonsWrapper">
+          <button className="slideButton" onClick={moveLeft}>
+            명차
+          </button>
+          <button className="slideButton" onClick={moveLeft}>
+            녹차/발효차/홍차
+          </button>
+          <button className="slideButton" onClick={moveLeft}>
+            허브티
+          </button>
+          <button className="slideButton" onClick={moveLeft}>
+            블렌디드티
+          </button>
+        </div>
       </header>
-      <section>
+      <section className="productContentsWrapper">
         <div className="productCategoryOption">
           <span>티 제품</span>
           <ul>

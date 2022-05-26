@@ -42,4 +42,146 @@
       }
     }
   }
+
+  .slideButtonsWrapper {
+    max-width: 100%;
+    padding: 0 9.25rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+
+    background-color: #000000;
+
+    .slideButton {
+      float: left;
+      width: 25%;
+      color: $textGray;
+      font-size: 1.25rem;
+      text-align: center;
+      margin: 1.5rem 0;
+      background-color: #000000;
+      border: none;
+    }
+  }
+}
+
+.productContentsWrapper {
+  @include flexSpaceBetween;
+
+  max-width: 70rem;
+  margin: auto;
+
+  .productCategoryOption {
+    float: left;
+    font-size: 1.25rem;
+
+    span {
+      margin-bottom: 2rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    ul {
+      li {
+        margin: 0 0 2rem 1.5rem;
+      }
+    }
+  }
+
+  .contentWrapper {
+    width: 55rem;
+
+    .tabs {
+      @include flexSpaceBetween;
+      padding-bottom: 1.25rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      border-bottom: $border;
+
+      ul {
+        padding-right: 1.5rem;
+        li {
+          float: left;
+          margin-left: 2rem;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    .contentTop {
+      @include flexSpaceBetween;
+      padding-top: 1.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+
+      span {
+        color: $textGray;
+      }
+
+      ul {
+        li {
+          width: 5.5rem;
+          float: left;
+          margin-left: 0.5rem;
+          padding: 0.5rem;
+          color: $textGray;
+          font-size: 1.25rem;
+          background-color: $bgGray;
+          text-align: center;
+          border-radius: 2.75rem;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    .productList {
+      position: relative;
+
+      .product {
+        position: relative;
+        float: left;
+        margin-bottom: 3.75rem;
+        width: 24%;
+        margin-right: 1.3%;
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+
+        .productImageBox {
+          height: 14.375rem;
+          background-color: $bgGray;
+
+          span {
+            position: absolute;
+            top: 0;
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            color: $bgWhite;
+            font-size: 0.875rem;
+            background-color: $textBlack;
+          }
+        }
+
+        .productTextBox {
+          height: 7.25rem;
+          margin-top: 0.75rem;
+
+          p {
+            margin-bottom: 0.25rem;
+
+            &:last-child {
+              font-size: 1.125rem;
+              font-weight: $fontBold;
+            }
+          }
+        }
+      }
+    }
+  }
 }
