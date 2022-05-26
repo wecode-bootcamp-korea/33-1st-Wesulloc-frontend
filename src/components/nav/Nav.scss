@@ -1,0 +1,78 @@
+@import '../../styles/variables.scss';
+
+.nav {
+  @include flexCenter;
+  position: fixed;
+  max-width: 100%;
+  padding: 0 13rem;
+  width: 100%;
+  height: 5rem;
+  background-color: $border;
+  background: linear-gradient(to top, transparent, rgb(153, 153, 153));
+  z-index: 100;
+
+  .navInnerBox {
+    @include flexSpaceBetween;
+    width: 100%;
+    align-items: center;
+
+    .leftBox {
+      @include flexCenter;
+
+      .navList {
+        @include flexCenter;
+        padding-left: 40px;
+
+        .navTitle {
+          color: $bgWhite;
+          padding: 0 0 0 6rem;
+        }
+      }
+      .navSubList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 5rem;
+        text-align: center;
+        background-color: #f1c40f;
+        .subItems {
+          position: relative;
+          width: 50rem;
+          background-color: aquamarine;
+          left: 7rem;
+          top: 5.7rem;
+          .navItems {
+            padding-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+    .rightBox {
+      display: flex;
+      color: $bgWhite;
+
+      .navUtility {
+        @include flexSpaceBetween;
+        width: 5rem;
+      }
+
+      .navDrop {
+        display: flex;
+        padding-left: 1rem;
+
+        .loginTitle {
+          color: $bgWhite;
+        }
+
+        .loginTitle {
+          padding: 0 1rem 0 3rem;
+        }
+      }
+    }
+  }
+
+  .whiteLogoImg {
+    width: 6.5rem;
+  }
+}
