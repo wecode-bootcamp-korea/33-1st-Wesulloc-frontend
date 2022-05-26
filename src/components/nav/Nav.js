@@ -1,6 +1,5 @@
 import './Nav.scss';
 import { Link } from 'react-router-dom';
-import NavItems from './NavItem';
 
 function Nav() {
   return (
@@ -17,7 +16,7 @@ function Nav() {
             </Link>
           </h1>
           <nav className="wesullocNav">
-            {/* <ul className="navList">
+            <ul className="navList">
               {NAV_LIST.map(({ id, link, title }) => (
                 <li key={id} className="navItems">
                   <Link to={link} className="navTitle">
@@ -25,21 +24,20 @@ function Nav() {
                   </Link>
                 </li>
               ))}
-            </ul> */}
-            <NavItems />
+            </ul>
           </nav>
         </div>
 
         <div className="rightBox">
           <ul className="navUtility">
             <li className="item">
-              <i class="fa-solid fa-magnifying-glass" />
+              <i className="fa-solid fa-magnifying-glass" />
             </li>
             <li className="item">
-              <i class="fa-solid fa-cart-shopping" />
+              <i className="fa-solid fa-cart-shopping" />
             </li>
             <li className="item itemMore">
-              <i class="fa-solid fa-ellipsis-vertical" />
+              <i className="fa-solid fa-ellipsis-vertical" />
             </li>
           </ul>
           <ul className="navDrop">
@@ -55,22 +53,22 @@ function Nav() {
     </header>
   );
 }
-// const NAV_LIST = [
-//   {
-//     id: 1,
-//     link: '/',
-//     title: '제품',
-//   },
-//   {
-//     id: 2,
-//     link: '/',
-//     title: '선물추천',
-//   },
-//   {
-//     id: 3,
-//     link: '/',
-//     title: '다다일상',
-//   },
-// ];
+const NAV_LIST = [
+  {
+    id: 1,
+    link: '/',
+    title: '제품',
+  },
+  {
+    id: 2,
+    link: '/',
+    title: '선물추천',
+  },
+  {
+    id: 3,
+    link: '/',
+    title: '다다일상',
+  },
+];
 
 export default Nav;
