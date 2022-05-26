@@ -2,33 +2,6 @@ import React from 'react';
 import './Footer.scss';
 
 function Footer() {
-  const FOOTER_LIST = [
-    {
-      id: 1,
-      list: '회사소개',
-    },
-    {
-      id: 2,
-      list: '서비스 이용약관',
-    },
-    {
-      id: 3,
-      list: '개인정보 처리방침',
-    },
-    {
-      id: 4,
-      list: '뷰티포인트',
-    },
-    {
-      id: 5,
-      list: '사이트맵',
-    },
-    {
-      id: 6,
-      list: '전자공고',
-    },
-  ];
-
   return (
     <div className="Footer">
       <div className="topSection">
@@ -82,7 +55,7 @@ function Footer() {
           <div className="footerIcon">
             <div>
               <img
-                id="one"
+                id="storemap"
                 alt="storemap"
                 src="https://www.osulloc.com/kr/ko/static_renew/images/f1.png?quality=80"
               />
@@ -90,7 +63,7 @@ function Footer() {
             </div>
             <div>
               <img
-                id="two"
+                id="membership"
                 alt="membership"
                 src="https://www.osulloc.com/kr/ko/static_renew/images/f2.png?quality=80"
               />
@@ -98,7 +71,7 @@ function Footer() {
             </div>
             <div>
               <img
-                id="three"
+                id="faq"
                 alt="faq"
                 src="https://www.osulloc.com/kr/ko/static_renew/images/f3.png?quality=80"
               />
@@ -106,7 +79,7 @@ function Footer() {
             </div>
             <div>
               <img
-                id="four"
+                id="oneToOne"
                 alt="1:1문의"
                 src="https://www.osulloc.com/kr/ko/static_renew/images/f4.png?quality=80"
               />
@@ -114,7 +87,7 @@ function Footer() {
             </div>
             <div>
               <img
-                id="fiver"
+                id="point"
                 alt="뷰티포인트
                   추후적립"
                 src="https://www.osulloc.com/kr/ko/static_renew/images/beauti.png"
@@ -190,5 +163,31 @@ function Footer() {
     </div>
   );
 }
+const FOOTER_LIST = [
+  {
+    id: 1,
+    list: '회사소개',
+  },
+  {
+    id: 2,
+    list: '서비스 이용약관',
+  },
+  {
+    id: 3,
+    list: '개인정보 처리방침',
+  },
+  {
+    id: 4,
+    list: '뷰티포인트',
+  },
+  {
+    id: 5,
+    list: '사이트맵',
+  },
+  {
+    id: 6,
+    list: '전자공고',
+  },
+];
 
 export default Footer;

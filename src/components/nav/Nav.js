@@ -2,26 +2,8 @@ import './Nav.scss';
 import { Link } from 'react-router-dom';
 
 function Nav() {
-  const NAV_LIST = [
-    {
-      id: 1,
-      link: '/',
-      title: '제품',
-    },
-    {
-      id: 2,
-      link: '/',
-      title: '선물추천',
-    },
-    {
-      id: 3,
-      link: '/',
-      title: '다다일상',
-    },
-  ];
-
   return (
-    <header className="wesullocHead">
+    <header className="nav">
       <div className="navInnerBox">
         <div className="leftBox">
           <h1 className="wesullocLogo">
@@ -43,8 +25,6 @@ function Nav() {
                 </li>
               ))}
             </ul>
-
-            <ul className="nav" />
           </nav>
         </div>
 
@@ -73,5 +53,21 @@ function Nav() {
     </header>
   );
 }
-
+const NAV_LIST = [
+  {
+    id: 1,
+    link: '/',
+    title: '제품',
+  },
+  {
+    id: 2,
+    link: '/',
+    title: '선물추천',
+  },
+  {
+    id: 3,
+    link: '/',
+    title: '다다일상',
+  },
+];
 export default Nav;

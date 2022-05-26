@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.wesullocHead {
+.nav {
   @include flexCenter;
   position: fixed;
   max-width: 100%;
@@ -8,21 +8,11 @@
   width: 100%;
   height: 5rem;
   background-color: $border;
-  border-bottom: 1px solid transparent;
   background: linear-gradient(to top, transparent, rgb(153, 153, 153));
-
   z-index: 100;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50);
-    width: 0;
-    height: 4px;
-    background: #f1c40f;
-    transition: all 0.5s ease-out;
+  &:hover {
+    background: $bgWhite;
   }
 
   .navInnerBox {
@@ -36,6 +26,7 @@
       .navList {
         @include flexCenter;
         padding-left: 40px;
+
         .navTitle {
           color: $bgWhite;
           padding: 0 0 0 6rem;
