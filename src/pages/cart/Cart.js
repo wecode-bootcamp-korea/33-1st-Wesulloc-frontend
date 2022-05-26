@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CartItemList from './CartItemList';
 import OrderButton from './OrderButton';
 import SideBar from './SideBar';
 import FreeGift from './FreeGift';
 import ErrorModal from './components/ErrorModal';
+import Nav from '../../components/nav/Nav';
+import Footer from '../../components/footer/Footer';
 import './Cart.scss';
 
 const Cart = () => {
@@ -55,11 +57,18 @@ const Cart = () => {
     });
   };
 
+  useEffect(() => {
+    document.querySelector('.nav').style.cssText = `
+    background: black;
+    `;
+  }, []);
+
   return (
     <>
       {isError && (
         <ErrorModal message={ERROR[isError]} errorHandler={errorHandler} />
       )}
+      <Nav />
       <section className="cart">
         <div className="cartPageTitle">
           <div className="cartTitleWrapper">
@@ -83,6 +92,7 @@ const Cart = () => {
           <SideBar totalPrice={totalPrice} onClickBtn={onClickBtn} />
         </div>
       </section>
+      <Footer />
     </>
   );
 };
