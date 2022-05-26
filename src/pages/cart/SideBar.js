@@ -5,7 +5,7 @@ const SideBar = ({ totalPrice, onClickBtn }) => {
 
   const orderHandler = event => {
     event.preventDefault();
-    onClickBtn(event.target.className);
+    onClickBtn(null, event.target.className);
   };
 
   const priceHandler = title => {

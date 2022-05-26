@@ -25,17 +25,11 @@ const FreeGift = () => {
         <div className="contentBox">
           <div className="giftList">
             <div className="imgWrapper">
-              <img
-                src="https://www.osulloc.com/upload/kr/ko/adminImage/MJ/SD/20170911105145010AB.gif?quality=80"
-                alt="gift"
-              />
+              <img src="" alt="gift" />
               <p>3만원 이상 (시트마스크 2입)</p>
             </div>
             <div className="imgWrapper">
-              <img
-                src="https://www.osulloc.com/upload/kr/ko/adminImage/VN/OG/20210420193135810MQ.png?quality=80"
-                alt="gift"
-              />
+              <img src="" alt="gift" />
               <p>5만원 이상 (워터플러스 2입)</p>
             </div>
           </div>

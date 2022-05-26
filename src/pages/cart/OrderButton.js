@@ -3,7 +3,7 @@ import './OrderButton.scss';
 const OrderButton = ({ category, onClickBtn }) => {
   const orderHandler = event => {
     event.preventDefault();
-    onClickBtn(event.target.className);
+    onClickBtn(null, event.target.className);
   };
 
   return (

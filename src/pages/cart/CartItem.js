@@ -57,10 +57,7 @@ const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
         </label>
       </div>
       <div className="itemInfo">
-        <img
-          src="https://www.osulloc.com/upload/kr/ko/adminImage/HB/XA/304_20211026141423508CU.png?quality=80"
-          alt="product"
-        />
+        <img src="" alt="product" />
         <div className="itemInfoText">
           <a href="$">{item.name}</a>
           <p>{item.packingState}</p>

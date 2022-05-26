@@ -22,9 +22,19 @@ const Cart = () => {
   const listHandler = list => {
     setItemList(list);
   };
-  // 아래 함수 id 인자 추가 (이 주석은 추후 삭제)
-  const onClickBtn = value => {
-    const orderedList = itemList.filter(ele => ele.isChecked);
+
+  const onClickBtn = (id, value) => {
+    let orderedItemList = [];
+
+    if (id) {
+      orderedItemList = itemList.filter(item => {
+        return item.id === id;
+      });
+      alert(`${orderedItemList[0].name} 제품을 주문합니다.`);
+      return;
+    }
+
+    const checkedItemList = itemList.filter(item => item.isChecked);
 
     if (itemList.length === 0) {
       setIsError('nothingSelected');
@@ -33,9 +43,12 @@ const Cart = () => {
 
     ORDER.forEach(obj => {
       if (value === obj.button) {
-        if (obj.button === 'orderSelectedBtn' && orderedList.length === 0) {
+        if (obj.button === 'orderSelectedBtn' && checkedItemList.length === 0) {
           setIsError('nothingSelected');
         } else {
+          orderedItemList = obj.isOrderAll
+            ? [...itemList]
+            : [...checkedItemList];
           alert(obj.message);
         }
       }
@@ -83,10 +96,12 @@ const ORDER = [
   {
     button: 'orderSelectedBtn',
     message: '선택한 상품을 주문합니다.',
+    isOrderAll: false,
   },
   {
     button: 'orderAllBtn',
     message: '전체 상품을 주문합니다.',
+    isOrderAll: true,
   },
 ];
 
