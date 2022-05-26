@@ -26,7 +26,7 @@
       margin: auto;
       max-width: 55rem;
 
-      a {
+      .notActived {
         display: inline-block;
         width: 9.5rem;
         margin-right: 0.5rem;
@@ -39,13 +39,21 @@
         text-align: center;
         font-weight: $fontRegular;
         cursor: pointer;
-        /*
-        &:active {
-          color: $bgWhite;
-          background-color: $primaryColor;
-          font-weight: $fontBold;
-        }
-        */
+      }
+
+      .actived {
+        display: inline-block;
+        width: 9.5rem;
+        margin-right: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        color: $bgWhite;
+        background-color: $primaryColor;
+        border: none;
+        border-radius: 9rem;
+        font-size: 1.125rem;
+        text-align: center;
+        font-weight: $fontBold;
+        cursor: pointer;
       }
     }
   }
@@ -102,6 +110,7 @@
         }
 
         .productTextBox {
+          height: 7.25rem;
           margin-top: 0.75rem;
 
           p {

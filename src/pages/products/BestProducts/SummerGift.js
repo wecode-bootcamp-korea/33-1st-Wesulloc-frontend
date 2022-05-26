@@ -5,7 +5,11 @@ import './BestProducts.scss';
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
-  const [isSelected, setIsSeleted] = useState(true);
+  const [actived, setActived] = useState(true);
+
+  const handleTabChange = () => {
+    setActived(actived);
+  };
 
   useEffect(() => {
     fetch('/data/products/products.json')
@@ -23,22 +27,17 @@ const Products = () => {
       <article className="recommendContents">
         <div className="topButtonWrapper">
           <div className="topButtons">
-            <Link to="/WeeklyBest" className="tabBest">
+            <Link
+              to="/WeeklyBest"
+              className={!actived ? 'actived' : 'notActived'}
+              onChange={handleTabChange}
+            >
               위클리 베스트
             </Link>
             <Link
               to="/SummerGift"
-              className="tabSummer"
-              isSelected={true}
-              style={
-                isSelected
-                  ? {
-                      color: '#ffffff',
-                      backgroundColor: '#6c801a',
-                      fontWeight: '700',
-                    }
-                  : { color: '#333333' }
-              }
+              className={actived ? 'actived' : 'notActived'}
+              onChange={handleTabChange}
             >
               여름맞이 선물
             </Link>

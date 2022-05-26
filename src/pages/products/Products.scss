@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+
+@import url('https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css');
+
+.productHeader {
+  .slideWrapper {
+    height: 27rem;
+    overflow: hidden;
+    background-color: #000;
+
+    .videoSlider {
+      width: 100%;
+      margin: auto;
+      position: relative;
+      transition: 0.5s;
+
+      .slideItem {
+        width: 55rem;
+        height: 27rem;
+        padding-right: 1.5rem;
+        position: relative;
+        float: left;
+        color: $bgWhite;
+        background-color: orange;
+
+        .slideTextBox {
+          height: 22rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          text-align: right;
+          .slideName {
+            margin-bottom: 1rem;
+            font-family: 'MaruBuriSemiBold';
+            font-size: 2rem;
+          }
+
+          .slideContent {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+}

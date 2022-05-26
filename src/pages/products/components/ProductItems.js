@@ -5,9 +5,7 @@ const ProductItems = ({ data }) => {
 
   return (
     <li className="product" key={id}>
-      <div className="productImageBox">
-        <span>{id}</span>
-      </div>
+      <div className="productImageBox" />
       <div className="productTextBox">
         <p>{name}</p>
         <p>{price}</p>
