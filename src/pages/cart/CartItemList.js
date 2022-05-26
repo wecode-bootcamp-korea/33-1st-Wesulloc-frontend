@@ -3,7 +3,12 @@ import CartItem from './CartItem';
 import CartControlBar from './CartControlBar';
 import './CartItemList.scss';
 
-const CartItemList = ({ onChangeCost, onErrorInput, onChangeList }) => {
+const CartItemList = ({
+  onChangeCost,
+  onErrorInput,
+  onChangeList,
+  onClickBtn,
+}) => {
   const [itemList, setItemList] = useState(
     DUMMY_ITEM_LIST.map(obj => {
       return { ...obj, isChecked: true };
@@ -66,6 +71,7 @@ const CartItemList = ({ onChangeCost, onErrorInput, onChangeList }) => {
               item={item}
               onChangeProps={onChangeProps}
               onErrorInput={onErrorInput}
+              onClickBtn={onClickBtn}
             />
           );
         })}

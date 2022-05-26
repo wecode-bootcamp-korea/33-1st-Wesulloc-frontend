@@ -20,6 +20,43 @@
 
     ul {
       width: 100%;
+
+      .itemPrice {
+        @include flexSpaceBetween;
+        height: 1.5rem;
+
+        p {
+          &:first-child {
+            color: $textGray;
+            font-size: 0.813rem;
+          }
+
+          &:last-child {
+            color: $textGray;
+            font-size: 0.938rem;
+          }
+        }
+      }
+
+      .itemPrice:first-child {
+        p {
+          &:last-child {
+            color: $textBlack;
+            font-size: 0.938rem;
+            font-weight: $fontBold;
+          }
+        }
+      }
+
+      .itemPrice:nth-child(2) {
+        p {
+          &:last-child {
+            color: $accentColor;
+            font-size: 0.938rem;
+            font-weight: $fontBold;
+          }
+        }
+      }
     }
 
     .expectedPrice {

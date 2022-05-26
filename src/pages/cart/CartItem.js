@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './CartItem.scss';
 
-const CartItem = ({ item, onChangeProps, onErrorInput }) => {
+const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
 
   const amountInputHandler = event => {
@@ -36,6 +36,11 @@ const CartItem = ({ item, onChangeProps, onErrorInput }) => {
 
   const checkboxHandler = () => {
     onChangeProps(item.id, 'isChecked', !item.isChecked);
+  };
+
+  const orderHandler = event => {
+    event.preventDefault();
+    onClickBtn(item.id, null);
   };
 
   return (
@@ -78,7 +83,7 @@ const CartItem = ({ item, onChangeProps, onErrorInput }) => {
         <p>{`${(item.price * item.amount).toLocaleString('en')}원`}</p>
       </div>
       <div className="purchaseButtonWrapper">
-        <button>바로구매</button>
+        <button onClick={orderHandler}>바로구매</button>
       </div>
     </li>
   );

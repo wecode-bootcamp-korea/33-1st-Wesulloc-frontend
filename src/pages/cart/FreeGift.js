@@ -16,8 +16,8 @@ const FreeGift = () => {
         <div className="buttonWrapper">
           <p>3만원 이상 (시트마스크 2입)외 2종</p>
           <button onClick={btnHandler}>
-            {isOpen && <i class="fa-solid fa-angle-up" />}
-            {!isOpen && <i class="fa-solid fa-angle-down" />}
+            {isOpen && <i className="fa-solid fa-angle-up" />}
+            {!isOpen && <i className="fa-solid fa-angle-down" />}
           </button>
         </div>
       </div>

@@ -22,38 +22,30 @@ const Cart = () => {
   const listHandler = list => {
     setItemList(list);
   };
-
+  // 아래 함수 id 인자 추가 (이 주석은 추후 삭제)
   const onClickBtn = value => {
     const orderedList = itemList.filter(ele => ele.isChecked);
 
-    if (value === 'orderSelectedBtn') {
-      if (itemList.length === 0 || orderedList.length === 0) {
-        setIsError('nothingSelected');
-      } else {
-        alert('선택한 상품을 주문합니다.');
-      }
-    } else if (value === 'orderAllBtn') {
-      if (itemList.length === 0) {
-        setIsError('nothingSelected');
-      } else {
-        alert('전체 상품을 주문합니다.');
-      }
+    if (itemList.length === 0) {
+      setIsError('nothingSelected');
+      return;
     }
+
+    ORDER.forEach(obj => {
+      if (value === obj.button) {
+        if (obj.button === 'orderSelectedBtn' && orderedList.length === 0) {
+          setIsError('nothingSelected');
+        } else {
+          alert(obj.message);
+        }
+      }
+    });
   };
 
   return (
     <>
-      {isError === 'inputValueExceeded' && (
-        <ErrorModal
-          message="더이상 숫자를 늘릴 수 없습니다."
-          errorHandler={errorHandler}
-        />
-      )}
-      {isError === 'nothingSelected' && (
-        <ErrorModal
-          message="선택한 상품이 없습니다."
-          errorHandler={errorHandler}
-        />
+      {isError && (
+        <ErrorModal message={ERROR[isError]} errorHandler={errorHandler} />
       )}
       <section className="cart">
         <div className="cartPageTitle">
@@ -61,12 +53,13 @@ const Cart = () => {
             <h2>장바구니</h2>
           </div>
         </div>
-        <form>
+        <div className="cartPageContent">
           <section className="orderedItem">
             <CartItemList
               onChangeCost={costHandler}
               onErrorInput={errorHandler}
               onChangeList={listHandler}
+              onClickBtn={onClickBtn}
             />
             {totalPrice >= 30000 && <FreeGift />}
             <div className="buttonWrapper">
@@ -75,10 +68,26 @@ const Cart = () => {
             </div>
           </section>
           <SideBar totalPrice={totalPrice} onClickBtn={onClickBtn} />
-        </form>
+        </div>
       </section>
     </>
   );
 };
+
+const ERROR = {
+  inputValueExceeded: '더이상 숫자를 늘릴 수 없습니다.',
+  nothingSelected: '선택한 상품이 없습니다.',
+};
+
+const ORDER = [
+  {
+    button: 'orderSelectedBtn',
+    message: '선택한 상품을 주문합니다.',
+  },
+  {
+    button: 'orderAllBtn',
+    message: '전체 상품을 주문합니다.',
+  },
+];
 
 export default Cart;
