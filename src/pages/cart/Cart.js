@@ -57,7 +57,9 @@ const Cart = () => {
       )}
       <section className="cart">
         <div className="cartPageTitle">
-          <h2>장바구니</h2>
+          <div className="cartTitleWrapper">
+            <h2>장바구니</h2>
+          </div>
         </div>
         <form>
           <section className="orderedItem">
