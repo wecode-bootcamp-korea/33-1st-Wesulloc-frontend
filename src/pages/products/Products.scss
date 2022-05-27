@@ -3,25 +3,30 @@
 @import url('https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css');
 
 .productHeader {
-  .slideWrapper {
+  background-color: #000;
+
+  .headerCarousel {
+    width: 220rem;
     height: 27rem;
     overflow: hidden;
-    background-color: #000;
 
-    .videoSlider {
-      width: 100%;
+    .slidesWrapper {
       margin: auto;
       position: relative;
-      transition: 0.5s;
+      left: 13%;
 
       .slideItem {
         width: 55rem;
         height: 27rem;
-        padding-right: 1.5rem;
+        padding-right: 2.7rem;
         position: relative;
         float: left;
         color: $bgWhite;
         background-color: orange;
+
+        &:nth-child(2n) {
+          background-color: blue;
+        }
 
         .slideTextBox {
           height: 22rem;
@@ -92,6 +97,7 @@
 
     .tabs {
       @include flexSpaceBetween;
+      margin-bottom: 2.5rem;
       padding-bottom: 1.25rem;
       font-size: 1.25rem;
       font-weight: 500;
@@ -102,35 +108,6 @@
         li {
           float: left;
           margin-left: 2rem;
-
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-
-    .contentTop {
-      @include flexSpaceBetween;
-      padding-top: 1.5rem;
-      align-items: center;
-      margin-bottom: 3rem;
-
-      span {
-        color: $textGray;
-      }
-
-      ul {
-        li {
-          width: 5.5rem;
-          float: left;
-          margin-left: 0.5rem;
-          padding: 0.5rem;
-          color: $textGray;
-          font-size: 1.25rem;
-          background-color: $bgGray;
-          text-align: center;
-          border-radius: 2.75rem;
 
           &:first-child {
             margin-left: 0;
