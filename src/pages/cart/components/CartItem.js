@@ -55,7 +55,9 @@ const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
           onChange={checkboxHandler}
         />
         <label htmlFor={id}>
-          <div />
+          <div>
+            <img src="/images/iconCheckWhite.png" alt="iconCheck" />
+          </div>
         </label>
       </div>
       <div className="itemInfo">

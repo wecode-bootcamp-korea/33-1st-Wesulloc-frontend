@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import CartItemList from './CartItemList';
-import OrderButton from './OrderButton';
-import SideBar from './SideBar';
-import FreeGift from './FreeGift';
+import CartItemList from './components/CartItemList';
+import OrderButton from './components/OrderButton';
+import SideBar from './components/SideBar';
+import FreeGift from './components/FreeGift';
 import ErrorModal from './components/ErrorModal';
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/footer/Footer';

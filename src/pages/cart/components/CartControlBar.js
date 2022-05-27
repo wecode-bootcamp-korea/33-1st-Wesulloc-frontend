@@ -20,7 +20,9 @@ const CartControlBar = ({ onChecked, onClicked, checked }) => {
           onChange={checkboxHandler}
         />
         <label htmlFor="checkAll">
-          <div />
+          <div>
+            <img src="/images/iconCheckWhite.png" alt="iconCheck" />
+          </div>
           전체선택
         </label>
       </div>
