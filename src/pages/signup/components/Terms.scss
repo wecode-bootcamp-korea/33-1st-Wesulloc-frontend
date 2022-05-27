@@ -152,9 +152,16 @@
         padding: 0;
         border: none;
         border-radius: 0.2rem;
-        background-color: $bgGray;
-        color: $textGray;
+        background-color: $primaryColor;
+        color: $bgWhite;
         font-size: 1.25rem;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: $bgGray;
+          color: $textGray;
+          cursor: auto;
+        }
       }
     }
   }

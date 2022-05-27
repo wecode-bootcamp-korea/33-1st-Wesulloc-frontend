@@ -1,12 +1,64 @@
+import { useState, useEffect } from 'react';
 import AgreementList from './AgreementList';
 import './Terms.scss';
 
 const Terms = () => {
-  const checkAllHandler = () => {};
+  const [itemList, setItemList] = useState(TERMS_LIST);
+  const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(false);
+  const [isBtnValid, setIsBtnValid] = useState(false);
+
+  const checkAllHandler = () => {
+    setTotalCheckboxisChecked(prevstate => !prevstate);
+    setIsBtnValid(true);
+    setItemList(prevState => {
+      return prevState.map(obj => {
+        return { ...obj, isChecked: !totalCheckboxisChecked };
+      });
+    });
+  };
+
+  const listChangeHandler = id => {
+    setItemList(prevState => {
+      return prevState.map(obj => {
+        if (id === obj.id) {
+          return { ...obj, isChecked: !obj.isChecked };
+        } else {
+          return obj;
+        }
+      });
+    });
+  };
+
+  const btnClickHandler = () => {
+    alert('회원가입 페이지로 이동합니다.');
+  };
+
+  useEffect(() => {
+    let check = true;
+    for (let i = 0; i < itemList.length; i++) {
+      if (!itemList[i].isChecked) {
+        check = false;
+        break;
+      }
+    }
+    setTotalCheckboxisChecked(check);
+    setIsBtnValid(true);
+  }, [itemList]);
 
   const linkClickHandler = event => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    let check = true;
+    for (let i = 0; i < itemList.length; i++) {
+      if (itemList[i].isRequired && !itemList[i].isChecked) {
+        check = false;
+        break;
+      }
+    }
+    setIsBtnValid(check);
+  }, [itemList]);
 
   return (
     <div className="terms">
@@ -22,7 +74,12 @@ const Terms = () => {
         </div>
         <div className="content">
           <div className="agreeAll">
-            <input id="checkAll" type="checkbox" onChange={checkAllHandler} />
+            <input
+              id="checkAll"
+              type="checkbox"
+              checked={totalCheckboxisChecked}
+              onChange={checkAllHandler}
+            />
             <label htmlFor="checkAll">
               <div>
                 <img src="/images/iconCheckWhite.png" alt="check" />
@@ -57,16 +114,84 @@ const Terms = () => {
             </div>
             <div>
               <p>위설록 서비스 동의</p>
-              <AgreementList />
+              <AgreementList itemList={itemList} isChange={listChangeHandler} />
             </div>
           </div>
         </div>
         <div className="buttonWrapper">
-          <button>동의하고 계속하기</button>
+          <button disabled={!isBtnValid} onClick={btnClickHandler}>
+            동의하고 계속하기
+          </button>
         </div>
       </section>
     </div>
   );
 };
+
+const TERMS_LIST = [
+  {
+    id: 1,
+    text: '위설록 서비스 이용 약관',
+    isRequired: true,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 2,
+    text: '위설록 사이트 이용동의',
+    isRequired: true,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 3,
+    text: '위설록 문자 수신 동의',
+    isRequired: false,
+    hasMoreInfo: false,
+    isChecked: false,
+  },
+  {
+    id: 4,
+    text: '개인정보 제 3자 제공동의',
+    isRequired: true,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 5,
+    text: '개인정보 수집 및 이용 동의',
+    isRequired: true,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 6,
+    text: '개인정보 수집 및 이용 동의(마케팅)',
+    isRequired: false,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 7,
+    text: '개인정보 제공동의',
+    isRequired: false,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 8,
+    text: '개인정보 국외이전 동의',
+    isRequired: false,
+    hasMoreInfo: true,
+    isChecked: false,
+  },
+  {
+    id: 9,
+    text: '만 14세 이상입니다.',
+    isRequired: true,
+    hasMoreInfo: false,
+    isChecked: false,
+  },
+];
 
 export default Terms;
