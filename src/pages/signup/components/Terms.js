@@ -33,31 +33,24 @@ const Terms = () => {
     alert('회원가입 페이지로 이동합니다.');
   };
 
-  useEffect(() => {
-    let check = true;
-    for (let i = 0; i < itemList.length; i++) {
-      if (!itemList[i].isChecked) {
-        check = false;
-        break;
-      }
-    }
-    setTotalCheckboxisChecked(check);
-    setIsBtnValid(true);
-  }, [itemList]);
-
   const linkClickHandler = event => {
     event.preventDefault();
   };
 
   useEffect(() => {
-    let check = true;
+    let checkAll = true;
+    let checkRequiredItems = true;
+
     for (let i = 0; i < itemList.length; i++) {
-      if (itemList[i].isRequired && !itemList[i].isChecked) {
-        check = false;
-        break;
+      if (!itemList[i].isChecked) {
+        checkAll = false;
+        if (itemList[i].isRequired) {
+          checkRequiredItems = false;
+        }
       }
     }
-    setIsBtnValid(check);
+    setTotalCheckboxisChecked(checkAll);
+    setIsBtnValid(checkRequiredItems);
   }, [itemList]);
 
   return (
