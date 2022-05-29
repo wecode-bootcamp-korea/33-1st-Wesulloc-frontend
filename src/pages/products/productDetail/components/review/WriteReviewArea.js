@@ -1,16 +1,13 @@
-import './WriteReviewArea.scss';
 import ReviewModal from './ReviewModal';
-import { useState } from 'react';
+import './WriteReviewArea.scss';
 
-const WriteReviewArea = () => {
-  let [modal, setModal] = useState(false);
-
+const WriteReviewArea = ({ modal, setModal }) => {
   const showModal = () => {
     setModal(true);
   };
   return (
     <div className="writeReviewArea">
-      {modal ? <ReviewModal setModal={setModal} /> : null}
+      {modal && <ReviewModal setModal={setModal} />}
       <div className="container">
         <p className="productName">
           <span>레드파파야 블랙티</span> 어떠셨나요?

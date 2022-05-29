@@ -1,32 +1,37 @@
-@import '../../../../../styles/variables.scss';
 .recommends {
   .recommendBox {
     width: 1220px;
     margin: auto;
+
     .title {
       margin-bottom: 2.37rem;
       font-size: 2.5rem;
       font-weight: 600;
     }
+
     .subTitle {
       margin-bottom: 1.25rem;
       font-size: 1.37rem;
     }
+
     .sliderArea {
       position: relative;
       padding-bottom: 3.43rem;
       min-width: 76.25rem;
       overflow: hidden;
+
       .recommendLeftBtn {
         position: absolute;
         top: 6.25rem;
         background-color: white;
       }
+
       .recommendRightBtn {
         position: absolute;
         right: 0;
         top: 6.25rem;
       }
+
       .sliderContainer {
         display: flex;
       }

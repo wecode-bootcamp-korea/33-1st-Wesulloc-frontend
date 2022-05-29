@@ -1,5 +1,6 @@
 import Recommend from './Recommend';
 import './Recommends.scss';
+
 const Recommends = () => {
   return (
     <div className="recommends">

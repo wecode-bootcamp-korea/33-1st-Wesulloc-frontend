@@ -1,20 +1,26 @@
 @import '../../../../../styles/variables.scss';
+
 .review {
   .eachReview {
     display: flex;
     padding: 1.87rem 0 1.25rem 1.25rem;
     border-bottom: 1px #eaeaea solid;
+
     .eachReviewLeft {
       .date {
         color: #b0b0b0;
       }
+
       .setScore {
         margin-top: 0.93rem;
+        margin-left: -0.62rem;
       }
     }
+
     .eachReviewRight {
       padding-left: 2.5rem;
       padding-right: 4.37rem;
+
       .buyer {
         margin-right: 0.31rem;
         color: $primaryColor;
@@ -22,21 +28,24 @@
       }
       .comment {
         color: #7e7e7e;
-        margin-top: 0.75rem;
+        margin-top: 0.93rem;
       }
-      .reviewPicCollect {
-        display: flex;
-        margin-top: 0.62rem;
-        .reviewPic {
-          width: 22.5rem;
-          height: 23.12rem;
-          // margin: 20px auto 0 auto;
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
+      // .reviewPicCollect {
+      //   display: flex;
+      //   margin-top: 0.62rem;
+      //   .reviewPic {
+      //     width: 22.5rem;
+      //     height: 23.12rem;
+      //     // margin: 20px auto 0 auto;
+      //     img {
+      //       width: 100%;
+      //       height: 100%;
+      //     }
+      //   }
+      // }
+      // .hidden {
+      //   display: none;
+      // }
     }
   }
 }

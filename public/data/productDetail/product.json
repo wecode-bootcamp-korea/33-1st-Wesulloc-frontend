@@ -1,19 +1,14 @@
 [
   {
     "id": 1,
-    "name": "레드파파야 블랙티",
     "img": "/images/drink.jpg",
-    "category": "블렌드 티",
+    "name": "레드파파야 블랙티",
     "price": 23000,
-    "description": "붉은 장미와 달콤한 파파야가 곁들여진 화려한 풍미의 홍차를 피라미드 티백으로간편하게, 합리적인 가격으로 즐겨보세요",
-    "amount": 1
-  },
-  {
-    "id": 2,
-    "name": "세작",
-    "category": "녹차/말차",
-    "price": 17000,
-    "description": "제주 차밭의 어린 찻잎으로 만든 작설차를 원하는 용량만큼 우려드실 수 있는 잎차입니다. 합리적인 가격에 즐겨보세요.",
-    "amount": 1
+    "novel": false,
+    "sale": true,
+    "salePercent": 10,
+    "mainCategory": "티제품",
+    "subCategory": "블렌디드티",
+    "description": "붉은 장미와 달콤한 파파야가 곁들여진 화려한 풍미의 홍차를 피라미드 티백으로간편하게 즐겨보세요"
   }
 ]
