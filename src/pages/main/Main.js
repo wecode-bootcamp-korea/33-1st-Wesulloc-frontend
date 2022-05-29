@@ -1,83 +1,18 @@
 import './Main.scss';
+//import { Link } from 'react-router-dom';
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/footer/Footer';
 import Slider from './slide/Slider';
+import MainProductList from '../main/mainProductLists/MainProductList';
 
 function Main() {
   return (
-    <>
+    <div className="main">
+      {/* 네비게이션바 */}
       <Nav />
-      <Slider />
-      <section className="main">
-        {/* <div className="homeContainer">
-          <div className="mainBanner">
-            <div className="imgBox">
-              <img
-                src="https://www.osulloc.com/upload/kr/ko/adminImage/IY/EO/20220518024732122VD.png?quality=80"
-                alt="홈페이지 메인 이미지"
-              />
-            </div>
-            <div className="alignBox">
-              <div className="bannerText">
-                <h1 className="topTitle">위설록 X SAMBYPEN</h1>
-                <p className="textDetail">
-                  세마리 참새들이 지키는 햇차를 담은 <br /> 리미티드 기프트 최대
-                  25% 할인으로 만나보세요!
-                </p>
-                <p className="eventDate">05.25~05.30</p>
-              </div>
-              <button className="imgBtn" title="이벤트 전체보기" type="Button">
-                이벤트 전체보기
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="homeContainer">
-          <div className="mainBanner">
-            <div className="imgBox">
-              <img
-                src="https://www.osulloc.com/upload/kr/ko/adminImage/IY/EO/20220518024732122VD.png?quality=80"
-                alt="홈페이지 메인 이미지"
-              />
-            </div>
-            <div className="alignBox">
-              <div className="bannerText">
-                <h1 className="topTitle">위설록 X SAMBYPEN</h1>
-                <p className="textDetail">
-                  세마리 참새들이 지키는 햇차를 담은 <br /> 리미티드 기프트 최대
-                  25% 할인으로 만나보세요!
-                </p>
-                <p className="eventDate">05.25~05.30</p>
-              </div>
-              <button className="imgBtn" title="이벤트 전체보기" type="Button">
-                이벤트 전체보기
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="homeContainer">
-          <div className="mainBanner">
-            <div className="imgBox">
-              <img
-                src="https://www.osulloc.com/upload/kr/ko/adminImage/CW/AR/20220519100627460KR.jpg?quality=80"
-                alt="홈페이지 메인 이미지"
-              />
-            </div>
-            <div className="alignBox">
-              <div className="bannerText">
-                <h1 className="topTitle">위설록 X SAMBYPEN</h1>
-                <p className="textDetail">
-                  세마리 참새들이 지키는 햇차를 담은 <br /> 리미티드 기프트 최대
-                  25% 할인으로 만나보세요!
-                </p>
-                <p className="eventDate">05.25~05.30</p>
-              </div>
-              <button className="imgBtn" title="이벤트 전체보기" type="Button">
-                이벤트 전체보기
-              </button>
-            </div>
-          </div>
-        </div> */}
+      {/* 메인배너 */}
+      <section className="mainBanners">
+        <Slider />
       </section>
       {/* 공지사항 */}
       <section className="notificationInfo">
@@ -99,8 +34,8 @@ function Main() {
       <section className="mainProduct">
         <div className="mainProductList">
           <div className="productTitle">
-            <div className="titeBox">
-              <div className="sectionTit">
+            <div className="titleBox">
+              <div className="sectionTitle">
                 <h3 className="productText">오늘은 어떤 차를 마셔볼까요?</h3>
               </div>
               <ul className="productTab">
@@ -109,56 +44,12 @@ function Main() {
               </ul>
             </div>
           </div>
-          <div className="productListBox">
-            <div className="productSlide">
-              <div className="slideWrapper">
-                <div className="swiperSlide" data-swiper-slide-index="5">
-                  <div className="productThumb">
-                    <a href="/kr/ko/shop/item/teashop/16711">
-                      <img
-                        className="productThumb default"
-                        src="https://www.osulloc.com/upload/kr/ko/adminImage/AP/VR/20201007114946593AU.png?quality=80&shrink=240:268"
-                        alt=""
-                      />
-                      <img
-                        className="productThumb hover"
-                        src="https://www.osulloc.com/upload/kr/ko/adminImage/HW/MO/20201007123220679NN.png?quality=80"
-                        alt=""
-                      />
-                    </a>
-                    <div className="hoverIcon">
-                      <button
-                        type="button"
-                        className="productCartBtn"
-                        title="장바구니"
-                      />
-                    </div>
-                  </div>
-                  <div className="productText">
-                    <div className="productInfo">
-                      <p className="productName">
-                        <a href="/kr/ko/shop/item/teashop/16711">
-                          웨딩 그린티 10입
-                        </a>
-                      </p>
-                      <div className="productPrice">
-                        <p className="priceOrigin">15,000원</p>
-                        <div className="saleBox">
-                          <p className="priceResult">12,750원</p>
-                          <p className="salePercent">15%</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="prd_tag" />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="listBoxCollect">
+            <MainProductList />
             <div className="productBtn">
               <button
                 type="button"
-                className="btn_A"
+                className="btnA"
                 onclick="javascript:location.href='/kr/ko/shop/item/list/best/sale'"
               >
                 <span>더 보기</span>
@@ -177,24 +68,24 @@ function Main() {
                 <div className="contentBoxItem">
                   <div className="bannerImg">
                     <img
-                      src="https://www.osulloc.com/upload/kr/ko/adminImage/KR/TP/20191213162107079MN.png?quality=80"
+                      src="https://www.osulloc.com/upload/kr/ko/adminImage/HU/JL/20220525174616674TI.jpg?quality=80"
                       alt="오늘만 이 가격"
                     />
-                  </div>
-                  <div className="textBox">
-                    <div className="innerBanner">
-                      <div className="bannerTitle">
-                        <p className="leftText">오늘만 이 가격</p>
-                        <p className="rightText" id="todayOnlyArea">
-                          16<span>:</span>07<span>:</span>32
-                        </p>
-                      </div>
-                      <div className="banProductInfo">
-                        <p className="productName">웨딩 그린티 20입</p>
-                        <div className="banPriceInfo">
-                          <div className="salePercent">30%</div>
-                          <div className="priceOrigin">23,000</div>
-                          <div className="priceResult">16,100원</div>
+                    <div className="textBox">
+                      <div className="innerBanner">
+                        <div className="bannerTitle">
+                          <p className="leftText">오늘만 이 가격</p>
+                          <p className="rightText" id="todayOnlyArea">
+                            16<span>:</span>07<span>:</span>32
+                          </p>
+                        </div>
+                        <div className="banProductInfo">
+                          <p className="productName">웨딩 그린티 20입</p>
+                          <div className="banPriceInfo">
+                            <div className="salePercent">30%</div>
+                            <div className="priceOrigin">23,000</div>
+                            <div className="priceResult">16,100원</div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -203,35 +94,34 @@ function Main() {
               </div>
               <div className="contentBox2">
                 {/* 출석체크 배너 */}
-                <div className="contentBoxItem" />
-                <div className="bannerImg">
-                  <img
-                    src="https://www.osulloc.com/upload/kr/ko/adminImage/OL/PG/20220518025211436FM.png?quality=80"
-                    alt="5월 출석체크"
-                  />
-                </div>
-                <div className="textBox">
-                  <p className="text01">5월 출석체크</p>
-                  <div className="date_info">
-                    <p className="text02">05.18 - 05.31</p>
-                    <span className="dday_tag">D-4</span>
+                <div className="contentBoxItem">
+                  <div className="bannerImg">
+                    <img
+                      src="https://www.osulloc.com/upload/kr/ko/adminImage/OL/PG/20220518025211436FM.png?quality=80"
+                      alt="5월 출석체크"
+                    />
+                    <div className="textBox">
+                      <p className="text01">5월 출석체크</p>
+                      <div className="dateInfo">
+                        <p className="text02">05.18 - 05.31</p>
+                        <span className="ddayTag">D-4</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* 브랜드 스토리 배너 */}
-                <div className="ban_box ban_box03">
-                  <a href="/kr/ko/brandstory">
-                    <div className="img">
-                      <img
-                        src="https://www.osulloc.com/kr/ko/static_cdj/images/main/brand_story_img.jpg"
-                        alt="오설록 이야기"
-                      />
-                    </div>
-                    <div className="text_box">
+                <div className="contentBoxItemDepth">
+                  <div className="bannerImg">
+                    <img
+                      src="https://www.osulloc.com/kr/ko/static_cdj/images/main/brand_story_img.jpg"
+                      alt="오설록 이야기"
+                    />
+                    <div className="textBox">
                       <p className="text01">TEA FROM JEJU</p>
                       <p className="text02">오설록 스토리</p>
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -256,12 +146,7 @@ function Main() {
                   <div class="img_box">
                     <img
                       class="pcBlock"
-                      src="/kr/ko/static_cdj/images/main/dada_img01_pc.jpg"
-                      alt=""
-                    />
-                    <img
-                      class="moBlock"
-                      src="/kr/ko/static_cdj/images/main/dada_img01_mo.jpg"
+                      src="https://www.osulloc.com/kr/ko/static_cdj/images/main/dada_img01_pc.jpg"
                       alt=""
                     />
                   </div>
@@ -305,12 +190,7 @@ function Main() {
                   <div class="img_box">
                     <img
                       class="pcBlock"
-                      src="/upload/kr/ko/adminImage/BA/XJ/20220518025453324QV.jpg?quality=80"
-                      alt=""
-                    />
-                    <img
-                      class="moBlock"
-                      src="/upload/kr/ko/adminImage/PR/PS/20220518025458551WQ.jpg?quality=80"
+                      src="https://www.osulloc.com/upload/kr/ko/adminImage/BA/XJ/20220518025453324QV.jpg?quality=80"
                       alt=""
                     />
                   </div>
@@ -360,12 +240,7 @@ function Main() {
                 <div class="img_box">
                   <img
                     class="pcBlock"
-                    src="/kr/ko/static_cdj/images/main/dada_img03_pc.jpg"
-                    alt=""
-                  />
-                  <img
-                    class="moBlock"
-                    src="/kr/ko/static_cdj/images/main/dada_img03_mo.jpg"
+                    src="https://www.osulloc.com/kr/ko/static_cdj/images/main/dada_img03_pc.jpg"
                     alt=""
                   />
                 </div>
@@ -398,7 +273,7 @@ function Main() {
         </div>
       </section>
       <Footer />
-    </>
+    </div>
   );
 }
 export default Main;

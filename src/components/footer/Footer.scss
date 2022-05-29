@@ -1,7 +1,5 @@
 @import '../../styles/variables.scss';
 
-//rem 수정 미반영
-
 .footer {
   padding-top: 10rem;
   margin-bottom: 2.5rem;
@@ -58,17 +56,19 @@
 
       .deliveryInfo {
         display: flex;
+        color: #505051;
 
         .deliveryNumber {
           height: 9.818rem;
           width: 23.479rem;
+          color: black;
 
           span:first-child {
             height: 2.241rem;
             width: 100%;
-            color: $textGray;
             font-size: 0.875rem;
             font-weight: bold;
+            color: #505051;
           }
 
           span:nth-child(2) {
@@ -76,12 +76,14 @@
             font-size: 2.106rem;
             color: $textGray;
             line-height: 3rem;
+            color: #505051;
           }
 
           span:nth-child(3) {
             font-size: 0.75rem;
             color: $textGray;
             line-height: 2rem;
+            color: #505051;
           }
         }
 
@@ -89,10 +91,11 @@
           height: 10.672vh;
           margin-top: 1.063rem;
           margin-left: 3.75rem;
+          color: #505051;
 
           span:first-child {
             font-size: 0.875rem;
-            color: $textGray;
+            color: #505051;
           }
 
           span:nth-child(2) {
@@ -101,17 +104,18 @@
             color: $textGray;
             text-decoration: underline;
             cursor: pointer;
+            color: #505051;
           }
 
           span:nth-child(3) {
             font-family: 'Noto_M,sans-serif';
             font-weight: $fontBold;
             font-size: 0.813rem;
-            color: $textGray;
+            color: #505051;
           }
 
           span:nth-child(4) {
-            color: $textGray;
+            color: #505051;
             font-size: 0.75rem;
           }
         }
@@ -145,7 +149,7 @@
           p {
             text-align: center;
             margin-top: 0.625rem;
-            color: $textGray;
+            color: #505051;
             font-size: 1rem;
             font-weight: $fontBold;
           }
@@ -166,14 +170,17 @@
       max-width: 72.916rem;
       width: 72.916rem;
       letter-spacing: -0.05em;
+      color: #505051;
 
       .smallInfo {
         display: flex;
+        color: #505051;
 
         .footerLogo {
           height: 11.632vh;
           width: 4.322vw;
           margin-top: 0.625rem;
+          color: #505051;
         }
 
         .left {
@@ -193,7 +200,7 @@
                 padding-right: 5px;
                 font-size: 0.313rem;
                 background-color: white;
-                color: $textBlack;
+                color: #505051;
                 letter-spacing: -0.1em;
               }
 
@@ -211,23 +218,27 @@
             margin-left: 0.438rem;
             margin-top: 1.063rem;
             font-size: 0.75rem;
-            color: $textGray;
+            color: #505051;
           }
 
           .infoTop {
+            display: flex;
             margin: 0.625rem 0;
 
             button {
               display: flex;
               justify-content: center;
-              margin-left: 0.625rem;
-              width: 6.25vw;
-              height: 3.415rem;
+              align-items: center;
+              margin: 0.625rem;
+              width: 130px;
+              height: 2rem;
               line-height: 2.774rem;
               color: $textGray;
               font-size: 0.75rem;
-              border: 0.063rem solid $bgWhite;
-              background: $bgWhite;
+              border: 0.063rem solid #dfdfdf;
+              background: #fafafa;
+              color: #505051;
+              cursor: pointer;
 
               button:focus {
                 outline: none;
@@ -259,7 +270,7 @@
           margin-top: 0.625rem;
           width: 14.062vw;
           height: 8.537vh;
-          color: $textGray;
+          color: #505051;
           font-weight: bold;
           font-size: 0.75rem;
 

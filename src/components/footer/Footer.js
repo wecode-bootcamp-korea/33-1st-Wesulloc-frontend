@@ -128,7 +128,7 @@ function Footer() {
                     통신판매업신고번호:2019-서울용산-1173호 호스팅제공자:
                     ㈜오설록
                   </span>
-                  <button>사업자 정보확인</button>
+                  <button>사업자 정보확인 > </button>
                 </div>
                 <div className="bottomText">
                   <span>

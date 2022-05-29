@@ -60,62 +60,344 @@
       }
     }
   }
-}
-//공지사항
-.notificationInfo {
-  position: relative;
-  max-width: 1240px;
-  padding: 0 20px;
-  margin-left: auto;
-  margin-right: auto;
 
-  .notification {
+  //공지사항
+  .notificationInfo {
     position: relative;
-    @include flexCenter;
-    padding: 14px 16px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-color: $bgGray;
-    span {
-      color: $textBlack;
-      font-weight: bold;
-      font-size: 13px;
-      border-right: solid #e3e3e3 1px;
-      padding-right: 15px;
-      margin-right: 11px;
-    }
-    .scrollContainer {
-      height: 18px;
-      width: 350px;
-      overflow: hidden;
-      ul {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .notification {
+      position: relative;
+      @include flexCenter;
+      padding: 14px 16px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      background-color: $bgGray;
+      span {
+        color: $textBlack;
+        font-weight: bold;
+        font-size: 13px;
+        border-right: solid #e3e3e3 1px;
+        padding-right: 15px;
+        margin-right: 11px;
+      }
+      .scrollContainer {
         height: 18px;
         width: 350px;
-        transition: opacity 1s ease-out;
-        animation: autoScrolling 6s linear infinite;
-        li {
-          font-weight: $fontRegular;
-          color: #67625d;
-          font-size: 12px;
-          height: 16px;
+        overflow: hidden;
+        ul {
+          height: 18px;
           width: 350px;
-          margin: 1px 0;
-          overflow: hidden;
+          transition: opacity 1s ease-out;
+          animation: autoScrolling 6s linear infinite;
+          li {
+            font-weight: $fontRegular;
+            color: #67625d;
+            font-size: 12px;
+            height: 16px;
+            width: 350px;
+            margin: 1px 0;
+            overflow: hidden;
+          }
         }
       }
     }
+    button {
+      position: absolute;
+      height: 20px;
+      top: 15px;
+      right: 40px;
+      background-color: transparent;
+      border: none;
+      color: $textGray;
+      font-size: 15px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
-  button {
-    position: absolute;
-    height: 20px;
-    top: 15px;
-    right: 40px;
-    background-color: transparent;
-    border: none;
-    color: $textGray;
-    font-size: 15px;
-    &:hover {
-      cursor: pointer;
+
+  //메인상품리스트
+  .mainProductList {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+
+    .titleBox {
+      display: flex;
+      align-items: center;
+
+      .sectionTitle {
+        .productText {
+          font-size: 25px;
+          font-weight: 500;
+        }
+      }
+      .productTab {
+        display: flex;
+        .tabItem,
+        .tabItem on {
+          height: 36px;
+          line-height: 36px;
+          padding: 0 16px;
+          font-size: 14px;
+          color: #999;
+          background-color: #f6f6f6;
+          border-radius: 150px;
+          text-align: center;
+          margin-left: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+    .productSlide {
+      display: flex;
+      height: auto;
+      padding-top: 55px;
+      overflow: visible;
+
+      .slideWrapper {
+        .swiperSlide {
+          width: 209px;
+          margin-right: 20px;
+          .productThumb {
+            display: block;
+            max-width: 100%;
+            margin-right: 20px;
+          }
+          .productText {
+            margin-top: 15px;
+            margin-left: 0;
+
+            .productInfo {
+              .productName {
+                font-size: 16px;
+              }
+              .productPrice {
+                display: flex;
+                margin-top: 12px;
+                .saleBox {
+                  .salePercent {
+                    font-weight: 500;
+                    color: #6c801a;
+                    margin-left: 5px;
+                    line-height: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .productBtn {
+      margin-top: 48px;
+      padding-right: 0;
+      text-align: center;
+
+      .btnA {
+        width: auto;
+        padding: 0 60px;
+        height: 48px;
+        line-height: 48px;
+        font-size: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #666;
+        background-color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mainBanner {
+    .bannerCollection {
+      display: flex;
+      justify-content: center;
+      margin-top: 80px;
+      padding: 80px 0;
+      background-color: #f6f6f6;
+      .banner {
+        padding: 0 20px;
+        .bannerFlexBox {
+          display: flex;
+          justify-content: space-between;
+          max-width: 1240px;
+          padding: 0 20px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 48px;
+
+          .contentBox1 {
+            lex: 0 0 50%;
+            width: 50%;
+
+            .bannerImg {
+              position: relative;
+
+              img {
+                width: 100%;
+              }
+
+              .textBox {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                .innerBanner {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  width: 100%;
+                  height: 100%;
+                  .bannerTitle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: linear-gradient(
+                      to bottom,
+                      rgba(0, 0, 0, 0.25),
+                      transparent
+                    );
+                    padding: 20px 30px;
+
+                    .leftText {
+                      font-size: 28px;
+                      color: #fff;
+                      font-weight: 700;
+                    }
+                    .rightText {
+                      font-size: 28px;
+                      color: rgba(255, 255, 255, 0.8);
+                      font-weight: 700;
+                      display: flex;
+                      align-items: center;
+                      letter-spacing: -0.05em;
+                    }
+                  }
+                  .banProductInfo {
+                    padding: 0 30px 30px 30px;
+                    .productName {
+                      font-size: 26px;
+                      color: rgba(255, 255, 255, 0.8);
+                      font-weight: 700;
+                      word-break: keep-all;
+                      line-height: 1.38;
+                    }
+                    .banPriceInfo {
+                      display: flex;
+                      align-items: center;
+                      margin-top: 10px;
+                      .salePercent {
+                        width: 64px;
+                        height: 64px;
+                        font-size: 24px;
+                        line-height: 64px;
+                        border-radius: 100%;
+                        background-color: #fd5c5c;
+                        text-align: center;
+                        font-weight: 500;
+                        color: #fff;
+                      }
+                      .priceOrigin {
+                        font-size: 18px;
+                        margin-left: 16px;
+                        color: rgba(255, 255, 255, 0.5);
+                        text-decoration: line-through;
+                      }
+                      .priceResult {
+                        font-size: 30px;
+                        margin-left: 12px;
+                        color: #fff;
+                        font-weight: 700;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .contentBox2 {
+            flex: 0 0 48.33%;
+            width: 48.33%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .bannerImg {
+              position: relative;
+              img {
+                width: 100%;
+              }
+              .textBox {
+                position: absolute;
+                top: 50%;
+                left: 40px;
+                transform: translateY(-50%);
+
+                .text01 {
+                  font-size: 26px;
+                  font-weight: 500;
+                }
+                .dateInfo {
+                  display: flex;
+                  align-items: center;
+                  margin-top: 12px;
+
+                  .text02 {
+                    font-size: 14px;
+                    color: #666;
+                  }
+                  .ddayTag {
+                    display: inline-block;
+                    margin-left: 5px;
+                    margin-top: 0;
+                    line-height: 17px;
+                    color: #fff;
+                    background-color: #6c801a;
+                    font-size: 14px;
+                    font-weight: 500;
+                    border-radius: 2px;
+                    padding: 0 10px;
+                    height: 17px;
+                  }
+                }
+              }
+            }
+            .contentBoxItemDepth {
+              .bannerImg {
+                position: relative;
+
+                img {
+                  width: 100%;
+                }
+                .textBox {
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+
+                  .text01 {
+                    font-size: 18px;
+                    color: rgba(255, 255, 255, 0.7);
+                  }
+                  .text02 {
+                    color: #fff;
+                    font-weight: 500;
+                    margin-top: 10px;
+                    font-size: 26px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
