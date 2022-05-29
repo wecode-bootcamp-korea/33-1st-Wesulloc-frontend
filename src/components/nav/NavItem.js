@@ -1,47 +1,42 @@
-import './NavItem.scss';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { NAV_LIST } from './NavList';
 
 function NavItems() {
+  const [currentMenuId, setCurrentId] = useState();
+
   return (
     <nav className="wesullocNav">
       <ul className="navList">
-        {NAV_LIST.map(({ id, link, title, catergory }) => (
-          <li key={id} className="navItems">
+        {NAV_LIST.map(({ id, link, title, category }) => (
+          <li
+            onMouseEnter={() => setCurrentId(id)}
+            onMouseLeave={() => setCurrentId()}
+            key={id}
+            className="navItems"
+          >
             <Link to={link} className="navTitle">
               {title}
             </Link>
-            {catergory.map(e => {})}
+            <div className="dropDownMenu">
+              {id === currentMenuId &&
+                category.map(({ id, link, subcategory }) => (
+                  <ul className="dropNavList" key={id}>
+                    <Link to={link} className="navLink">
+                      <li className="hghi">
+                        {subcategory.map(text => {
+                          return <li key={text}>{text}</li>;
+                        })}
+                      </li>
+                    </Link>
+                  </ul>
+                ))}
+            </div>
           </li>
         ))}
       </ul>
     </nav>
   );
 }
-const NAV_LIST = [
-  {
-    id: 1,
-    link: '/',
-    title: '제품',
-    catergory: ['베스트', '위클리베스트', '티푸드'],
-  },
-  {
-    id: 2,
-    link: '/',
-    title: '선물추천',
-    catergory: [
-      '티세트',
-      '명차',
-      '녹차/말차',
-      '발효차/말차',
-      '블렌지드티',
-      '허브티',
-    ],
-  },
-  {
-    id: 3,
-    link: '/',
-    title: '다다일상',
-    catergory: ['베스트', '티제품', '티푸드', '티웨어', '라이프스타일'],
-  },
-];
+
 export default NavItems;

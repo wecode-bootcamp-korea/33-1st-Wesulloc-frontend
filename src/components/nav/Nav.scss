@@ -21,13 +21,33 @@
 
       .navList {
         @include flexCenter;
+        width: 35rem;
         padding-left: 40px;
 
-        .navTitle {
-          color: $bgWhite;
+        .navItems {
+          width: 25rem;
+          color: bgWhite;
           padding: 0 0 0 6rem;
+
+          .navTitle {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            color: white;
+          }
+
+          .dropDownMenu {
+            display: flex;
+            position: absolute;
+            padding-top: 3.5rem;
+
+            .dropNavList {
+              padding-right: 1rem;
+            }
+          }
         }
       }
+
       .navSubList {
         display: flex;
         align-items: center;
@@ -42,7 +62,10 @@
           background-color: aquamarine;
           left: 7rem;
           top: 5.7rem;
+
           .navItems {
+            display: flex;
+            align-items: center;
             padding-bottom: 0.5rem;
           }
         }
@@ -61,6 +84,10 @@
       .navDrop {
         display: flex;
         padding-left: 1rem;
+
+        li.item {
+          width: 7rem;
+        }
 
         .loginTitle {
           color: $bgWhite;

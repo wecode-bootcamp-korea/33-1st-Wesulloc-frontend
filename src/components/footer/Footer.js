@@ -105,7 +105,7 @@ function Footer() {
         <div className="bottomInfo">
           <div className="smallInfo">
             <img
-              src="https://www.osulloc.com/kr/ko/static_renew/images/f_logo.png?quality=80"
+              src="/images/footerLogoGray.png"
               alt="footerLogo"
               className="footerLogo"
             />
