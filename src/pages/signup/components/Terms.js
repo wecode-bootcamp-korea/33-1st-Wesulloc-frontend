@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AgreementList from './AgreementList';
 import './Terms.scss';
 
@@ -6,6 +7,8 @@ const Terms = () => {
   const [itemList, setItemList] = useState(TERMS_LIST);
   const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(false);
   const [isBtnValid, setIsBtnValid] = useState(false);
+
+  const navigate = useNavigate();
 
   const checkAllHandler = () => {
     setTotalCheckboxisChecked(prevstate => !prevstate);
@@ -31,6 +34,7 @@ const Terms = () => {
 
   const btnClickHandler = () => {
     alert('회원가입 페이지로 이동합니다.');
+    navigate('/signup');
   };
 
   const linkClickHandler = event => {
