@@ -14,6 +14,7 @@
       margin: auto;
       position: relative;
       left: 13%;
+      transition: 1s ease-in-out all;
 
       .slideItem {
         width: 55rem;
@@ -34,6 +35,7 @@
           flex-direction: column;
           justify-content: flex-end;
           text-align: right;
+
           .slideName {
             margin-bottom: 1rem;
             font-family: 'MaruBuriSemiBold';
@@ -42,6 +44,10 @@
 
           .slideContent {
             font-size: 1.125rem;
+
+            &:last-child {
+              margin-top: 0.5rem;
+            }
           }
         }
       }
@@ -53,7 +59,6 @@
     padding: 0 9.25rem;
     margin-bottom: 2.5rem;
     display: flex;
-
     background-color: #000000;
 
     .slideButton {
@@ -62,9 +67,23 @@
       color: $textGray;
       font-size: 1.25rem;
       text-align: center;
-      margin: 1.5rem 0;
+      padding: 1.5rem 0;
       background-color: #000000;
       border: none;
+      cursor: pointer;
+    }
+
+    .actived {
+      float: left;
+      width: 25%;
+      color: $bgWhite;
+      font-size: 1.25rem;
+      font-weight: $fontBold;
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: #000000;
+      border: none;
+      cursor: pointer;
     }
   }
 }
