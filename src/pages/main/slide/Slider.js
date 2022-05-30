@@ -46,7 +46,11 @@ function Slider() {
                 <p class="onepoint">{obj.subTitle}</p>
                 <p class="date">{obj.date}</p>
               </div>
-              <button type="button" title="이벤트 전체보기" class="btnEvent">
+              <button
+                type="button"
+                title="이벤트 전체보기"
+                className="btnEvent"
+              >
                 이벤트 전체보기
               </button>
             </div>

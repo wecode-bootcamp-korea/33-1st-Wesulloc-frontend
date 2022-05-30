@@ -131,11 +131,9 @@ function Main() {
       {/* 구독서비스 */}
       <section className="subscribe">
         <div class="subscribeBox1">
-          <div class="subscribetit">
-            <h3 class="subscriptTitle1">다다일상 구독 </h3>
-            <p class="subscriptTitle1">
-              하루 한 번, 나를 만나는 시간을 가져보세요.
-            </p>
+          <div class="subscribetitle">
+            <h3 class="text01">다다일상 구독 </h3>
+            <p class="text02">하루 한 번, 나를 만나는 시간을 가져보세요.</p>
           </div>
         </div>
         <div class="subscribeBox2">
@@ -143,38 +141,46 @@ function Main() {
             <div class="subsSwiperContainer">
               <div class="swiperWrapper">
                 <div class="swiperSlide">
-                  <div class="img_box">
+                  <div class="imgBox">
                     <img
-                      class="pcBlock"
+                      class="subsImg"
                       src="https://www.osulloc.com/kr/ko/static_cdj/images/main/dada_img01_pc.jpg"
                       alt=""
                     />
                   </div>
-                  <div class="desc_box desc_box01">
-                    <p class="ban_tit">새롭게 만나는 차, 다다일상 베이직</p>
-                    <div class="flex_box">
-                      <div class="price_text">
-                        <span class="smT">매월</span>
+                  <div class="descriptionBox">
+                    <p class="banTitle">새롭게 만나는 차, 다다일상 베이직</p>
+                    <div class="flexBox">
+                      <div class="priceText">
+                        <span class="subsDate">매월</span>
                         <span class="price">16,000원</span>
                       </div>
                       <span class="tag">배송비 Free</span>
                     </div>
                   </div>
-                  <div class="hover_box">
+                  <div class="hoverBox">
                     <div class="inner">
-                      <div class="desc_box desc_box02">
-                        <p class="ban_tit">새롭게 만나는 차, 다다일상 베이직</p>
-                        <div class="flex_box">
-                          <div class="price_text">
-                            <span class="smT">매월</span>
+                      <div class="descriptionBox02">
+                        <p class="banTitle">
+                          새롭게 만나는 차, 다다일상 베이직
+                        </p>
+                        <div class="flexBox">
+                          <div class="priceText">
+                            <span class="subDate">매월</span>
                             <span class="price">16,000원</span>
                           </div>
                           <span class="tag">배송비 Free</span>
                         </div>
+                        <div className="imgBoxinner" />
                       </div>
-                      <div class="ban_con">
-                        <p className="text">여기엔 긴설명이 들어간다.</p>
-                        <ul class="text_list">
+                      <div class="banContainer">
+                        <p className="text">
+                          오설록 티 소믈리에가 매월 그달의 테마와 어울리는
+                          차들을 선정하여 보내드립니다.
+                          <br />
+                          일상의 작은 순간들을 차와 함께 새롭게 만나보세요.
+                        </p>
+                        <ul class="textList">
                           <li class="item">
                             <em class="pt">3종류 이상</em>의 다양한 티백 구성
                           </li>
@@ -183,87 +189,6 @@ function Main() {
                           </li>
                         </ul>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="img_box">
-                    <img
-                      class="pcBlock"
-                      src="https://www.osulloc.com/upload/kr/ko/adminImage/BA/XJ/20220518025453324QV.jpg?quality=80"
-                      alt=""
-                    />
-                  </div>
-                  <div class="desc_box desc_box01">
-                    <p class="ban_tit">다르게 만나는 차, 다다일상 홈카페</p>
-                    <div class="flex_box">
-                      <div class="price_text">
-                        <span class="smT">매월</span>
-                        <span class="price">25,000원</span>
-                      </div>
-                      <span class="tag">배송비 Free</span>
-                    </div>
-                  </div>
-                  <div class="hover_box">
-                    <div class="inner">
-                      <div class="desc_box desc_box02">
-                        <p class="ban_tit">다르게 만나는 차, 다다일상 홈카페</p>
-                        <div class="flex_box">
-                          <div class="price_text">
-                            <span class="smT">매월</span>
-                            <span class="price">25,000원</span>
-                          </div>
-                          <span class="tag">배송비 Free</span>
-                        </div>
-                      </div>
-                      <div class="ban_con">
-                        <p class="text">
-                          매월 오설록이 티를 이용한 새로운 레시피를 소개해
-                          드립니다. 다양한 레시피를 따라하면서 차를 색다르게
-                          경험해보세요.
-                        </p>
-                        <ul class="text_list">
-                          <li class="item">
-                            <span class="pt">3종류 이상</span>의 다양한
-                            티백/티푸드 구성
-                          </li>
-                          <li class="item">
-                            <span class="pt">3만 5천원 이상</span> 정가 구성
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="img_box">
-                  <img
-                    class="pcBlock"
-                    src="https://www.osulloc.com/kr/ko/static_cdj/images/main/dada_img03_pc.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="desc_box desc_box01">
-                  <p class="ban_tit">매일 만나는 차, 정기배송</p>
-                  <div class="flex_box">
-                    <span class="tag">배송비 Free</span>
-                  </div>
-                </div>
-                <div class="hover_box">
-                  <div class="inner">
-                    <div class="desc_box desc_box02">
-                      <p class="ban_tit">매일 만나는 차, 정기배송</p>
-                      <div class="flex_box">
-                        <span class="tag">배송비 Free</span>
-                      </div>
-                    </div>
-                    <div class="ban_con">
-                      <p class="text">
-                        원하는 차를 집에서 매월 편하게 받아보세요.
-                        <br />
-                        오설록과 함께 편안한 티 라이프를 즐겨보세요.
-                      </p>
                     </div>
                   </div>
                 </div>

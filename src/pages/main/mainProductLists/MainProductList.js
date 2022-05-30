@@ -22,13 +22,6 @@ function MainProductList() {
                 alt=""
               /> */}
                   </Link>
-                  <div className="hoverIcon">
-                    <button
-                      type="button"
-                      className="productCartBtn"
-                      title="장바구니"
-                    />
-                  </div>
                 </div>
                 <div className="productText">
                   <div className="productInfo">

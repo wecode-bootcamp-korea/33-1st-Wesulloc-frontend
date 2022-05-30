@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NAV_LIST } from './NavList';
+import '../nav/NavItem.scss';
 
 function NavItems() {
   const [currentMenuId, setCurrentId] = useState();

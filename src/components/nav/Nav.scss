@@ -47,29 +47,6 @@
           }
         }
       }
-
-      .navSubList {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1rem;
-        width: 5rem;
-        text-align: center;
-        background-color: #f1c40f;
-        .subItems {
-          position: relative;
-          width: 50rem;
-          background-color: aquamarine;
-          left: 7rem;
-          top: 5.7rem;
-
-          .navItems {
-            display: flex;
-            align-items: center;
-            padding-bottom: 0.5rem;
-          }
-        }
-      }
     }
 
     .rightBox {
