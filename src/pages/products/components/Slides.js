@@ -13,14 +13,52 @@ const Slides = () => {
   }, [currentIndex]);
 
   const moveSlide = id => {
+    const activedButton = document.getElementsByClassName('slideButton');
+
     if (id === 1) {
       setCurrentIndex(0);
+      activedButton[0].style.fontWeight = '700';
+      activedButton[0].style.color = '#ffffff';
+
+      activedButton[1].style.fontWeight = '400';
+      activedButton[1].style.color = '#999999';
+      activedButton[2].style.fontWeight = '400';
+      activedButton[2].style.color = '#999999';
+      activedButton[3].style.fontWeight = '400';
+      activedButton[3].style.color = '#999999';
     } else if (id === 2) {
       setCurrentIndex(1);
+      activedButton[1].style.fontWeight = '700';
+      activedButton[1].style.color = '#ffffff';
+
+      activedButton[0].style.fontWeight = '400';
+      activedButton[0].style.color = '#999999';
+      activedButton[2].style.fontWeight = '400';
+      activedButton[2].style.color = '#999999';
+      activedButton[3].style.fontWeight = '400';
+      activedButton[3].style.color = '#999999';
     } else if (id === 3) {
       setCurrentIndex(2);
+      activedButton[2].style.fontWeight = '700';
+      activedButton[2].style.color = '#ffffff';
+
+      activedButton[0].style.fontWeight = '400';
+      activedButton[0].style.color = '#999999';
+      activedButton[1].style.fontWeight = '400';
+      activedButton[1].style.color = '#999999';
+      activedButton[3].style.fontWeight = '400';
+      activedButton[3].style.color = '#999999';
     } else if (id === 4) {
       setCurrentIndex(3);
+      activedButton[3].style.fontWeight = '700';
+      activedButton[3].style.color = '#ffffff';
+
+      activedButton[0].style.fontWeight = '400';
+      activedButton[0].style.color = '#999999';
+      activedButton[1].style.fontWeight = '400';
+      activedButton[1].style.color = '#999999';
+      activedButton[2].style.fontWeight = '400';
+      activedButton[2].style.color = '#999999';
     }
   };
 
