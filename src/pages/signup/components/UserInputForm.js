@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputUserInfo from './InputUserInfo';
 import InputPersonalInfo from './InputPersonalInfo';
 
@@ -10,15 +11,18 @@ const UserInputForm = () => {
     birthday: '',
     gender: '',
     phonenumber: '',
+    isValid: false,
   });
 
-  const [isValidPersonalInfo, setIsValidPersonalInfo] = useState(false);
   const [isValidButton, setIsValidButton] = useState(false);
 
   const [userInfo, setUserInfo] = useState({
     id: '',
     password: '',
+    isValid: false,
   });
+
+  const navigate = useNavigate();
 
   const personalInfoHandler = (key, value) => {
     setPersonalInfo(prevState => {
@@ -32,71 +36,57 @@ const UserInputForm = () => {
     });
   };
 
-  useEffect(() => {
-    const personalInfoValueArr = Object.values(personalInfo);
-    if (!personalInfoValueArr.includes('')) {
-      setIsValidPersonalInfo(true);
-    } else {
-      setIsValidPersonalInfo(false);
+  const validationHandler = useCallback((id, value) => {
+    if (id === 'personalInfo') {
+      setPersonalInfo(prevState => {
+        return { ...prevState, isValid: value };
+      });
     }
-  }, [personalInfo]);
+
+    if (id === 'userInfo') {
+      setUserInfo(prevState => {
+        return { ...prevState, isValid: value };
+      });
+    }
+  }, []);
+
+  const submitHandler = event => {
+    event.preventDefault();
+    signupHandler({ ...userInfo, ...personalInfo });
+  };
+
+  async function signupHandler(submitData) {
+    const response = await fetch(
+      'https://fir-40252-default-rtdb.firebaseio.com/signup.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(submitData),
+      }
+    );
+
+    if (response.ok) {
+      alert(`${userInfo.id}님 환영합니다.`);
+      navigate('/main');
+    }
+  }
 
   useEffect(() => {
-    setIsValidButton(isValidPersonalInfo);
-  }, [isValidPersonalInfo]);
+    setIsValidButton(personalInfo.isValid && userInfo.isValid);
+  }, [personalInfo, userInfo]);
 
   return (
-    <form className="signupSubmitForm">
-      {PERSONAL_INFO.map(obj => {
-        return (
-          <InputPersonalInfo
-            key={obj.id}
-            obj={obj}
-            personalInfo={personalInfo}
-            onChange={personalInfoHandler}
-          />
-        );
-      })}
-      {USER_INFO.map(obj => {
-        return (
-          <InputUserInfo
-            key={obj.id}
-            obj={obj}
-            userInfo={userInfo}
-            onChange={userInfoHandler}
-          />
-        );
-      })}
+    <form className="signupSubmitForm" onSubmit={submitHandler}>
+      <InputPersonalInfo
+        onChange={personalInfoHandler}
+        onChangeValidation={validationHandler}
+      />
+      <InputUserInfo
+        onChange={userInfoHandler}
+        onChangeValidation={validationHandler}
+      />
       <button disabled={!isValidButton}>회원가입</button>
     </form>
   );
 };
-
-const PERSONAL_INFO = [
-  { id: 1, name: 'username', placeholder: '이름', type: 'text' },
-  { id: 2, name: 'birthday', placeholder: '생년월일/성별', type: 'number' },
-  {
-    id: 3,
-    name: 'phonenumber',
-    placeholder: '휴대폰 번호 (- 포함 입력)',
-    type: 'text',
-  },
-];
-
-const USER_INFO = [
-  { id: 101, name: 'id', placeholder: '아이디', type: 'text' },
-  {
-    id: 102,
-    name: 'password',
-    placeholder: '비밀번호 (영문 소문자, 숫자, 특수문자 조합 8-16자)',
-    type: 'password',
-  },
-  {
-    id: 103,
-    name: 'passwordCheck',
-    placeholder: '비밀번호 확인',
-    type: 'password',
-  },
-];
 
 export default UserInputForm;
