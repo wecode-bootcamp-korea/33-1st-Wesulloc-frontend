@@ -33,6 +33,9 @@ const ProductList = () => {
               ))}
             </ul>
           </div>
+          <span className="productNumberText">
+            총 <strong>{}</strong>개의 상품이 있습니다.
+          </span>
           <ul className="productList">
             {products.map(productsData => (
               <ProductItems key={productsData.id} data={productsData} />

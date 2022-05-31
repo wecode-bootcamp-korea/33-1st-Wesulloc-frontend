@@ -12,7 +12,7 @@ const Slides = () => {
       if (currentIndex === 3) {
         clearInterval(slideInterval);
       }
-    }, 1000);
+    }, 5000);
   }, [currentIndex]);
 
   const moveSlide = id => {
@@ -100,6 +100,7 @@ const SLIDE_LIST = [
     name: '명차',
     content1: '고귀하고 품격 있는 티 라이프를 위한',
     content2: '오설록의 명차 라인입니다.',
+    img_url: '',
   },
 
   {

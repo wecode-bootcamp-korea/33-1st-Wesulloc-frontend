@@ -116,7 +116,7 @@
 
     .tabs {
       @include flexSpaceBetween;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       padding-bottom: 1.25rem;
       font-size: 1.25rem;
       font-weight: 500;
@@ -135,24 +135,31 @@
       }
     }
 
+    .productNumberText {
+      display: block;
+      margin-bottom: 3rem;
+    }
+
     .productList {
       position: relative;
 
       .product {
         position: relative;
         float: left;
-        margin-bottom: 3.75rem;
-        width: 24%;
-        margin-right: 1.3%;
+        padding-bottom: 3.75rem;
+        padding-right: 1.3%;
+        padding-left: 1.3%;
+        width: 25%;
+        border-right: $border;
 
         &:nth-child(4n) {
           margin-right: 0;
+          border-right: none;
         }
 
         .productImageBox {
           height: 14.375rem;
           display: flex;
-          background-color: $bgGray;
           text-align: center;
 
           .productImage {
