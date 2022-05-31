@@ -33,8 +33,7 @@ const Terms = () => {
   };
 
   const btnClickHandler = () => {
-    alert('회원가입 페이지로 이동합니다.');
-    navigate('/signup');
+    termsSubmitHandler(itemList);
   };
 
   const linkClickHandler = event => {
@@ -56,6 +55,21 @@ const Terms = () => {
     setTotalCheckboxisChecked(checkAll);
     setIsBtnValid(checkRequiredItems);
   }, [itemList]);
+
+  async function termsSubmitHandler(termsList) {
+    const response = await fetch(
+      'https://fir-40252-default-rtdb.firebaseio.com/terms.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(termsList),
+      }
+    );
+
+    if (response.ok) {
+      alert('회원가입 페이지로 이동합니다.');
+      navigate('/signup');
+    }
+  }
 
   return (
     <div className="terms">
