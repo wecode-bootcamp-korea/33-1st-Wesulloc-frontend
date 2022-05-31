@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.login {
+  @include flexCenter;
+  justify-content: center;
+  height: 100vh;
+
+  .loginForm {
+    border: $border;
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+
+    .loginTitle {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: $fontBold;
+    }
+  }
+}
