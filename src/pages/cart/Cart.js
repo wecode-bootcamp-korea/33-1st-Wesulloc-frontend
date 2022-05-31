@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CartItemList from './components/CartItemList';
 import OrderButton from './components/OrderButton';
 import SideBar from './components/SideBar';
@@ -33,6 +33,7 @@ const Cart = () => {
         return item.id === id;
       });
       alert(`${orderedItemList[0].name} 제품을 주문합니다.`);
+      orderHandler(orderedItemList);
       return;
     }
 
@@ -51,17 +52,20 @@ const Cart = () => {
           orderedItemList = obj.isOrderAll
             ? [...itemList]
             : [...checkedItemList];
+
           alert(obj.message);
+          orderHandler(orderedItemList);
         }
       }
     });
   };
 
-  useEffect(() => {
-    document.querySelector('.nav').style.cssText = `
-    background: black;
-    `;
-  }, []);
+  async function orderHandler(list) {
+    await fetch('https://fir-40252-default-rtdb.firebaseio.com/cart.json', {
+      method: 'POST',
+      body: JSON.stringify(list),
+    });
+  }
 
   return (
     <>

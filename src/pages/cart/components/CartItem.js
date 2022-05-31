@@ -64,7 +64,6 @@ const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
         <img src="" alt="product" />
         <div className="itemInfoText">
           <a href="$">{name}</a>
-          <p>{packingState}</p>
         </div>
       </div>
       <div className="countPrice">

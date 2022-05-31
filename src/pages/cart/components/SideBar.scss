@@ -23,12 +23,13 @@
 
       .itemPrice {
         @include flexSpaceBetween;
-        height: 1.5rem;
+        height: 2rem;
+        margin-top: 0.5rem;
 
         p {
           &:first-child {
             color: $textGray;
-            font-size: 0.813rem;
+            font-size: 1rem;
           }
 
           &:last-child {
@@ -70,7 +71,7 @@
       p {
         &:first-child {
           color: $textBlack;
-          font-size: 0.875rem;
+          font-size: 1rem;
           font-weight: $fontBold;
         }
 

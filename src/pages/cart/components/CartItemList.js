@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import CartItem from './CartItem';
 import CartControlBar from './CartControlBar';
 import './CartItemList.scss';
@@ -9,12 +9,33 @@ const CartItemList = ({
   onChangeList,
   onClickBtn,
 }) => {
-  const [itemList, setItemList] = useState(
-    DUMMY_ITEM_LIST.map(obj => {
-      return { ...obj, isChecked: true };
-    })
-  );
+  const [itemList, setItemList] = useState([]);
+  const [error, setError] = useState(null);
   const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(true);
+
+  const fetchItemsHandler = useCallback(async () => {
+    setError(null);
+    try {
+      const response = await fetch(
+        'https://fir-40252-default-rtdb.firebaseio.com/cart.json'
+      );
+      if (!response.ok) {
+        throw new Error('상품을 불러오는 과정에서 문제가 발생했습니다.');
+      }
+
+      const data = await response.json();
+      setItemList(data);
+    } catch (error) {
+      setError(error.message);
+    }
+  }, []);
+
+  async function deleteItemHandler(list) {
+    await fetch('https://fir-40252-default-rtdb.firebaseio.com/cart.json', {
+      method: 'PUT',
+      body: JSON.stringify(list),
+    });
+  }
 
   const totalCheckboxHandler = value => {
     setItemList(prevState => {
@@ -31,6 +52,11 @@ const CartItemList = ({
         return !obj.isChecked;
       });
     });
+    deleteItemHandler(
+      itemList.filter(obj => {
+        return !obj.isChecked;
+      })
+    );
   };
 
   const onChangeProps = (id, key, value) => {
@@ -53,6 +79,10 @@ const CartItemList = ({
     onChangeList(itemList);
   }, [itemList, onChangeCost, onChangeList]);
 
+  useEffect(() => {
+    fetchItemsHandler();
+  }, [fetchItemsHandler]);
+
   return (
     <div className="cartItemList">
       <CartControlBar
@@ -61,7 +91,8 @@ const CartItemList = ({
         checked={totalCheckboxisChecked}
       />
       <ul>
-        {!itemList.length && (
+        {error && <p className="errorCartMessage">{error}</p>}
+        {!error && !itemList.length && (
           <p className="emptyCartMessage">장바구니에 담긴 상품이 없습니다.</p>
         )}
         {itemList.map(item => {
@@ -79,29 +110,5 @@ const CartItemList = ({
     </div>
   );
 };
-
-const DUMMY_ITEM_LIST = [
-  {
-    id: 1,
-    name: '영귤섬 아이스티',
-    packingState: '포장불가',
-    price: 13000,
-    amount: 1,
-  },
-  {
-    id: 2,
-    name: '러블리 티 박스',
-    packingState: '포장가능',
-    price: 20000,
-    amount: 1,
-  },
-  {
-    id: 3,
-    name: '그린티 랑드샤 세트',
-    packingState: '포장불가',
-    price: 36000,
-    amount: 1,
-  },
-];
 
 export default CartItemList;
