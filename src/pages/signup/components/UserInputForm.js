@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import InputUserInfo from './InputUserInfo';
 import InputPersonalInfo from './InputPersonalInfo';
 
@@ -11,6 +11,9 @@ const UserInputForm = () => {
     gender: '',
     phonenumber: '',
   });
+
+  const [isValidPersonalInfo, setIsValidPersonalInfo] = useState(false);
+  const [isValidButton, setIsValidButton] = useState(false);
 
   const [userInfo, setUserInfo] = useState({
     id: '',
@@ -28,6 +31,19 @@ const UserInputForm = () => {
       return { ...prevState, [key]: value };
     });
   };
+
+  useEffect(() => {
+    const personalInfoValueArr = Object.values(personalInfo);
+    if (!personalInfoValueArr.includes('')) {
+      setIsValidPersonalInfo(true);
+    } else {
+      setIsValidPersonalInfo(false);
+    }
+  }, [personalInfo]);
+
+  useEffect(() => {
+    setIsValidButton(isValidPersonalInfo);
+  }, [isValidPersonalInfo]);
 
   return (
     <form className="signupSubmitForm">
@@ -51,7 +67,7 @@ const UserInputForm = () => {
           />
         );
       })}
-      <button disabled={true}>회원가입</button>
+      <button disabled={!isValidButton}>회원가입</button>
     </form>
   );
 };
@@ -62,8 +78,8 @@ const PERSONAL_INFO = [
   {
     id: 3,
     name: 'phonenumber',
-    placeholder: '휴대폰 번호 (숫자만 입력)',
-    type: 'number',
+    placeholder: '휴대폰 번호 (- 포함 입력)',
+    type: 'text',
   },
 ];
 
