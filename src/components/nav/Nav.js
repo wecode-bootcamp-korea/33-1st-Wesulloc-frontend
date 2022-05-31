@@ -31,6 +31,28 @@ function Nav() {
             </li>
             <li className="item itemMore">
               <i className="fa-solid fa-ellipsis-vertical" />
+              <ul className="dropBox1">
+                <li className="dropItems">
+                  <Link to="/" className="csCenter">
+                    고객센터
+                  </Link>
+                </li>
+                <li className="dropItems">
+                  <Link to="/" className="searchStore">
+                    매장찾기
+                  </Link>
+                </li>
+                <li className="dropItems">
+                  <Link to="/" className="order">
+                    주문배송조회
+                  </Link>
+                </li>
+                <li className="dropItems">
+                  <Link to="/" className="pointCollect">
+                    뷰티포인트 추후적립
+                  </Link>
+                </li>
+              </ul>
             </li>
           </ul>
           <ul className="navDrop">

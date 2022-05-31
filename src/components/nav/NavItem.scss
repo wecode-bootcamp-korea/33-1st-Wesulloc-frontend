@@ -1,23 +1,33 @@
 @import '../../styles/variables.scss';
-.navSubList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1rem;
-  width: 5rem;
-  text-align: center;
-  .subItems {
+
+.navList {
+  @include flexCenter;
+  width: 35rem;
+  padding-left: 40px;
+}
+
+.navItems {
+  width: 25rem;
+  padding: 0 0 0 6rem;
+  color: white;
+
+  .navTitle {
     position: relative;
-    width: 50rem;
-    left: 7rem;
-    top: 5.7rem;
-    .wesullocNav {
-      .navList {
-        .navItems {
-          display: flex;
-          align-items: center;
-          padding-bottom: 0.5rem;
-        }
+    display: flex;
+    align-items: flex-start;
+    color: $bgWhite;
+  }
+
+  .dropDownMenu {
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    width: 100%;
+    background: $textBlack;
+
+    .dropNavListWarp {
+      .dropNavList {
+        padding-right: 1rem;
       }
     }
   }

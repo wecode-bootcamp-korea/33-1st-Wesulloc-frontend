@@ -20,11 +20,9 @@ function Main() {
           <span>공지사항</span>
           <div className="scrollContainer">
             <ul className="notifList">
-              <li>초콜릿류 상품 판매 일시중단 안내</li>
-              <li>[공지] 4월 다다일상 베이직/홈카페 배송 지연 안내</li>
-              <li>[내용정정] 오설록 개인정보 처리방침 변경 고지</li>
-              <li>[내용정정] CJ대한통운 파업 종료 및 배송지연, 정상화 안내</li>
-              <li> 오설록 티 크리에이터 1기 서류 합격발표 관련 안내</li>
+              {NOTIFICATION_LIST.map(({ id, text }) => (
+                <li key={id}>{text}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -47,11 +45,7 @@ function Main() {
           <div className="listBoxCollect">
             <MainProductList />
             <div className="productBtn">
-              <button
-                type="button"
-                className="btnA"
-                onclick="javascript:location.href='/kr/ko/shop/item/list/best/sale'"
-              >
+              <button type="button" className="btnA">
                 <span>더 보기</span>
               </button>
             </div>
@@ -130,62 +124,65 @@ function Main() {
       </section>
       {/* 구독서비스 */}
       <section className="subscribe">
-        <div class="subscribeBox1">
-          <div class="subscribetitle">
-            <h3 class="text01">다다일상 구독 </h3>
-            <p class="text02">하루 한 번, 나를 만나는 시간을 가져보세요.</p>
+        <div className="subscribeBox1">
+          <div className="subscribetitle">
+            <h3 className="text01">다다일상 구독 </h3>
+            <p className="text02">하루 한 번, 나를 만나는 시간을 가져보세요.</p>
           </div>
         </div>
-        <div class="subscribeBox2">
-          <div class="subsList">
-            <div class="subsSwiperContainer">
-              <div class="swiperWrapper">
-                <div class="swiperSlide">
-                  <div class="imgBox">
+        <div className="subscribeBox2">
+          <div className="subsList">
+            <div className="subsSwiperContainer">
+              <div className="swiperWrapper">
+                <div className="swiperSlide">
+                  <div className="imgBox">
                     <img
-                      class="subsImg"
+                      className="subsImg"
                       src="https://www.osulloc.com/kr/ko/static_cdj/images/main/dada_img01_pc.jpg"
                       alt=""
                     />
                   </div>
-                  <div class="descriptionBox">
-                    <p class="banTitle">새롭게 만나는 차, 다다일상 베이직</p>
-                    <div class="flexBox">
-                      <div class="priceText">
-                        <span class="subsDate">매월</span>
-                        <span class="price">16,000원</span>
+                  <div className="descriptionBox">
+                    <p className="banTitle">
+                      새롭게 만나는 차, 다다일상 베이직
+                    </p>
+                    <div className="flexBox">
+                      <div className="priceText">
+                        <span className="subsDate">매월</span>
+                        <span className="price">16,000원</span>
                       </div>
-                      <span class="tag">배송비 Free</span>
+                      <span className="tag">배송비 Free</span>
                     </div>
                   </div>
-                  <div class="hoverBox">
-                    <div class="inner">
-                      <div class="descriptionBox02">
-                        <p class="banTitle">
+                  <div className="hoverBox">
+                    <div className="inner">
+                      <div className="descriptionBox02">
+                        <p className="banTitle">
                           새롭게 만나는 차, 다다일상 베이직
                         </p>
-                        <div class="flexBox">
-                          <div class="priceText">
-                            <span class="subDate">매월</span>
-                            <span class="price">16,000원</span>
+                        <div className="flexBox">
+                          <div className="priceText">
+                            <span className="subDate">매월</span>
+                            <span className="price">16,000원</span>
                           </div>
-                          <span class="tag">배송비 Free</span>
+                          <span className="tag">배송비 Free</span>
                         </div>
                         <div className="imgBoxinner" />
                       </div>
-                      <div class="banContainer">
+                      <div className="banContainer">
                         <p className="text">
                           오설록 티 소믈리에가 매월 그달의 테마와 어울리는
                           차들을 선정하여 보내드립니다.
                           <br />
                           일상의 작은 순간들을 차와 함께 새롭게 만나보세요.
                         </p>
-                        <ul class="textList">
-                          <li class="item">
-                            <em class="pt">3종류 이상</em>의 다양한 티백 구성
+                        <ul className="textList">
+                          <li className="item">
+                            <em className="pt">3종류 이상</em>의 다양한 티백
+                            구성
                           </li>
-                          <li class="item">
-                            <em class="pt">2만원 이상</em> 정가 구성
+                          <li className="item">
+                            <em className="pt">2만원 이상</em> 정가 구성
                           </li>
                         </ul>
                       </div>
@@ -201,4 +198,28 @@ function Main() {
     </div>
   );
 }
+
+const NOTIFICATION_LIST = [
+  {
+    id: 1,
+    text: '초콜릿류 상품 판매 일시중단 안내',
+  },
+  {
+    id: 2,
+    text: '[공지] 4월 다다일상 베이직/홈카페 배송 지연 안내',
+  },
+  {
+    id: 3,
+    text: '[내용정정] 오설록 개인정보 처리방침 변경 고지',
+  },
+  {
+    id: 4,
+    text: '[내용정정] CJ대한통운 파업 종료 및 배송지연, 정상화 안내',
+  },
+  {
+    id: 5,
+    text: '오설록 티 크리에이터 1기 서류 합격발표 관련 안내',
+  },
+];
+
 export default Main;

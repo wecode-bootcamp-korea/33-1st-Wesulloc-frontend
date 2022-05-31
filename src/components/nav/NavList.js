@@ -1,19 +1,17 @@
 export const NAV_LIST = [
   {
     id: 1,
-    link: '/',
     title: '제품',
     category: [
       {
         id: 1,
-        link: '/',
-        subcategory: ['베스트', '위클리베스트', '티푸드'],
+        subtitle: '베스트',
+        subcategory: ['위클리 베스트', '여름맞이 선물'],
       },
       {
         id: 2,
-        link: '/',
+        subtitle: '티제품',
         subcategory: [
-          '티제품',
           '티세트',
           '명차',
           '녹차/말차',
@@ -25,13 +23,18 @@ export const NAV_LIST = [
       },
       {
         id: 3,
-        link: '/',
-        subcategory: ['티웨어', '베이커리', '아이스크림'],
+        subtitle: '티푸드',
+        subcategory: ['과자/초콜릿', '베이커리', '아이스크림'],
       },
       {
         id: 4,
-        link: '/',
-        subcategory: ['과자/초콜릿', '베이커리', '아이스크림'],
+        subtitle: '티웨어',
+        subcategory: ['용도별', '브랜드별'],
+      },
+      {
+        id: 5,
+        subtitle: '라이프스타일',
+        subcategory: ['건강기능식품', '스킨케어'],
       },
     ],
   },
@@ -42,8 +45,8 @@ export const NAV_LIST = [
     category: [
       {
         id: 1,
-        link: '/',
-        subcategory: [''],
+        subtitle: '',
+        subcategory: '',
       },
     ],
   },
@@ -54,13 +57,8 @@ export const NAV_LIST = [
     category: [
       {
         id: 1,
-        link: '/',
-        subcategory: ['다다일상 구독'],
-      },
-      {
-        id: 2,
-        link: '/',
-        subcategory: ['다다일상 기록'],
+        subtitle: '',
+        subcategory: ['다다일상 구독', '다다일상 기록'],
       },
     ],
   },

@@ -13,7 +13,6 @@ $border: 1px solid #dddddd;
 $fontLight: 200;
 $fontRegular: 400;
 $fontBold: 500;
-
 @mixin flexSpaceBetween {
   display: flex;
   justify-content: space-between;

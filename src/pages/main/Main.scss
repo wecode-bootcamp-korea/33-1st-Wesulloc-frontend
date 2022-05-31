@@ -155,46 +155,47 @@
         }
       }
     }
-    .productSlide {
-      display: flex;
-      height: auto;
-      padding-top: 55px;
-      overflow: visible;
+    // .productSlide {
+    //   display: flex;
+    //   height: auto;
+    //   padding-top: 55px;
+    //   overflow: hidden;
 
-      .slideWrapper {
-        .swiperSlide {
-          width: 209px;
-          margin-right: 20px;
-          .productThumb {
-            display: block;
-            max-width: 100%;
-            margin-right: 20px;
-          }
-          .productText {
-            margin-top: 15px;
-            margin-left: 0;
+    //   .slideWrapper {
+    //     .swiperSlide {
+    //       width: 224px;
+    //       margin-right: 20px;
 
-            .productInfo {
-              .productName {
-                font-size: 16px;
-              }
-              .productPrice {
-                display: flex;
-                margin-top: 12px;
-                .saleBox {
-                  .salePercent {
-                    font-weight: 500;
-                    color: #6c801a;
-                    margin-left: 5px;
-                    line-height: 1;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    //       .productThumb {
+    //         display: block;
+    //         max-width: 100%;
+    //         margin-right: 20px;
+    //       }
+    //       .productText {
+    //         margin-top: 15px;
+    //         margin-left: 0;
+
+    //         .productInfo {
+    //           .productName {
+    //             font-size: 16px;
+    //           }
+    //           .productPrice {
+    //             display: flex;
+    //             margin-top: 12px;
+    //             .saleBox {
+    //               .salePercent {
+    //                 font-weight: 500;
+    //                 color: #6c801a;
+    //                 margin-left: 5px;
+    //                 line-height: 1;
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
     .productBtn {
       margin-top: 48px;
       padding-right: 0;
@@ -234,7 +235,7 @@
           margin-top: 48px;
 
           .contentBox1 {
-            lex: 0 0 50%;
+            flex: 0 0 50%;
             width: 50%;
 
             .bannerImg {
@@ -444,143 +445,160 @@
 
               .subsImg {
                 width: 100%;
-              }
-            }
-            .descriptionBox {
-              position: absolute;
-              width: 100%;
-              top: 58%;
-              padding-left: 20px;
-              padding-bottom: 33px;
-              margin-top: 15px;
-              color: #fff;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.54),
-                transparent
-              );
-
-              .banTitle {
-                font-size: 22px;
-                font-weight: 600;
-              }
-              .flexBox {
-                display: flex;
-                align-items: center;
-                padding-top: 13px;
-
-                .priceText {
-                  .subDate {
-                    font-size: 13px;
-                    font-weight: 500;
-                  }
-                  .price {
-                    font-size: 22px;
-                    font-weight: 500;
-                    margin-left: 5px;
-                  }
-                }
-                .tag {
-                  width: 80px;
-                  font-size: 13px;
-                  margin-top: 0;
-                  margin-left: 16px;
-                  height: 22px;
-                  line-height: 22px;
-                  text-align: center;
-                  color: #fff;
-                  font-weight: 500;
-                  background-color: $secondaryColor;
-                  border-radius: 2px;
-                }
-              }
-            }
-            .hoverBox {
-              position: absolute;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              padding: 0 30px 40px;
-              background-color: rgba(0, 0, 0, 0.5);
-              transition: 0.4s ease-in-out;
-              display: block;
-              .inner {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                width: 100%;
-                height: 85%;
-                .descriptionBox02 {
-                  position: static;
-                  margin-top: 0;
-                  padding-bottom: 25px;
-                  color: $bgWhite;
-
-                  &:hover .imgBoxinner {
-                    height: 100%;
-                  }
-                  .imgBoxinner {
+                &:hover {
+                  .hoverBox {
                     position: absolute;
-                    top: 0;
+                    left: 0;
                     width: 100%;
-                    height: 0;
-                    background-color: black;
-                    opacity: 0.5;
-                    z-index: 100;
-                    transition: 0.3s all ease-in;
+                    padding: 0 30px 40px;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    transition: 0.4s ease-in-out;
+                    display: block;
+                    &:hover {
+                      position: absolute;
+                      top: 0;
+                      cursor: pointer;
+                    }
                   }
+                }
+              }
+              .descriptionBox {
+                position: absolute;
+                width: 100%;
+                top: 78%;
+                padding-left: 20px;
+                padding-bottom: 30px;
+                margin-top: 15px;
+                color: #fff;
+                background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0.54),
+                  transparent
+                );
 
-                  .banTitle {
-                    font-size: 20px;
-                    padding-bottom: 10px;
+                .banTitle {
+                  font-size: 22px;
+                  font-weight: 600;
+                }
+                .flexBox {
+                  display: flex;
+                  align-items: center;
+                  padding-top: 13px;
+
+                  .priceText {
+                    .subDate {
+                      font-size: 13px;
+                      font-weight: 500;
+                    }
+                    .price {
+                      font-size: 22px;
+                      font-weight: 500;
+                      margin-left: 5px;
+                    }
                   }
-                  .flexBox {
-                    display: flex;
-                    align-items: center;
-                    .priceText {
+                  .tag {
+                    width: 80px;
+                    font-size: 13px;
+                    margin-top: 0;
+                    margin-left: 16px;
+                    height: 22px;
+                    line-height: 22px;
+                    text-align: center;
+                    color: #fff;
+                    font-weight: 500;
+                    background-color: $secondaryColor;
+                    border-radius: 2px;
+                  }
+                }
+              }
+              .hoverBox {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                padding: 0 30px 40px;
+                background-color: rgba(0, 0, 0, 0.5);
+                transition: 0.4s ease-in-out;
+                display: block;
+                &:hover {
+                  position: absolute;
+                  top: 0;
+                  cursor: pointer;
+                }
+                .inner {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-end;
+                  width: 100%;
+                  height: 85%;
+                  .descriptionBox02 {
+                    position: static;
+                    margin-top: 100%;
+                    padding-bottom: 25px;
+                    color: $bgWhite;
+
+                    .imgBoxinner {
+                      position: absolute;
+                      top: 0;
+                      width: 100%;
+                      height: 0;
+                      background-color: black;
+                      opacity: 0.5;
+                      z-index: 100;
+                      transition: 0.3s all ease-in;
+                    }
+
+                    .banTitle {
+                      font-size: 20px;
+                      padding-bottom: 10px;
+                    }
+                    .flexBox {
                       display: flex;
                       align-items: center;
-                      .subDate {
+                      .priceText {
+                        display: flex;
+                        align-items: center;
+                        .subDate {
+                          font-size: 13px;
+                          font-weight: 500;
+                        }
+                        .price {
+                          font-size: 22px;
+                          font-weight: 500;
+                          margin-left: 5px;
+                        }
+                      }
+                      .tag {
+                        width: 80px;
                         font-size: 13px;
+                        margin-top: 0;
+                        margin-left: 16px;
+                        height: 22px;
+                        line-height: 22px;
+                        text-align: center;
+                        color: #fff;
                         font-weight: 500;
-                      }
-                      .price {
-                        font-size: 22px;
-                        font-weight: 500;
-                        margin-left: 5px;
+                        background-color: $secondaryColor;
+                        border-radius: 2px;
                       }
                     }
-                    .tag {
-                      width: 80px;
-                      font-size: 13px;
-                      margin-top: 0;
-                      margin-left: 16px;
-                      height: 22px;
-                      line-height: 22px;
-                      text-align: center;
-                      color: #fff;
-                      font-weight: 500;
-                      background-color: $secondaryColor;
-                      border-radius: 2px;
-                    }
-                  }
 
-                  .banContainer {
-                    border-top: 1px solid rgba(255, 255, 255, 0.5);
-                    padding-top: 20px;
-                    .text {
-                      font-size: 16px;
-                      word-break: keep-all;
-                      color: $bgWhite;
-                    }
-                    .textList {
-                      padding-top: 15px;
-                      padding-left: 20px;
-                      color: $bgWhite;
-                      list-style: disc;
+                    .banContainer {
+                      border-top: 1px solid rgba(255, 255, 255, 0.5);
+                      padding-top: 20px;
+                      .text {
+                        font-size: 16px;
+                        word-break: keep-all;
+                        color: $bgWhite;
+                      }
+                      .textList {
+                        padding-top: 15px;
+                        padding-left: 20px;
+                        color: $bgWhite;
+                        list-style: disc;
 
-                      li {
-                        padding-bottom: 5px;
+                        li {
+                          padding-bottom: 5px;
+                        }
                       }
                     }
                   }

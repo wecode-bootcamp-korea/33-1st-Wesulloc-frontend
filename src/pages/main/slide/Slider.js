@@ -33,18 +33,15 @@ function Slider() {
             key={obj.id}
             className={slideIndex === index + 1 ? 'slide activeAnim' : 'slide'}
           >
-            {/* <img src={obj.img} /> 상수에서 가져오는 방식*/}
             <img
-              src={
-                process.env.PUBLIC_URL +
-                `/images/mainSlide/mainSlide${index + 1}.png`
-              }
+              src={`/images/mainSlide/mainSlide${index + 1}.png`}
+              alt="슬라이드 이미지"
             />
-            <div class="alignBox">
-              <div class="textBox">
-                <h3 class="banTitle">{obj.title}</h3>
-                <p class="onepoint">{obj.subTitle}</p>
-                <p class="date">{obj.date}</p>
+            <div className="alignBox">
+              <div className="textBox">
+                <h3 className="banTitle">{obj.title}</h3>
+                <p className="onepoint">{obj.subTitle}</p>
+                <p className="date">{obj.date}</p>
               </div>
               <button
                 type="button"
@@ -57,12 +54,14 @@ function Slider() {
           </div>
         );
       })}
-      <BtnSlider moveSlide={nextSlide} direction="next" />
-      <BtnSlider moveSlide={prevSlide} direction="prev" />
+      <BtnSlider moveslide={nextSlide} direction="next" />
+      <BtnSlider moveslide={prevSlide} direction="prev" />
 
       <div className="containerDots">
-        {Array.from({ length: 5 }).map((item, index) => (
+        {/* 맵에서 변수를 사용하지 않는다면 _를 사용한다. */}
+        {Array.from({ length: 5 }).map((_, index) => (
           <div
+            key={index}
             onClick={() => moveDot(index + 1)}
             className={slideIndex === index + 1 ? 'dot active' : 'dot'}
           />

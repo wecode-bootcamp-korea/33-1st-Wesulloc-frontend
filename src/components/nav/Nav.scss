@@ -18,35 +18,6 @@
 
     .leftBox {
       @include flexCenter;
-
-      .navList {
-        @include flexCenter;
-        width: 35rem;
-        padding-left: 40px;
-
-        .navItems {
-          width: 25rem;
-          color: bgWhite;
-          padding: 0 0 0 6rem;
-
-          .navTitle {
-            position: relative;
-            display: flex;
-            align-items: flex-start;
-            color: white;
-          }
-
-          .dropDownMenu {
-            display: flex;
-            position: absolute;
-            padding-top: 3.5rem;
-
-            .dropNavList {
-              padding-right: 1rem;
-            }
-          }
-        }
-      }
     }
 
     .rightBox {
@@ -55,9 +26,28 @@
 
       .navUtility {
         @include flexSpaceBetween;
-        width: 5rem;
+        position: relative;
+        .itemP {
+          padding-right: 15px;
+        }
+        .itemMore {
+          margin-left: 20px;
+          .dropBox1 {
+            position: absolute;
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
+            font-size: 15px;
+            display: none;
+            .dropItems {
+              width: 100px;
+              top: 40px;
+              padding-bottom: 10px;
+            }
+          }
+        }
       }
-
       .navDrop {
         display: flex;
         padding-left: 1rem;
@@ -79,5 +69,43 @@
 
   .whiteLogoImg {
     width: 6.5rem;
+  }
+}
+.navList {
+  @include flexCenter;
+  width: 35rem;
+  padding-left: 40px;
+
+  .navItems {
+    width: 25rem;
+    color: $bgWhite;
+    padding: 0 0 0 6rem;
+
+    .navTitle {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      color: $textBlack;
+    }
+
+    .dropDownMenu {
+      position: absolute;
+      left: 0;
+      top: 4rem;
+      width: 100%;
+      background: $bgWhite;
+
+      .dropNavListWarp {
+        display: flex;
+        color: $textBlack;
+
+        .dropNavList {
+          padding-right: 1rem;
+          .subNavList {
+            display: flex;
+          }
+        }
+      }
+    }
   }
 }

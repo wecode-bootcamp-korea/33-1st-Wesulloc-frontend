@@ -3,14 +3,14 @@ import './Slider.scss';
 import rightArrow from './icons/right-arrow.svg';
 import leftArrow from './icons/left-arrow.svg';
 
-export default function BtnSlider({ direction, moveSlide }) {
-  console.log(direction, moveSlide);
+export default function BtnSlider({ direction, moveslide }) {
   return (
     <button
-      onClick={moveSlide}
+      key={moveslide}
+      onClick={moveslide}
       className={direction === 'next' ? 'btnSlide next' : 'btnSlide prev'}
     >
-      <img src={direction === 'next' ? rightArrow : leftArrow} />
+      <img src={direction === 'next' ? rightArrow : leftArrow} alt="Arrow" />
     </button>
   );
 }
