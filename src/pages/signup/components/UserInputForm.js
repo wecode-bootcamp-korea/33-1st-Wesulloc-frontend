@@ -56,17 +56,30 @@ const UserInputForm = () => {
   };
 
   async function signupHandler(submitData) {
-    const response = await fetch(
-      'https://fir-40252-default-rtdb.firebaseio.com/signup.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(submitData),
+    try {
+      const response = await fetch(
+        // 아래 주소와 데이터 형식은 테스트를 위한 것으로 추후 백엔드 API 사양에 맞게 바꿀 것
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyArRzprNY_uYqJ_uuQicwdyitrh79rqpGo',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            email: submitData.id,
+            password: submitData.password,
+            returnSecureToken: true,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      if (response.ok) {
+        alert(`${submitData.id}님 환영합니다.`);
+        navigate('/main');
+      } else {
+        throw new Error('인증에 실패하였습니다.');
       }
-    );
-
-    if (response.ok) {
-      alert(`${userInfo.id}님 환영합니다.`);
-      navigate('/main');
+    } catch (error) {
+      alert(error.message);
     }
   }
 
