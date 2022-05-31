@@ -5,11 +5,14 @@ const Slides = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   useEffect(() => {
-    setInterval(() => {
+    let slideInterval = setInterval(() => {
       setCurrentIndex(currentIndex => {
         return (currentIndex += currentIndex === 3 ? 0 : 1);
       });
-    }, 5000);
+      if (currentIndex === 3) {
+        clearInterval(slideInterval);
+      }
+    }, 1000);
   }, [currentIndex]);
 
   const moveSlide = id => {

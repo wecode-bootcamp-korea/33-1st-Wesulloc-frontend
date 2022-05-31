@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 @import url('https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css');
 
@@ -151,13 +151,19 @@
 
         .productImageBox {
           height: 14.375rem;
+          display: flex;
           background-color: $bgGray;
+          text-align: center;
+
+          .productImage {
+            height: 14rem;
+            overflow: hidden;
+          }
 
           span {
             position: absolute;
             top: 0;
             padding: 0.5rem 0.75rem;
-            text-align: center;
             color: $bgWhite;
             font-size: 0.875rem;
             background-color: $textBlack;
@@ -166,13 +172,18 @@
 
         .productTextBox {
           height: 7.25rem;
-          margin-top: 0.75rem;
+          margin-top: 1.5rem;
+          font-size: 1.25rem;
 
           p {
             margin-bottom: 0.25rem;
 
+            &:first-child {
+              height: 48px;
+              font-family: 'Buri', serif;
+            }
+
             &:last-child {
-              font-size: 1.125rem;
               font-weight: $fontBold;
             }
           }

@@ -1,62 +1,167 @@
 [
   {
     "id": 1,
-    "category": "best",
-    "name": "product1",
-    "price": "10,000원"
+    "name": "제주 유채&꿀 티",
+    "price": "9,500",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/GJ/BP/20201113151052905AT.png?quality=80"
+    ],
+    "best": true
   },
   {
     "id": 2,
-    "category": "best",
-    "name": "product2",
-    "price": "11,000원"
+    "name": "삼다 꿀배 티",
+    "price": "9,500",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/BM/BK/20201007123353062WR.png?quality=80"
+    ],
+    "best": false
   },
   {
     "id": 3,
-    "category": "summer",
-    "name": "product3",
-    "price": "14,000원"
+    "name": "영귤 아이스티",
+    "price": "13,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/XY/HD/20210608092728187QT.png?quality=80"
+    ],
+    "best": true
   },
   {
     "id": 4,
-    "category": "best",
-    "name": "product4",
-    "price": "15,000원"
+    "name": "프리미엄 티 컬렉션",
+    "price": "28,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/HC/LW/20201027143838409ZN.png?quality=80"
+    ],
+    "best": false
   },
   {
     "id": 5,
-    "category": "summer",
-    "name": "product5",
-    "price": "10,000원"
+    "name": "제주 유채&꿀 티",
+    "price": "9,500",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/GJ/BP/20201113151052905AT.png?quality=80"
+    ],
+    "best": false
   },
   {
     "id": 6,
-    "category": "summer",
-    "name": "product6",
-    "price": "10,000원"
+    "name": "삼다 꿀배 티",
+    "price": "9,500",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/BM/BK/20201007123353062WR.png?quality=80"
+    ],
+    "best": false
   },
   {
     "id": 7,
-    "category": "summer",
-    "name": "product7",
-    "price": "10,000원"
+    "name": "영귤 아이스티",
+    "price": "13,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/XY/HD/20210608092728187QT.png?quality=80"
+    ]
   },
   {
     "id": 8,
-    "category": "best",
-    "name": "product8",
-    "price": "10,000원"
+    "name": "프리미엄 티 컬렉션",
+    "price": "28,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/HC/LW/20201027143838409ZN.png?quality=80"
+    ],
+    "best": false
   },
   {
     "id": 9,
-    "category": "summer",
-    "name": "product7",
-    "price": "10,000원"
+    "name": "제주 유채&꿀 티",
+    "price": "9,500",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/GJ/BP/20201113151052905AT.png?quality=80"
+    ],
+    "best": false
   },
   {
     "id": 10,
-    "category": "best",
-    "name": "product8",
-    "price": "10,000원"
+    "name": "삼다 꿀배 티",
+    "price": "9,500",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/BM/BK/20201007123353062WR.png?quality=80"
+    ],
+    "best": false
+  },
+  {
+    "id": 11,
+    "name": "영귤 아이스티",
+    "price": "13,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/XY/HD/20210608092728187QT.png?quality=80"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "프리미엄 티 컬렉션",
+    "price": "28,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/HC/LW/20201027143838409ZN.png?quality=80"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "영귤 아이스티",
+    "price": "13,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/XY/HD/20210608092728187QT.png?quality=80"
+    ],
+    "best": false
+  },
+  {
+    "id": 14,
+    "name": "프리미엄 티 컬렉션",
+    "price": "28,000",
+    "discount_rate": "0",
+    "new": true,
+    "sale_or_not": false,
+    "img_url": [
+      "https://www.osulloc.com/upload/kr/ko/adminImage/HC/LW/20201027143838409ZN.png?quality=80"
+    ],
+    "best": false
   }
 ]
