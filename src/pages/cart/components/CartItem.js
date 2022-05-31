@@ -4,7 +4,7 @@ import './CartItem.scss';
 const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
 
-  const { id, name, packingState, price, amount, isChecked } = item;
+  const { id, name, price, amount, isChecked } = item;
 
   const amountInputHandler = event => {
     if (event.target.value.length >= 3) {
