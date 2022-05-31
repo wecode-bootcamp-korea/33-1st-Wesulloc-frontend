@@ -1,20 +1,73 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Review from './Review';
 import WriteReviewArea from './WriteReviewArea';
+import ReviewedStar from './ReviewedStar';
+import Pagination from './Pagination';
 import './Reviews.scss';
 
-const Reviews = ({ reviewTarget }) => {
-  let [modal, setModal] = useState(false);
-  let [reviews, setReviews] = useState([]);
-  let token = true; // localStorage.getItem('token')
+const Reviews = ({ reviewTarget, product }) => {
+  const [modal, setModal] = useState(false);
+  const [deleteReviewUpdate, setDeleteReviewUpdate] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [averageRate, setAverageRate] = useState(5);
+  const [averageStar, setAverageStar] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
+  const [postsPerPage] = useState(5);
+
+  const starNumArray = [0, 1, 2, 3, 4];
+  const token = localStorage.getItem('token') || '';
+  const navigate = useNavigate();
+
+  const handleAverageStar = e => {
+    const copy = [...averageStar];
+    copy.fill(true, 0, Math.round(averageRate));
+    copy.fill(false, Math.round(averageRate), 5);
+    setAverageStar(copy);
+  };
+
+  useEffect(() => {
+    handleAverageStar();
+  }, [averageRate]);
 
   useEffect(() => {
     fetch('/data/productDetail/review.json')
-      .then(res => res.json())
       .then(res => {
-        setReviews(res);
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(res => {
+        setReviews(res.reviews);
+        setTotalReviews(res.totalReviews);
       });
-  }, [modal]);
+  }, [modal, deleteReviewUpdate]);
+
+  useEffect(() => {
+    fetch('/data/productDetail/averageRate.json')
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(data => {
+        setAverageRate(data[0].averageRate);
+      });
+  }, []);
+
+  const updateOffset = buttonIndex => {
+    const limit = postsPerPage;
+    const offset = buttonIndex;
+    const queryString = `?limit=${limit}&offset=${offset}`;
+    navigate(queryString);
+  };
 
   return (
     <div className="reviews">
@@ -27,22 +80,38 @@ const Reviews = ({ reviewTarget }) => {
           <div className="scoreAverage">
             <div className="scoreAverageFlex">
               <div className="flexLeft">
-                <p className="flexLeftTitle">아이스티</p>
+                <p className="flexLeftTitle">{product.name}</p>
                 <p className="flexLefSubTitle">
                   <span>총 {reviews.length}개</span>의 고객후기가 있습니다.
                 </p>
               </div>
-              {/* <div className="flexRight">
+              <div className="flexRight">
                 <p className="flexRightTitle">리뷰평점</p>
                 <div>
-                  <span className="flexRightScore">💚💚💚💚💚</span>
-                  <span className="flexRightNum">4.8</span>
+                  <span className="flexRightScore">
+                    {starNumArray.map((el, i) => {
+                      return (
+                        <ReviewedStar
+                          key={i}
+                          id={el}
+                          reviewedStarState={averageStar}
+                        />
+                      );
+                    })}
+                  </span>
+                  <span className="flexRightNum">{averageRate}</span>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
-        {token && <WriteReviewArea modal={modal} setModal={setModal} />}
+        {token && (
+          <WriteReviewArea
+            modal={modal}
+            setModal={setModal}
+            product={product}
+          />
+        )}
         <div className="reviewBar">
           <ul className="reviewBarFlex">
             <li className="reviewAll">
@@ -55,9 +124,21 @@ const Reviews = ({ reviewTarget }) => {
         </div>
         <div className="reviewBox">
           {reviews.map((review, i) => {
-            return <Review key={i} review={review} />;
+            return (
+              <Review
+                key={i}
+                review={review}
+                deleteReviewUpdate={deleteReviewUpdate}
+                setDeleteReviewUpdate={setDeleteReviewUpdate}
+              />
+            );
           })}
         </div>
+        <Pagination
+          totalPosts={totalReviews}
+          postsPerPage={postsPerPage}
+          updateOffset={updateOffset}
+        />
       </div>
     </div>
   );

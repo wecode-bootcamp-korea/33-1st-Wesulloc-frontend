@@ -1,5 +1,7 @@
 @import '../../../../../styles/variables.scss';
 
+$detailIconPaddingTop: 0.81rem;
+
 .detail {
   .detailContainer {
     max-width: 80rem;
@@ -11,7 +13,6 @@
       @include flexSpaceBetween;
 
       .detailLeft {
-        position: relative;
         width: 35rem;
 
         .itemWrapper {
@@ -61,45 +62,6 @@
             }
           }
         }
-        .reviewScoreContainer {
-          @include flexSpaceBetween;
-          margin-top: 1.25rem;
-
-          .scoreBoard {
-            @mixin scorePosition {
-              margin-right: 0.93rem;
-              font-size: 1.87rem;
-            }
-
-            .scoreBoardTitle {
-              @include scorePosition;
-            }
-
-            .scoreNum {
-              @include scorePosition;
-            }
-
-            .score {
-              font-size: 1.25rem;
-            }
-          }
-
-          .goToReview {
-            color: $textGray;
-            line-height: 1.87rem;
-            font-size: 1.25rem;
-            cursor: pointer;
-
-            .fa-angle-right {
-              margin-left: 0.62rem;
-            }
-
-            .reviewNum {
-              margin-left: 5px;
-              color: black;
-            }
-          }
-        }
       }
       .detailRight {
         width: 36.25rem;
@@ -143,7 +105,7 @@
             }
             .url {
               @include linkBtn;
-              padding-top: 0.81rem;
+              padding-top: $detailIconPaddingTop;
               padding-left: 0.43rem;
               font-weight: 600;
 
@@ -154,7 +116,7 @@
             }
             .fa-facebook-f {
               @include linkBtn;
-              padding-top: 0.81rem;
+              padding-top: $detailIconPaddingTop;
               padding-left: 1rem;
               font-size: 1.12rem;
 
@@ -163,6 +125,7 @@
                 color: white;
               }
             }
+
             .fa-instagram {
               @include linkBtn;
               padding-top: 0.62rem;
@@ -176,7 +139,7 @@
             }
             .fa-heart {
               @include linkBtn;
-              padding-top: 0.81rem;
+              padding-top: $detailIconPaddingTop;
               padding-left: 0.75rem;
               font-size: 1.25rem;
 
@@ -297,18 +260,6 @@
               font-size: 1.25rem;
               cursor: pointer;
             }
-          }
-        }
-
-        .subscribeBox {
-          display: flex;
-          justify-content: flex-end;
-          padding: 0.62rem 0;
-
-          .subscribeTitle {
-            margin-right: 0.62rem;
-            color: $textGray;
-            text-decoration: underline;
           }
         }
       }

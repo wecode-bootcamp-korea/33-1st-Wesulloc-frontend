@@ -6,9 +6,6 @@ const Detail = ({ product }) => {
   const [amount, setAmount] = useState(1);
   const [cartModal, setCartModal] = useState(false);
 
-  let novel = true;
-  let sale = false;
-
   return (
     <div className="detail">
       {cartModal && <AddToCart setCartModal={setCartModal} amount={amount} />}
@@ -16,9 +13,9 @@ const Detail = ({ product }) => {
         <div className="detailFlex">
           <div className="detailLeft">
             <div className="itemWrapper">
-              {novel && <div className="newPro">신제품</div>}
+              {product.novel && <div className="newPro">신제품</div>}
               <div className="itemImg">
-                <img src="/images/drink.jpg" alt="img" />
+                <img src={product.img} alt="img" />
               </div>
               <ul className="customerBenefit">
                 <li>
@@ -27,7 +24,7 @@ const Detail = ({ product }) => {
                 </li>
                 <li>
                   <i className="fa-solid fa-leaf" />
-                  <span>찻잎 230P 적립</span>
+                  <span>찻잎 {product.price * 0.01}P 적립</span>
                 </li>
                 <li>
                   <i className="fa-solid fa-truck" />
@@ -39,27 +36,15 @@ const Detail = ({ product }) => {
                 </li>
               </ul>
             </div>
-            <div className="reviewScoreContainer">
-              <div className="scoreBoard">
-                <span className="scoreBoardTitle">리뷰 평점</span>
-                <span className="scoreNum">4.8</span>
-                <span className="score">💚💚💚💚💚</span>
-              </div>
-              <span className="goToReview">
-                REVIEW
-                <span className="reviewNum">20</span>
-                <i className="fa-solid fa-angle-right" />
-              </span>
-            </div>
           </div>
           <div className="detailRight">
             <ul className="detailCategory">
-              <li>티제품</li>
+              <li>{product.mainCategory}</li>
               <i className="fa-solid fa-angle-right" />
-              <li>브렌디드티</li>
+              <li>{product.subCategory}</li>
             </ul>
-            <p className="detailRightTitle">아이스티</p>
-            <p className="detailRightDescription">시원한 아이스티</p>
+            <p className="detailRightTitle">{product.name}</p>
+            <p className="detailRightDescription">{product.description}</p>
 
             <div className="detailRightUrlPrice">
               <ul className="urlBox">
@@ -74,20 +59,23 @@ const Detail = ({ product }) => {
                   <i className="fa-regular fa-heart" />
                 </li>
               </ul>
-              {sale ? (
+              {product.sale ? (
                 <div className="priceBox">
-                  <div className="originalPrice">23000원</div>
+                  <div className="originalPrice">{product.price}원</div>
                   <div className="salePriceBox">
                     <span className="salePrice">
-                      23000원
+                      {Math.round(
+                        product.price -
+                          product.price * (product.salePercent * 0.01)
+                      )}
                       <span className="wonColor">원</span>
                     </span>
-                    <span className="saleRate">0%↓</span>
+                    <span className="saleRate">{product.salePercent}%↓</span>
                   </div>
                 </div>
               ) : (
                 <div className="priceBox">
-                  23000
+                  {product.price}
                   <span className="wonColor">원</span>
                 </div>
               )}
@@ -100,7 +88,7 @@ const Detail = ({ product }) => {
                     disabled={amount === 1}
                     className="subtractBtn"
                     onClick={() => {
-                      setAmount(amount - 1);
+                      setAmount(prev => prev - 1);
                     }}
                   >
                     -
@@ -109,19 +97,25 @@ const Detail = ({ product }) => {
                   <button
                     className="addBtn"
                     onClick={() => {
-                      setAmount(amount + 1);
+                      setAmount(prev => prev + 1);
                     }}
                   >
                     +
                   </button>
                 </div>
               </div>
-              {/* <div className="itemPackage">포장불가</div> */}
             </div>
             <div className="totalPrice">
               <span className="totalPriceTitle">상품금액 합계</span>
               <span className="totalPriceNum">
-                <strong>{23000 * amount}</strong>원
+                <strong>
+                  {product.sale
+                    ? (product.price -
+                        product.price * (product.salePercent * 0.01)) *
+                      amount
+                    : product.price * amount}
+                </strong>
+                원
               </span>
             </div>
             <div className="paymentBtnArea">
@@ -138,13 +132,6 @@ const Detail = ({ product }) => {
                 <button className="buyNowBtn">바로구매</button>
               </div>
             </div>
-            {/* <div className="subscribeBox">
-              <span className="subscribeTitle">다다일상 정기배송이란?</span>
-              <div className="subscribeCheckArea">
-                <input type="checkbox" />
-                <span>다다일상정기배송</span>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

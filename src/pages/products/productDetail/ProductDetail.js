@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
 import Reviews from './components/review/Reviews';
-import Recommends from './components/recommend/Recommends';
 import Detail from './components/detail/Detail';
 import Inform from './components/detail/Inform';
 import './ProductDetail.scss';
@@ -8,40 +7,52 @@ import './ProductDetail.scss';
 const ProductDetail = () => {
   const [product, setProduct] = useState([]);
 
-  useEffect(() => {
-    fetch('/data/productDetail/product.json')
-      .then(res => res.json())
-      .then(data => {
-        setProduct(data);
-      });
-  }, []);
-
   const reviewTarget = useRef('');
   const informTarget = useRef('');
 
+  const goToReviewTarget = () => {
+    reviewTarget.current.scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
+    });
+  };
+
+  const goToShipInfo = () => {
+    informTarget.current.scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    fetch('/data/productDetail/product.json')
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(data => {
+        setProduct(data.results);
+      });
+  }, []);
+
   return (
     <div className="productDetail">
-      <Detail />
+      {product.id && <Detail product={product} />}
 
       <div className="sortMenu">
         <ul>
           <li>상품추천</li>
           <li
             onClick={() => {
-              reviewTarget.current.scrollIntoView({
-                block: 'center',
-                behavior: 'smooth',
-              });
+              goToReviewTarget();
             }}
           >
             고객리뷰
           </li>
           <li
             onClick={() => {
-              informTarget.current.scrollIntoView({
-                block: 'center',
-                behavior: 'smooth',
-              });
+              goToShipInfo();
             }}
           >
             상품고시정보
@@ -49,10 +60,7 @@ const ProductDetail = () => {
         </ul>
       </div>
 
-      <div className="recommendContainer">
-        <Recommends />
-      </div>
-      <Reviews reviewTarget={reviewTarget} />
+      <Reviews reviewTarget={reviewTarget} product={product} />
       <Inform informTarget={informTarget} />
     </div>
   );

@@ -24,7 +24,6 @@ const ReviewModal = ({ setModal }) => {
     setStarNum(id + 1);
   };
 
-  // 리뷰 등록 버튼을 눌렀을 때 리뷰정보 보내주고, star의 state, starNum state 초기화
   const postReview = () => {
     let token = localStorage.getItem('token') || '';
     fetch('url주소', {
@@ -47,7 +46,6 @@ const ReviewModal = ({ setModal }) => {
         setStar([false, false, false, false, false]);
         setStarNum(0);
         setModal(false);
-        console.log('하하하');
       });
   };
 

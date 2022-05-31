@@ -12,11 +12,15 @@ const AddToCart = ({ setCartModal, amount }) => {
         productId: 0,
         amount: amount,
       }),
-    }).then(res => {
-      if (res.ok) {
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(() => {
         setCartModal(false);
-      }
-    });
+      });
   };
   return (
     <div className="addToCartModal">

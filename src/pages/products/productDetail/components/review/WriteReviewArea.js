@@ -1,7 +1,7 @@
 import ReviewModal from './ReviewModal';
 import './WriteReviewArea.scss';
 
-const WriteReviewArea = ({ modal, setModal }) => {
+const WriteReviewArea = ({ modal, setModal, product }) => {
   const showModal = () => {
     setModal(true);
   };
@@ -10,7 +10,7 @@ const WriteReviewArea = ({ modal, setModal }) => {
       {modal && <ReviewModal setModal={setModal} />}
       <div className="container">
         <p className="productName">
-          <span>레드파파야 블랙티</span> 어떠셨나요?
+          <span>{product.name}</span> 어떠셨나요?
         </p>
         <button className="reviewBtn" onClick={showModal}>
           <i className="fa-solid fa-pen-to-square" />
