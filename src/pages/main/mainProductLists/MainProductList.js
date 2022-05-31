@@ -1,5 +1,4 @@
 import '../mainProductLists/MainProductList.scss';
-import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 // import BtnSlider from '../slide/BtnSlider';
 import { FaAngleRight } from 'react-icons/fa';
@@ -62,8 +61,12 @@ function MainProductList() {
         )}
       </div>
       <div className="move">
-        <FaAngleLeft className="movePrev" direction="next" />
-        <FaAngleRight className="moveNext" direction="prev" />
+        <FaAngleLeft onClick={nextCard} className="movePrev" direction="next" />
+        <FaAngleRight
+          onClick={prevCard}
+          className="moveNext"
+          direction="prev"
+        />
       </div>
     </div>
   );
