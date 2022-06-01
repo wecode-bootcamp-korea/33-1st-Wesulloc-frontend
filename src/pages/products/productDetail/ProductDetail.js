@@ -10,26 +10,24 @@ const ProductDetail = () => {
   const reviewTarget = useRef('');
   const informTarget = useRef('');
 
-  const goToReviewTarget = () => {
-    reviewTarget.current.scrollIntoView({
+  const scrollTargetView = targetPoint => {
+    targetPoint.current.scrollIntoView({
       block: 'center',
       behavior: 'smooth',
     });
   };
 
-  const goToShipInfo = () => {
-    informTarget.current.scrollIntoView({
-      block: 'center',
-      behavior: 'smooth',
-    });
-  };
+  // const {id} = useParams();
 
   useEffect(() => {
-    fetch('/data/productDetail/product.json')
+    // 동적라우팅
+    // fetch(`http://0.4.50/products/${id}`)
+    fetch('http://10.58.0.93:8000/products/1')
+      // fetch('/data/productDetail/product.json')
       .then(res => {
         if (res.ok) {
           return res.json();
-        }
+        } else console.log('no');
       })
       .then(data => {
         setProduct(data.results);
@@ -45,14 +43,14 @@ const ProductDetail = () => {
           <li>상품추천</li>
           <li
             onClick={() => {
-              goToReviewTarget();
+              scrollTargetView(reviewTarget);
             }}
           >
             고객리뷰
           </li>
           <li
             onClick={() => {
-              goToShipInfo();
+              scrollTargetView(informTarget);
             }}
           >
             상품고시정보
@@ -60,7 +58,7 @@ const ProductDetail = () => {
         </ul>
       </div>
 
-      <Reviews reviewTarget={reviewTarget} product={product} />
+      {product.id && <Reviews reviewTarget={reviewTarget} product={product} />}
       <Inform informTarget={informTarget} />
     </div>
   );

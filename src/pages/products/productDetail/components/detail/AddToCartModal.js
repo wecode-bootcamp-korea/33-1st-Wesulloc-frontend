@@ -1,16 +1,17 @@
+import { useEffect } from 'react';
 import './AddToCartModal.scss';
 
-const AddToCart = ({ setCartModal, amount }) => {
+const AddToCartModal = ({ setCartModal, amount, productId }) => {
   const addToCart = () => {
-    let token = localStorage.getItem('token') || '';
-    fetch('url주소', {
+    let token = localStorage.getItem('access_token') || '';
+    fetch('http://10.58.0.93:8000/carts', {
       headers: {
         Authorization: token,
       },
       method: 'POST',
       body: JSON.stringify({
-        productId: 0,
-        amount: amount,
+        product_id: productId,
+        quantity: amount,
       }),
     })
       .then(res => {
@@ -18,10 +19,32 @@ const AddToCart = ({ setCartModal, amount }) => {
           return res.json();
         }
       })
-      .then(() => {
-        setCartModal(false);
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          setCartModal(false);
+          // 장바구니로 이동
+        }
+        // setCartModal(false);
       });
   };
+
+  console.log(productId);
+  console.log(amount);
+
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed;
+      top: -${window.scrollY}px;
+      
+      overflow: hidden;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
+
   return (
     <div className="addToCartModal">
       <div className="cartModalContainer">
@@ -44,4 +67,4 @@ const AddToCart = ({ setCartModal, amount }) => {
   );
 };
 
-export default AddToCart;
+export default AddToCartModal;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Star from './Star';
 import './ReviewModal.scss';
 
-const ReviewModal = ({ setModal }) => {
+const ReviewModal = ({ setModal, product }) => {
   const [star, setStar] = useState([false, false, false, false, false]);
   const [input, setInput] = useState('');
   const [starNum, setStarNum] = useState(0);
@@ -25,28 +25,35 @@ const ReviewModal = ({ setModal }) => {
   };
 
   const postReview = () => {
-    let token = localStorage.getItem('token') || '';
-    fetch('url주소', {
+    let token = localStorage.getItem('access_token') || '';
+    fetch(`http://10.58.0.93:8000/products/${product.id}/reviews`, {
       headers: {
         Authorization: token,
       },
       method: 'POST',
       body: JSON.stringify({
-        productId: 0,
         rating: starNum,
-        comment: input,
+        content: input,
       }),
     })
       .then(res => {
         if (res.ok) {
           return res.json();
-        }
+        } else console.log(res.message);
       })
       .then(res => {
-        setStar([false, false, false, false, false]);
-        setStarNum(0);
-        setModal(false);
-      });
+        if (res.message === 'SUCCESS') {
+          setStar([false, false, false, false, false]);
+          setStarNum(0);
+          setInput('');
+          setModal(false);
+        }
+        // setStar([false, false, false, false, false]);
+        // setStarNum(0);
+        // setInput('');
+        // setModal(false);
+      })
+      .catch(error => console.log(error));
   };
 
   useEffect(() => {
@@ -71,9 +78,9 @@ const ReviewModal = ({ setModal }) => {
         </div>
         <p className="title">후기작성</p>
         <div className="imageTitle">
-          <p>레드파파야 블랙티</p>
+          <p>{product.name}</p>
           <div className="imgBox">
-            <img src="/images/drink.jpg" alt="img" />
+            <img src={product.img} alt="img" />
           </div>
         </div>
         <div className="starScoreArea">
@@ -92,6 +99,7 @@ const ReviewModal = ({ setModal }) => {
         <textarea
           placeholder="상품후기를 입력해 주세요"
           className="textArea"
+          value={input}
           onChange={e => {
             setInput(e.target.value);
           }}

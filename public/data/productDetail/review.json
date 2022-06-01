@@ -1,52 +1,49 @@
 {
   "totalReviews": 6,
+  "averageRating": 4.3,
   "reviews": [
     {
+      "reviewId": 1,
       "productId": 1,
-      "name": "박코드",
+      "account": "박코드",
       "date": "2022.05.03",
       "rating": 3,
-      "amI": true,
       "content": "역시 위설록... 차갑게 먹어도 맛있고, 뜨겁게 먹어도 굳굳bbbbb"
     },
     {
+      "reviewId": 2,
       "productId": 1,
-      "name": "이코드",
+      "account": "이코드",
       "date": "2022.05.08",
       "rating": 4,
-      "amI": false,
       "content": "냉침해서 마시면 딱 좋습니다."
     },
     {
       "productId": 1,
-      "name": "박코드",
+      "account": "박코드",
       "date": "2022.05.03",
       "rating": 3,
-      "amI": false,
       "content": "역시 위설록... 차갑게 먹어도 맛있고, 뜨겁게 먹어도 굳굳bbbbb"
     },
     {
       "productId": 1,
-      "name": "이코드",
+      "account": "이코드",
       "date": "2022.05.08",
       "rating": 4,
-      "amI": false,
       "content": "냉침해서 마시면 딱 좋습니다."
     },
     {
       "productId": 1,
-      "name": "박코드",
+      "account": "박코드",
       "date": "2022.05.03",
       "rating": 3,
-      "amI": false,
       "content": "역시 위설록... 차갑게 먹어도 맛있고, 뜨겁게 먹어도 굳굳bbbbb"
     },
     {
       "productId": 1,
-      "name": "이코드",
+      "account": "이코드",
       "date": "2022.05.08",
       "rating": 4,
-      "amI": false,
       "content": "냉침해서 마시면 딱 좋습니다."
     }
   ]

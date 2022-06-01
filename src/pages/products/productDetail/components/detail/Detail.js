@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AddToCart from './AddToCartModal';
+import AddToCartModal from './AddToCartModal';
 import './Detail.scss';
 
 const Detail = ({ product }) => {
@@ -8,7 +8,13 @@ const Detail = ({ product }) => {
 
   return (
     <div className="detail">
-      {cartModal && <AddToCart setCartModal={setCartModal} amount={amount} />}
+      {cartModal && (
+        <AddToCartModal
+          setCartModal={setCartModal}
+          amount={amount}
+          productId={product.id}
+        />
+      )}
       <div className="detailContainer">
         <div className="detailFlex">
           <div className="detailLeft">

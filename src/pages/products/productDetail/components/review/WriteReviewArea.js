@@ -7,7 +7,7 @@ const WriteReviewArea = ({ modal, setModal, product }) => {
   };
   return (
     <div className="writeReviewArea">
-      {modal && <ReviewModal setModal={setModal} />}
+      {modal && <ReviewModal setModal={setModal} product={product} />}
       <div className="container">
         <p className="productName">
           <span>{product.name}</span> 어떠셨나요?

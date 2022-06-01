@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Review from './Review';
 import WriteReviewArea from './WriteReviewArea';
 import ReviewedStar from './ReviewedStar';
@@ -23,7 +23,7 @@ const Reviews = ({ reviewTarget, product }) => {
   const [postsPerPage] = useState(5);
 
   const starNumArray = [0, 1, 2, 3, 4];
-  const token = localStorage.getItem('token') || '';
+  const token = localStorage.getItem('access_token') || '';
   const navigate = useNavigate();
 
   const handleAverageStar = e => {
@@ -37,8 +37,15 @@ const Reviews = ({ reviewTarget, product }) => {
     handleAverageStar();
   }, [averageRate]);
 
+  const location = useLocation();
+
   useEffect(() => {
-    fetch('/data/productDetail/review.json')
+    // fetch('/data/productDetail/review.json')
+    fetch(
+      `http://10.58.0.93:8000/products/1/reviews${
+        location.search || `?limit=${postsPerPage}&offset=0`
+      }`
+    )
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -47,20 +54,9 @@ const Reviews = ({ reviewTarget, product }) => {
       .then(res => {
         setReviews(res.reviews);
         setTotalReviews(res.totalReviews);
+        setAverageRate(res.averageRating);
       });
-  }, [modal, deleteReviewUpdate]);
-
-  useEffect(() => {
-    fetch('/data/productDetail/averageRate.json')
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then(data => {
-        setAverageRate(data[0].averageRate);
-      });
-  }, []);
+  }, [modal, deleteReviewUpdate, location.search]);
 
   const updateOffset = buttonIndex => {
     const limit = postsPerPage;
@@ -82,7 +78,7 @@ const Reviews = ({ reviewTarget, product }) => {
               <div className="flexLeft">
                 <p className="flexLeftTitle">{product.name}</p>
                 <p className="flexLefSubTitle">
-                  <span>총 {reviews.length}개</span>의 고객후기가 있습니다.
+                  <span>총 {totalReviews}개</span>의 고객후기가 있습니다.
                 </p>
               </div>
               <div className="flexRight">
@@ -115,7 +111,7 @@ const Reviews = ({ reviewTarget, product }) => {
         <div className="reviewBar">
           <ul className="reviewBarFlex">
             <li className="reviewAll">
-              전체리뷰<span>{reviews.length}</span>
+              전체리뷰<span>{totalReviews}</span>
             </li>
             <li className="reviewPhoto">
               사진리뷰<span>0</span>
@@ -123,16 +119,17 @@ const Reviews = ({ reviewTarget, product }) => {
           </ul>
         </div>
         <div className="reviewBox">
-          {reviews.map((review, i) => {
-            return (
-              <Review
-                key={i}
-                review={review}
-                deleteReviewUpdate={deleteReviewUpdate}
-                setDeleteReviewUpdate={setDeleteReviewUpdate}
-              />
-            );
-          })}
+          {reviews[0] &&
+            reviews.map((review, i) => {
+              return (
+                <Review
+                  key={i}
+                  review={review}
+                  deleteReviewUpdate={deleteReviewUpdate}
+                  setDeleteReviewUpdate={setDeleteReviewUpdate}
+                />
+              );
+            })}
         </div>
         <Pagination
           totalPosts={totalReviews}

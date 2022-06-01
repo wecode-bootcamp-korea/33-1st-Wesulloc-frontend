@@ -3,7 +3,7 @@ import ReviewedStar from './ReviewedStar';
 import './Review.scss';
 
 const Review = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
-  let { name, date, rating, content } = review;
+  let { account, date, rating, content, productId, reviewId } = review;
   let reviewedStarArr = [0, 1, 2, 3, 4];
   let [reviewedStarState, setReviewedStarState] = useState([
     false,
@@ -21,8 +21,8 @@ const Review = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
   };
 
   const deleteReview = () => {
-    const token = localStorage.getItem('token') || '';
-    fetch('url주소', {
+    const token = localStorage.getItem('access_token') || '';
+    fetch(`http://10.58.0.93:8000/products/${productId}/reviews/${reviewId}`, {
       headers: {
         Authorization: token,
       },
@@ -34,7 +34,10 @@ const Review = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
         }
       })
       .then(data => {
-        setDeleteReviewUpdate(!deleteReviewUpdate);
+        if (data.message === 'DELETE_SUCCESS') {
+          setDeleteReviewUpdate(!deleteReviewUpdate);
+        }
+        // setDeleteReviewUpdate(!deleteReviewUpdate);
       });
   };
 
@@ -63,7 +66,7 @@ const Review = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
           <div className="eachReviewRight">
             <div>
               <span className="buyer">구매자</span>
-              <span className="nickname">{name}</span>
+              <span className="nickname">{account}</span>
             </div>
             <div className="comment">{content}</div>
           </div>
