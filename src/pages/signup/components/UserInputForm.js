@@ -75,14 +75,11 @@ const UserInputForm = () => {
           }),
         }
       );
-      const data = await response.json();
-      console.log(data);
 
       if (response.ok) {
         alert(`${submitData.id}님 환영합니다.`);
         navigate('/main');
       } else {
-        console.log(response);
         throw new Error('인증에 실패하였습니다.');
       }
     } catch (error) {
