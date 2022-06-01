@@ -3,6 +3,8 @@ import './InputPersonalInfo.scss';
 
 let regExpForName = /[ㄱ-힣]/;
 let regExpForPhonenumber = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+let regExpForBirth =
+  /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
 const InputPersonalInfo = ({ onChange, onChangeValidation }) => {
   const [InputPhoneNumber, setInputPhoneNumber] = useState('');
@@ -38,7 +40,8 @@ const InputPersonalInfo = ({ onChange, onChangeValidation }) => {
     }
 
     if (name === 'birthday') {
-      if (('' + value).length >= 7) {
+      // if (('' + value).length >= 7) {
+      if (!regExpForBirth.test(value)) {
         alert('생년월일을 다시 확인해주세요. (6자리)');
         setIsValidInputBirth(false);
         onChange(name, '');
@@ -104,7 +107,7 @@ const InputPersonalInfo = ({ onChange, onChangeValidation }) => {
 
 const PERSONAL_INFO = [
   { id: 1, name: 'username', placeholder: '이름', type: 'text' },
-  { id: 2, name: 'birthday', placeholder: '생년월일/성별', type: 'number' },
+  { id: 2, name: 'birthday', placeholder: '생년월일/성별', type: 'text' },
   {
     id: 3,
     name: 'phonenumber',

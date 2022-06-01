@@ -59,23 +59,30 @@ const UserInputForm = () => {
     try {
       const response = await fetch(
         // 아래 주소와 데이터 형식은 테스트를 위한 것으로 추후 백엔드 API 사양에 맞게 바꿀 것
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyArRzprNY_uYqJ_uuQicwdyitrh79rqpGo',
+        'http://10.58.0.93:8000/user/signup',
         {
           method: 'POST',
           body: JSON.stringify({
-            email: submitData.id,
-            password: submitData.password,
-            returnSecureToken: true,
+            user_account: submitData.id,
+            user_password: submitData.password,
+            user_name: submitData.username,
+            user_contact: submitData.phonenumber,
+            user_birth: submitData.birthday,
+            // user_gender: submitData.gender,
+            // user_address: '',
+            user_email: '',
+            user_terms_agreements: '{1:1}',
           }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
         }
       );
+      const data = await response.json();
+      console.log(data);
+
       if (response.ok) {
         alert(`${submitData.id}님 환영합니다.`);
         navigate('/main');
       } else {
+        console.log(response);
         throw new Error('인증에 실패하였습니다.');
       }
     } catch (error) {
