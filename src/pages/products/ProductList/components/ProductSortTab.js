@@ -1,10 +1,22 @@
 import React from 'react';
 
-const ProductSortTab = () => {
+const ProductSortTab = ({ getSortIndex }) => {
   return (
     <ul>
       {SORTING_LIST.map(data => (
-        <li key={data.id}>{data.sortingItem}</li>
+        <li key={data.id}>
+          <button
+            type="button"
+            className="sortButton"
+            value={data.id}
+            onClick={e => {
+              console.log(e.target.value);
+              getSortIndex(e.target.value);
+            }}
+          >
+            {data.sortingItem}
+          </button>
+        </li>
       ))}
     </ul>
   );

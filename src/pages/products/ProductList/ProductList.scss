@@ -106,7 +106,14 @@
 
     ul {
       li {
-        margin: 0 0 2rem 1.5rem;
+        margin: 0 0 1.275rem 0.5rem;
+
+        .categoryButton {
+          font-size: 1.125rem;
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -116,7 +123,7 @@
     display: flex;
     flex-direction: column;
 
-    .tabs {
+    .sortTabs {
       @include flexSpaceBetween;
       margin-bottom: 2rem;
       padding-bottom: 1.25rem;
@@ -128,10 +135,17 @@
         padding-right: 1.5rem;
         li {
           float: left;
-          margin-left: 2rem;
+          margin-left: 1rem;
 
-          &:first-child {
-            margin-left: 0;
+          .sortButton {
+            font-size: 1.125rem;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:first-child {
+              margin-left: 0;
+            }
           }
         }
       }
@@ -158,24 +172,29 @@
           margin-right: 0;
           border-right: none;
         }
+        button {
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
 
-        .productImageBox {
-          height: 14.375rem;
-          display: flex;
-          text-align: center;
+          .productImageBox {
+            height: 14.375rem;
+            display: flex;
+            text-align: center;
 
-          .productImage {
-            height: 14rem;
-            overflow: hidden;
-          }
+            .productImage {
+              height: 14rem;
+              overflow: hidden;
+            }
 
-          span {
-            position: absolute;
-            top: 0;
-            padding: 0.5rem 0.75rem;
-            color: $bgWhite;
-            font-size: 0.875rem;
-            background-color: $textBlack;
+            span {
+              position: absolute;
+              top: 0;
+              padding: 0.5rem 0.75rem;
+              color: $bgWhite;
+              font-size: 0.875rem;
+              background-color: $textBlack;
+            }
           }
         }
 
@@ -183,6 +202,7 @@
           height: 7.25rem;
           margin-top: 1.5rem;
           font-size: 1.25rem;
+          text-align: left;
 
           p {
             margin-bottom: 0.25rem;
@@ -193,6 +213,7 @@
             }
 
             &:last-child {
+              margin-left: 0.25rem;
               font-weight: $fontBold;
             }
           }
