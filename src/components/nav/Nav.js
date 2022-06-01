@@ -1,7 +1,21 @@
 import './Nav.scss';
 import { Link } from 'react-router-dom';
 
+//지울내용
+import { useContext } from 'react';
+import AuthContext from '../../Context/authContext';
+//
+
 function Nav() {
+  //지울내용
+  const authContext = useContext(AuthContext);
+  console.log(authContext);
+  const ClickHandler = () => {
+    authContext.logout();
+    console.log('로그아웃');
+  };
+  //
+
   return (
     <header className="nav">
       <div className="navInnerBox">
@@ -42,9 +56,17 @@ function Nav() {
           </ul>
           <ul className="navDrop">
             <li className="item">
-              <Link to="/" className="loginTitle">
-                로그인
-              </Link>
+              {/* 수정 필요 내용 */}
+              {!authContext.isLoggedIn && (
+                <Link to="/login" className="loginTitle">
+                  로그인
+                </Link>
+              )}
+              {authContext.isLoggedIn && (
+                <button onClick={ClickHandler} className="loginTitle">
+                  로그아웃
+                </button>
+              )}
             </li>
             <li className="itemArr">KOREAN</li>
           </ul>

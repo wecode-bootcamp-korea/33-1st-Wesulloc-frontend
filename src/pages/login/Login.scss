@@ -3,7 +3,8 @@
 .login {
   @include flexCenter;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
+  padding-top: 5rem;
 
   .loginForm {
     border: $border;
