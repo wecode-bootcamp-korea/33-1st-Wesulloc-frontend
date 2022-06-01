@@ -73,7 +73,7 @@ const UserInputForm = ({ termsAgreementList, isAgreeTerms }) => {
           user_name: submitData.username,
           user_contact: submitData.phonenumber,
           user_birth: submitData.birthday,
-          user_email: '',
+          user_email: submitData.email,
           user_terms_agreements: listToObj(termsAgreementList),
         }),
       });
