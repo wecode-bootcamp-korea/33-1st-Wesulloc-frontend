@@ -57,24 +57,24 @@
           margin-top: 12px;
         }
       }
-    }
-    .btnEvent {
-      position: absolute;
-      bottom: 50px;
-      border: 1px solid #555;
-      width: 110px;
-      height: 32px;
-      line-height: 32px;
-      border-radius: 4px;
-      font-size: 13px;
-      color: #333;
-      background-color: transparent;
-      z-index: 2;
-      transition: 0.2s ease-in-out;
-      cursor: pointer;
-      &:hover {
-        color: rgb(255, 255, 255);
-        background-color: #555;
+      .btnEvent {
+        position: absolute;
+        bottom: 50px;
+        border: 1px solid #555;
+        width: 110px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: #333;
+        background-color: transparent;
+        z-index: 2;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          color: rgb(255, 255, 255);
+          background-color: #555;
+        }
       }
     }
   }

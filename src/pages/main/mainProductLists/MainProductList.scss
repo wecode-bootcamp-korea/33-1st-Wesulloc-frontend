@@ -2,12 +2,12 @@
 
 .productListBox {
   position: relative;
+  overflow: hidden;
 
   .productSlide {
     display: flex;
-    height: auto;
+    height: 400px;
     padding-top: 55px;
-    overflow: hidden;
 
     .slideWrapper {
       .swiperSlide {
@@ -29,7 +29,6 @@
             }
 
             .productPrice {
-              display: flex;
               margin-top: 12px;
 
               .saleBox {
@@ -38,6 +37,11 @@
                   color: $primaryColor;
                   margin-left: 5px;
                   line-height: 1;
+                }
+                .priceBox {
+                  padding-top: 10px;
+                  display: flex;
+                  align-items: center;
                 }
               }
             }
@@ -50,9 +54,8 @@
   .move {
     .moveNext {
       position: absolute;
-      top: 50%;
+      top: 40%;
       right: 0;
-      transform: translate(100%, 0);
       width: 40px;
       height: 40px;
       margin: 0;
@@ -66,9 +69,8 @@
 
     .movePrev {
       position: absolute;
-      top: 50%;
+      top: 40%;
       left: 0;
-      transform: translate(-100%, 0);
       width: 40px;
       height: 40px;
       margin: 0;

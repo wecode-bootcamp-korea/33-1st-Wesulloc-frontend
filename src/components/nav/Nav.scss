@@ -27,11 +27,14 @@
       .navUtility {
         @include flexSpaceBetween;
         position: relative;
-        .itemP {
-          padding-right: 15px;
+        .item {
+          width: 35px;
+          padding-right: 10px;
+          margin-left: 15px;
         }
         .itemMore {
           margin-left: 20px;
+
           .dropBox1 {
             position: absolute;
             margin-top: 10px;

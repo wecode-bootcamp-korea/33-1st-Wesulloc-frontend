@@ -38,7 +38,7 @@ function Main() {
               </div>
               <ul className="productTab">
                 <li className="tabItem">여름맞이 선물</li>
-                <li className="tabItem on">이번 주 인기 제품</li>
+                <li className="tabItemOn">이번 주 인기 제품</li>
               </ul>
             </div>
           </div>
