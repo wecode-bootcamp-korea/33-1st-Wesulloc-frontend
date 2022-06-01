@@ -113,6 +113,8 @@
 
   .contentWrapper {
     width: 55rem;
+    display: flex;
+    flex-direction: column;
 
     .tabs {
       @include flexSpaceBetween;
@@ -195,6 +197,18 @@
             }
           }
         }
+      }
+    }
+    .paginationButtons {
+      margin: 3rem 0;
+      text-align: center;
+
+      button {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 0;
+        border-radius: 1.75rem;
+        margin: 0 0.5rem;
       }
     }
   }
