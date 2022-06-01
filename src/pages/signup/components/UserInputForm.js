@@ -5,12 +5,12 @@ import InputPersonalInfo from './InputPersonalInfo';
 
 import './UserInputForm.scss';
 
-const UserInputForm = () => {
+const UserInputForm = ({ termsAgreementList, isAgreeTerms }) => {
   const [personalInfo, setPersonalInfo] = useState({
     username: '',
     birthday: '',
-    gender: '',
     phonenumber: '',
+    email: '',
     isValid: false,
   });
 
@@ -55,26 +55,28 @@ const UserInputForm = () => {
     signupHandler({ ...userInfo, ...personalInfo });
   };
 
+  const listToObj = list => {
+    let resultObj = {};
+    for (let item of list) {
+      resultObj[item.text] = item.isChecked;
+    }
+    return resultObj;
+  };
+
   async function signupHandler(submitData) {
     try {
-      const response = await fetch(
-        // 아래 주소와 데이터 형식은 테스트를 위한 것으로 추후 백엔드 API 사양에 맞게 바꿀 것
-        'http://10.58.0.93:8000/user/signup',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            user_account: submitData.id,
-            user_password: submitData.password,
-            user_name: submitData.username,
-            user_contact: submitData.phonenumber,
-            user_birth: submitData.birthday,
-            // user_gender: submitData.gender,
-            // user_address: '',
-            user_email: '',
-            user_terms_agreements: '{1:1}',
-          }),
-        }
-      );
+      const response = await fetch('http://10.58.0.93:8000/user/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          user_account: submitData.id,
+          user_password: submitData.password,
+          user_name: submitData.username,
+          user_contact: submitData.phonenumber,
+          user_birth: submitData.birthday,
+          user_email: '',
+          user_terms_agreements: listToObj(termsAgreementList),
+        }),
+      });
 
       if (response.ok) {
         alert(`${submitData.id}님 환영합니다.`);
@@ -88,8 +90,8 @@ const UserInputForm = () => {
   }
 
   useEffect(() => {
-    setIsValidButton(personalInfo.isValid && userInfo.isValid);
-  }, [personalInfo, userInfo]);
+    setIsValidButton(personalInfo.isValid && userInfo.isValid && isAgreeTerms);
+  }, [personalInfo, userInfo, isAgreeTerms]);
 
   return (
     <form className="signupSubmitForm" onSubmit={submitHandler}>

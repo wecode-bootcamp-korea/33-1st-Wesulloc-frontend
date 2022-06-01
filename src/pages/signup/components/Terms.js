@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import AgreementList from './AgreementList';
 import './Terms.scss';
 
-const Terms = () => {
+const Terms = ({ onAgree }) => {
   const [itemList, setItemList] = useState(TERMS_LIST);
   const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(false);
-  const [isBtnValid, setIsBtnValid] = useState(false);
-
-  const navigate = useNavigate();
+  const [isRequiredItemChecked, setIsRequiredItemChecked] = useState(false);
 
   const checkAllHandler = () => {
     setTotalCheckboxisChecked(prevstate => !prevstate);
-    setIsBtnValid(true);
+    setIsRequiredItemChecked(true);
     setItemList(prevState => {
       return prevState.map(obj => {
         return { ...obj, isChecked: !totalCheckboxisChecked };
@@ -32,10 +29,6 @@ const Terms = () => {
     });
   };
 
-  const btnClickHandler = () => {
-    termsSubmitHandler(itemList);
-  };
-
   const linkClickHandler = event => {
     event.preventDefault();
   };
@@ -53,23 +46,12 @@ const Terms = () => {
       }
     }
     setTotalCheckboxisChecked(checkAll);
-    setIsBtnValid(checkRequiredItems);
+    setIsRequiredItemChecked(checkRequiredItems);
   }, [itemList]);
 
-  async function termsSubmitHandler(termsList) {
-    const response = await fetch(
-      'https://fir-40252-default-rtdb.firebaseio.com/terms.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(termsList),
-      }
-    );
-
-    if (response.ok) {
-      alert('회원가입 페이지로 이동합니다.');
-      navigate('/signup');
-    }
-  }
+  useEffect(() => {
+    onAgree(itemList, isRequiredItemChecked);
+  }, [onAgree, itemList, isRequiredItemChecked]);
 
   return (
     <div className="terms">
@@ -128,11 +110,6 @@ const Terms = () => {
               <AgreementList itemList={itemList} isChange={listChangeHandler} />
             </div>
           </div>
-        </div>
-        <div className="buttonWrapper">
-          <button disabled={!isBtnValid} onClick={btnClickHandler}>
-            동의하고 계속하기
-          </button>
         </div>
       </section>
     </div>

@@ -3,7 +3,7 @@
 input {
   width: 23.625rem;
   height: 3rem;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem 0;
   border: $border;
   border-radius: 0.5rem;
 }
@@ -38,31 +38,6 @@ p.invalid {
   color: $accentColor;
   font-size: 0.875rem;
   font-weight: $fontBold;
-}
-
-.registrationNum {
-  @include flexCenter;
-  width: 23.625rem;
-
-  input {
-    &:first-child {
-      width: 10rem;
-    }
-  }
-
-  span + input {
-    width: 2rem;
-    text-align: center;
-  }
-
-  span {
-    margin: 0 0.5rem;
-  }
-
-  p {
-    margin: 0 0.5rem;
-    letter-spacing: 1rem;
-  }
 }
 
 button {

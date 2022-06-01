@@ -1,15 +1,13 @@
 @import '../../../styles/variables.scss';
 
 .terms {
-  @include flexCenter;
-  justify-content: center;
-  height: 100vh;
-
   section {
     @include flexColumn;
     align-items: center;
+    width: 32rem;
     border: $border;
     border-radius: 0.2rem;
+    margin-right: 2.5rem;
 
     .title {
       @include flexSpaceBetween;
@@ -47,6 +45,8 @@
     }
 
     .content {
+      margin-bottom: 3rem;
+
       .agreeAll {
         @include flexCenter;
         width: 23.625rem;
@@ -135,32 +135,6 @@
             font-size: 1rem;
             font-weight: $fontBold;
           }
-        }
-      }
-    }
-
-    .buttonWrapper {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      height: 6.25rem;
-      padding: 0 4.375rem 3.125rem;
-
-      button {
-        width: 23.625rem;
-        height: 3.125rem;
-        padding: 0;
-        border: none;
-        border-radius: 0.2rem;
-        background-color: $primaryColor;
-        color: $bgWhite;
-        font-size: 1.25rem;
-        cursor: pointer;
-
-        &:disabled {
-          background-color: $bgGray;
-          color: $textGray;
-          cursor: auto;
         }
       }
     }
