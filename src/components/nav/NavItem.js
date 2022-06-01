@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NAV_LIST } from './NavList';
+
 import '../nav/NavList';
 
 function NavItems() {

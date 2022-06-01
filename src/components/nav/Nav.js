@@ -57,7 +57,7 @@ function Nav() {
           </ul>
           <ul className="navDrop">
             <li className="item">
-              <Link to="/" className="loginTitle">
+              <Link to="/login" className="loginTitle">
                 로그인
               </Link>
             </li>
