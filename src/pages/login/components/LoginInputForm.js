@@ -47,23 +47,18 @@ const LoginInputForm = () => {
 
   async function login(input) {
     try {
-      const response = await fetch(
-        // 아래는 테스트를 위한 주소로 추후 변경 할 것
-        'http://10.58.0.93:8000/user/login',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            user_account: input.id,
-            user_password: input.password,
-          }),
-        }
-      );
+      const response = await fetch('http://10.58.0.93:8000/user/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          user_account: input.id,
+          user_password: input.password,
+        }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
         alert(`${input.id}님 환영합니다.`);
-        // 아래 토큰 형식은 백엔드 키 값에 따라 바뀔 수 있으므로 추후 조정 할 것
         authContext.login(data.access_token);
         navigate('/');
       } else {
