@@ -17,14 +17,32 @@ const CartItemList = ({
     setError(null);
     try {
       const response = await fetch(
-        'https://fir-40252-default-rtdb.firebaseio.com/cart.json'
+        // 목데이터 검증용
+        // 'https://fir-40252-default-rtdb.firebaseio.com/cart.json'
+        'http://10.58.0.93:8000/carts',
+        {
+          headers: {
+            Authorization:
+              // 아래 키는 임시 키로 추후 삭제할 것
+              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+          },
+        }
       );
       if (!response.ok) {
         throw new Error('상품을 불러오는 과정에서 문제가 발생했습니다.');
       }
 
       const data = await response.json();
-      setItemList(data);
+      const list = data.results.map(obj => {
+        return {
+          id: obj.product_id,
+          name: obj.product_name,
+          price: +obj.price,
+          amount: +obj.quantity,
+          src: obj.product_img,
+        };
+      });
+      setItemList(list);
     } catch (error) {
       setError(error.message);
     }

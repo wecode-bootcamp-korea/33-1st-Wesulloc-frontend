@@ -4,7 +4,7 @@ import './CartItem.scss';
 const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
 
-  const { id, name, price, amount, isChecked } = item;
+  const { id, name, price, amount, isChecked, src } = item;
 
   const amountInputHandler = event => {
     if (event.target.value.length >= 3) {
@@ -61,7 +61,7 @@ const CartItem = ({ item, onChangeProps, onErrorInput, onClickBtn }) => {
         </label>
       </div>
       <div className="itemInfo">
-        <img src="" alt="product" />
+        <img src={src} alt="product" />
         <div className="itemInfoText">
           <a href="$">{name}</a>
         </div>
