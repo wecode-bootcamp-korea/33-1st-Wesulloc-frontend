@@ -22,7 +22,7 @@ const Router = () => {
         {!authContext.isLoggedIn && (
           <Route path="/signup" element={<Signup />} />
         )}
-        {authContext.isLoggedIn && <Route path="/Terms" element={<Terms />} />}
+        {!authContext.isLoggedIn && <Route path="/Terms" element={<Terms />} />}
         <Route path="/ProductList" element={<ProductList />} />
         <Route path="/WeeklyBest" element={<WeeklyBest />} />
         <Route path="/SummerGift" element={<SummerGift />} />
