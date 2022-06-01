@@ -7,7 +7,7 @@ import Terms from './pages/signup/components/Terms';
 import ProductList from './pages/products/ProductList/ProductList';
 import WeeklyBest from './pages/products/BestProducts/WeeklyBest';
 import SummerGift from './pages/products/BestProducts/SummerGift';
-import ProductDetail from './pages/products/prooductDetail/ProductDetail';
+import ProductDetail from './pages/products/productDetail/ProductDetail';
 import Cart from './pages/cart/Cart';
 import AuthContext from './Context/authContext';
 
@@ -18,7 +18,6 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        {!authContext.isLoggedIn && <Route path="/login" element={<Login />} />}
         {!authContext.isLoggedIn && <Route path="/login" element={<Login />} />}
         {!authContext.isLoggedIn && (
           <Route path="/signup" element={<Signup />} />
