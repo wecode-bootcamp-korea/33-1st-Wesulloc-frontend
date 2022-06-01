@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import BestProductItems from './components/BestProductItems';
 import './BestProductsList.scss';
 
-const Products = () => {
+const WeeklyBest = () => {
   const [productList, setProductList] = useState([]);
   const [actived, setActived] = useState(true);
 
@@ -62,4 +62,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default WeeklyBest;
