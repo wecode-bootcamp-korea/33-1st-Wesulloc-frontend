@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/main/Main';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/SignUp';
-import Terms from './pages/signup/components/Terms';
 import ProductList from './pages/products/ProductList/ProductList';
 import WeeklyBest from './pages/products/BestProducts/WeeklyBest';
 import SummerGift from './pages/products/BestProducts/SummerGift';
@@ -22,7 +21,6 @@ const Router = () => {
         {!authContext.isLoggedIn && (
           <Route path="/signup" element={<Signup />} />
         )}
-        {!authContext.isLoggedIn && <Route path="/Terms" element={<Terms />} />}
         <Route path="/ProductList" element={<ProductList />} />
         <Route path="/WeeklyBest" element={<WeeklyBest />} />
         <Route path="/SummerGift" element={<SummerGift />} />
