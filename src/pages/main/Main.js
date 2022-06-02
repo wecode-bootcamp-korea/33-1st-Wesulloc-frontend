@@ -1,11 +1,13 @@
 import './Main.scss';
-//import { Link } from 'react-router-dom';
+
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/footer/Footer';
 import Slider from './slide/Slider';
 import MainProductList from '../main/mainProductLists/MainProductList';
+import { useNavigate } from 'react-router-dom';
 
 function Main() {
+  const navigate = useNavigate();
   return (
     <div className="main">
       {/* 네비게이션바 */}
@@ -45,7 +47,13 @@ function Main() {
           <div className="listBoxCollect">
             <MainProductList />
             <div className="productBtn">
-              <button type="button" className="btnA">
+              <button
+                type="button"
+                className="btnA"
+                onClick={() => {
+                  navigate('//WeeklyBest');
+                }}
+              >
                 <span>더 보기</span>
               </button>
             </div>
@@ -62,7 +70,7 @@ function Main() {
                 <div className="contentBoxItem">
                   <div className="bannerImg">
                     <img
-                      src="https://www.osulloc.com/upload/kr/ko/adminImage/HU/JL/20220525174616674TI.jpg?quality=80"
+                      src="/images/mainImg/mainImg5.png"
                       alt="오늘만 이 가격"
                     />
                     <div className="textBox">
@@ -91,7 +99,7 @@ function Main() {
                 <div className="contentBoxItem">
                   <div className="bannerImg">
                     <img
-                      src="https://www.osulloc.com/upload/kr/ko/adminImage/OL/PG/20220518025211436FM.png?quality=80"
+                      src="/images/mainSlide/mainSlide5.png"
                       alt="5월 출석체크"
                     />
                     <div className="textBox">
@@ -108,7 +116,7 @@ function Main() {
                 <div className="contentBoxItemDepth">
                   <div className="bannerImg">
                     <img
-                      src="https://www.osulloc.com/kr/ko/static_cdj/images/main/brand_story_img.jpg"
+                      src="https://i.pinimg.com/564x/86/90/69/869069f09b7669f10c62e419f681d4a2.jpg"
                       alt="오설록 이야기"
                     />
                     <div className="textBox">
@@ -130,67 +138,49 @@ function Main() {
             <p className="text02">하루 한 번, 나를 만나는 시간을 가져보세요.</p>
           </div>
         </div>
-        <div className="subscribeBox2">
-          <div className="subsList">
-            <div className="subsSwiperContainer">
-              <div className="swiperWrapper">
-                <div className="swiperSlide">
-                  <div className="imgBox">
-                    <img
-                      className="subsImg"
-                      src="https://www.osulloc.com/kr/ko/static_cdj/images/main/dada_img01_pc.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="descriptionBox">
-                    <p className="banTitle">
-                      새롭게 만나는 차, 다다일상 베이직
-                    </p>
-                    <div className="flexBox">
-                      <div className="priceText">
-                        <span className="subsDate">매월</span>
-                        <span className="price">16,000원</span>
+        <div className="subsBox">
+          <div className="subscribeBox2">
+            {DADA_LIST.map(({ id, title, price, text, img }) => (
+              <div className="subsList" key={id}>
+                <div className="subsSwiperContainer">
+                  <div className="swiperWrapper">
+                    <div className="swiperSlide">
+                      <div className="imgBox2">
+                        <div className="hoverBox">
+                          <div className="inner">
+                            <div className="descriptionBox02">
+                              <p className="banTitle">{title}</p>
+                              <div className="flexBox">
+                                <div className="priceText">
+                                  <span className="subDate">매월</span>
+                                  <span className="price">{price}</span>
+                                </div>
+                                <span className="tag">배송비 Free</span>
+                              </div>
+                              <div className="imgBoxinner" />
+                            </div>
+                            <div className="banContainer">
+                              <p className="text">{text}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <img className="subsImg" src={img} alt="" />
                       </div>
-                      <span className="tag">배송비 Free</span>
-                    </div>
-                  </div>
-                  <div className="hoverBox">
-                    <div className="inner">
-                      <div className="descriptionBox02">
-                        <p className="banTitle">
-                          새롭게 만나는 차, 다다일상 베이직
-                        </p>
+                      <div className="descriptionBox">
+                        <p className="banTitle">{title}</p>
                         <div className="flexBox">
                           <div className="priceText">
-                            <span className="subDate">매월</span>
-                            <span className="price">16,000원</span>
+                            <span className="subsDate">매월</span>
+                            <span className="price">{price}</span>
                           </div>
                           <span className="tag">배송비 Free</span>
                         </div>
-                        <div className="imgBoxinner" />
-                      </div>
-                      <div className="banContainer">
-                        <p className="text">
-                          오설록 티 소믈리에가 매월 그달의 테마와 어울리는
-                          차들을 선정하여 보내드립니다.
-                          <br />
-                          일상의 작은 순간들을 차와 함께 새롭게 만나보세요.
-                        </p>
-                        <ul className="textList">
-                          <li className="item">
-                            <em className="pt">3종류 이상</em>의 다양한 티백
-                            구성
-                          </li>
-                          <li className="item">
-                            <em className="pt">2만원 이상</em> 정가 구성
-                          </li>
-                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -219,6 +209,30 @@ const NOTIFICATION_LIST = [
   {
     id: 5,
     text: '오설록 티 크리에이터 1기 서류 합격발표 관련 안내',
+  },
+];
+
+const DADA_LIST = [
+  {
+    id: 1,
+    title: '새롭게 만나는 차, 다다일상 베이직',
+    price: '16,000원',
+    text: '위설록 티 소믈리애 매월 그달의 테마와 어울리는 차들을 보내드립니다.',
+    img: 'https://i.pinimg.com/736x/9b/5f/5f/9b5f5f056db62e9ef9fdd1dea42338f2.jpg',
+  },
+  {
+    id: 2,
+    title: '다르게 만나는 차, 다다일상 홈카페',
+    price: '26,000원',
+    text: '매월 오설록이 티를 이용한 새로운 레시피를 소개해 드립니다. 다양한 레시피를 따라하면서 차를 색다르게 경험해보세요.',
+    img: 'https://i.pinimg.com/564x/f8/11/da/f811dad6af05af2d6ea2ad91ce86c0bc.jpg',
+  },
+  {
+    id: 2,
+    title: '매일 만나는 차, 정기배송',
+    price: '30,000원',
+    text: '매일 만나는 차, 정기배송으로 차를 색다르게 경험해보세요.',
+    img: 'https://i.pinimg.com/564x/71/0e/a3/710ea3f2a4c9b3b09c9b441ac7971fef.jpg',
   },
 ];
 

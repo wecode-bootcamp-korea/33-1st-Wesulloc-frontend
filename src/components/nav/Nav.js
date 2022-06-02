@@ -1,10 +1,15 @@
+import { useState, useContext } from 'react';
 import './Nav.scss';
 import { Link } from 'react-router-dom';
 import NavItems from './NavItem';
+import AuthContext from '../../Context/authContext';
 
 function Nav() {
+  const [currentMenuId, setCurrentId] = useState();
+  const authContext = useContext(AuthContext);
+
   return (
-    <header className="nav">
+    <header className="nav" onMouseLeave={() => setCurrentId()}>
       <div className="navInnerBox">
         <div className="leftBox">
           <h1 className="wesullocLogo">
@@ -17,7 +22,10 @@ function Nav() {
             </Link>
           </h1>
           <nav className="wesullocNav">
-            <NavItems />
+            <NavItems
+              currentMenuId={currentMenuId}
+              setCurrentId={setCurrentId}
+            />
           </nav>
         </div>
 
@@ -32,35 +40,42 @@ function Nav() {
             <li className="item itemMore">
               <i className="fa-solid fa-ellipsis-vertical" />
               <ul className="dropBox1">
-                <li className="dropItems">
-                  <Link to="/" className="csCenter">
-                    고객센터
-                  </Link>
-                </li>
-                <li className="dropItems">
-                  <Link to="/" className="searchStore">
-                    매장찾기
-                  </Link>
-                </li>
-                <li className="dropItems">
-                  <Link to="/" className="order">
-                    주문배송조회
-                  </Link>
-                </li>
-                <li className="dropItems">
-                  <Link to="/" className="pointCollect">
-                    뷰티포인트 추후적립
-                  </Link>
-                </li>
+                <li className="dropItems">고객센터</li>
+                <li className="dropItems">매장찾기</li>
+                <li className="dropItems">주문배송조회</li>
+                <li className="dropItems">뷰티포인트 추후적립</li>
               </ul>
             </li>
           </ul>
           <ul className="navDrop">
-            <li className="item">
-              <Link to="/login" className="loginTitle">
-                로그인
-              </Link>
-            </li>
+            {!authContext.isLoggedIn && (
+              <li className="item">
+                <Link to="/login" className="loginTitle">
+                  로그인
+                </Link>
+              </li>
+            )}
+            {!authContext.isLoggedIn && (
+              <li className="dropItems">
+                <Link to="/signup" className="loginTitle2">
+                  회원가입
+                </Link>
+              </li>
+            )}
+            {authContext.isLoggedIn && (
+              <li className="item">
+                <button
+                  className="logOut"
+                  onClick={() => {
+                    authContext.logout();
+                  }}
+                >
+                  로그아웃
+                </button>
+              </li>
+            )}
+          </ul>
+          <ul className="lang">
             <li className="itemArr">KOREAN</li>
           </ul>
         </div>

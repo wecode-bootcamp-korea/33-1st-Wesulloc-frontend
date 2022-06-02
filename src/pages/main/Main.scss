@@ -10,10 +10,10 @@
 }
 @keyframes autoScrollings {
   from {
-    margin-top: 0;
+    top: 500px;
   }
   to {
-    margin-top: -500px;
+    top: 0;
   }
 }
 
@@ -142,8 +142,8 @@
 
       .sectionTitle {
         .productText {
-          font-size: 25px;
-          font-weight: 500;
+          font-size: 30px;
+          font-weight: 600;
         }
       }
       .productTab {
@@ -262,6 +262,7 @@
 
               img {
                 width: 100%;
+                height: 545px;
               }
 
               .textBox {
@@ -357,8 +358,10 @@
 
             .bannerImg {
               position: relative;
+
               img {
                 width: 100%;
+                height: 100%;
               }
               .textBox {
                 position: absolute;
@@ -429,14 +432,18 @@
     .subscribeBox1 {
       margin-top: 80px;
       margin-bottom: 60px;
+      .text01 {
+        font-size: 30px;
+      }
       .subscribetitle {
         max-width: 1240px;
-        padding: 0 20px;
+        padding: 0 10px;
         margin-left: auto;
         margin-right: auto;
+        font-size: 30px;
         .text01 {
           font-size: 28px;
-          font-weight: 500;
+          font-weight: 600;
         }
         .text02 {
           margin-top: 10px;
@@ -445,193 +452,189 @@
         }
       }
     }
-    .subscribeBox2 {
+    .subsBox {
+      display: flex;
       max-width: 1240px;
-      padding: 0 20px;
       margin-left: auto;
       margin-right: auto;
-      .subsList {
-        margin-top: 30px;
-        .subsSwiperContainer {
-          overflow: hidden;
-          .swiperWrapper {
-            display: flex;
-            justify-content: space-between;
-            .swiperSlide {
-              flex: 0 0 32.17%;
-              width: 32.17%;
-              position: relative;
 
-              .subsImg {
-                width: 100%;
-                &:hover {
+      .subscribeBox2 {
+        display: flex;
+        padding: 0 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+        .subsList {
+          margin-top: 30px;
+          margin-right: 20px;
+          .subsSwiperContainer {
+            overflow: hidden;
+            .swiperWrapper {
+              .swiperSlide {
+                position: relative;
+                width: 400px;
+                height: 550px;
+                .imgBox2 {
                   .hoverBox {
+                    opacity: 0;
+                  }
+                  &:hover .hoverBox {
+                    opacity: 1;
                     position: absolute;
-                    left: 0;
                     width: 100%;
                     padding: 0 30px 40px;
                     background-color: rgba(0, 0, 0, 0.5);
                     transition: 0.5s ease-in-out;
-                    display: block;
-                    &:hover {
-                      position: absolute;
-                      top: 0;
-                      cursor: pointer;
-                    }
+                    animation: autoScrollings 0.5s linear;
+                    z-index: 100;
+                  }
+                  .subsImg {
+                    width: 100%;
                   }
                 }
-              }
-              .descriptionBox {
-                position: absolute;
-                width: 100%;
-                top: 78%;
-                padding-left: 20px;
-                padding-bottom: 30px;
-                margin-top: 15px;
-                color: #fff;
-                background: linear-gradient(
-                  to top,
-                  rgba(0, 0, 0, 0.54),
-                  transparent
-                );
 
-                .banTitle {
-                  font-size: 22px;
-                  font-weight: 600;
-                }
-                .flexBox {
-                  display: flex;
-                  align-items: center;
-                  padding-top: 13px;
-
-                  .priceText {
-                    .subDate {
-                      font-size: 13px;
-                      font-weight: 500;
-                    }
-                    .price {
-                      font-size: 22px;
-                      font-weight: 500;
-                      margin-left: 5px;
-                    }
-                  }
-                  .tag {
-                    width: 80px;
-                    font-size: 13px;
-                    margin-top: 0;
-                    margin-left: 16px;
-                    height: 22px;
-                    line-height: 22px;
-                    text-align: center;
-                    color: #fff;
-                    font-weight: 500;
-                    background-color: $secondaryColor;
-                    border-radius: 2px;
-                  }
-                }
-              }
-              .hoverBox {
-                position: absolute;
-                left: 0;
-                width: 100%;
-                padding: 0 30px 40px;
-                background-color: rgba(0, 0, 0, 0.5);
-                transition: 0.4s ease-in-out;
-                display: block;
-                cursor: pointer;
-                &:hover {
-                  transition: opacity 2s ease-in-out;
-                  animation: autoScrollings 1s linear infinite;
-                }
-
-                // &:hover {
-                //   position: absolute;
-                //   top: 0;
-                //   cursor: pointer;
-                // }
-                .inner {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: flex-end;
+                .descriptionBox {
+                  position: absolute;
                   width: 100%;
-                  height: 85%;
-                  color: $bgWhite;
-                  .descriptionBox02 {
-                    position: static;
-                    margin-top: 100%;
+                  top: 78%;
+                  padding-left: 20px;
+                  padding-bottom: 50px;
+                  margin-top: 15px;
+                  color: #fff;
+                  background: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.54),
+                    transparent
+                  );
 
-                    .banContainer {
-                      padding-bottom: 50px;
+                  .banTitle {
+                    font-size: 22px;
+                    font-weight: 600;
+                  }
+                  .flexBox {
+                    display: flex;
+                    align-items: center;
+                    padding-top: 13px;
 
-                      .text {
-                        padding-top: 10px;
-                        padding-bottom: 30px;
-                        color: $bgWhite;
+                    .priceText {
+                      .subDate {
+                        font-size: 13px;
+                        font-weight: 500;
+                      }
+                      .price {
+                        font-size: 22px;
+                        font-weight: 500;
+                        margin-left: 5px;
                       }
                     }
-
-                    .imgBoxinner {
-                      position: absolute;
-                      top: 0;
-                      width: 100%;
-                      height: 0;
-                      background-color: black;
-                      opacity: 0.5;
-                      z-index: 100;
-                      transition: 0.3s all ease-in;
+                    .tag {
+                      width: 80px;
+                      font-size: 13px;
+                      margin-top: 0;
+                      margin-left: 16px;
+                      height: 22px;
+                      line-height: 22px;
+                      text-align: center;
+                      color: #fff;
+                      font-weight: 500;
+                      background-color: $secondaryColor;
+                      border-radius: 2px;
                     }
+                  }
+                }
+                .hoverBox {
+                  position: absolute;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  padding: 0 30px 40px;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  transition: 0.4s ease-in-out;
+                  display: block;
+                  cursor: pointer;
 
-                    .banTitle {
-                      font-size: 20px;
-                      padding-bottom: 10px;
-                    }
-                    .flexBox {
-                      display: flex;
-                      align-items: center;
-                      .priceText {
+                  .inner {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    width: 100%;
+                    height: 85%;
+                    color: $bgWhite;
+                    .descriptionBox02 {
+                      .banContainer {
+                        p.text {
+                          padding-top: 10px;
+                          padding-bottom: 30px;
+                          color: $bgWhite;
+                        }
+                      }
+
+                      .imgBoxinner {
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 0;
+                        background-color: black;
+                        opacity: 0.5;
+                        z-index: 100;
+                        transition: 0.3s all ease-in;
+                      }
+
+                      .banTitle {
+                        font-size: 20px;
+                        padding-bottom: 10px;
+                        font-weight: 600n;
+                      }
+                      .flexBox {
                         display: flex;
                         align-items: center;
-                        .subDate {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        .priceText {
+                          display: flex;
+                          align-items: center;
+                          .subDate {
+                            font-size: 13px;
+                            font-weight: 500;
+                          }
+                          .price {
+                            font-size: 22px;
+                            font-weight: 500;
+                            margin-left: 5px;
+                          }
+                        }
+                        .tag {
+                          width: 80px;
                           font-size: 13px;
+                          margin-top: 0;
+                          margin-left: 16px;
+                          height: 22px;
+                          line-height: 22px;
+                          text-align: center;
+                          color: #fff;
                           font-weight: 500;
-                        }
-                        .price {
-                          font-size: 22px;
-                          font-weight: 500;
-                          margin-left: 5px;
+                          background-color: $secondaryColor;
+                          border-radius: 2px;
                         }
                       }
-                      .tag {
-                        width: 80px;
-                        font-size: 13px;
-                        margin-top: 0;
-                        margin-left: 16px;
-                        height: 22px;
-                        line-height: 22px;
-                        text-align: center;
-                        color: #fff;
-                        font-weight: 500;
-                        background-color: $secondaryColor;
-                        border-radius: 2px;
-                      }
-                    }
 
-                    .banContainer {
-                      border-top: 1px solid rgba(255, 255, 255, 0.5);
-                      padding-top: 20px;
-                      .text {
-                        font-size: 16px;
-                        word-break: keep-all;
-                        color: $bgWhite;
-                      }
-                      .textList {
-                        padding-top: 15px;
-                        padding-left: 20px;
-                        color: $bgWhite;
-                        list-style: circle;
+                      .banContainer {
+                        border-top: 1px solid rgba(255, 255, 255, 0.5);
+                        padding-top: 20px;
+                        .text {
+                          font-size: 16px;
+                          word-break: keep-all;
+                          color: $bgWhite;
+                        }
+                        .textList {
+                          padding-top: 15px;
+                          padding-left: 20px;
+                          color: $bgWhite;
+                          list-style: circle;
 
-                        li {
-                          padding-bottom: 5px;
+                          li {
+                            padding-bottom: 5px;
+                          }
                         }
                       }
                     }

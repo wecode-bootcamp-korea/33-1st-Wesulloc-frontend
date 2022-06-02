@@ -1,11 +1,18 @@
 import '../mainProductLists/MainProductList.scss';
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaAngleRight } from 'react-icons/fa';
 import { FaAngleLeft } from 'react-icons/fa';
 import MainProductImg from './MainProductImg';
 
 function MainProductList() {
   const [mainProductList, setMainProductList] = useState([]);
+  const navigate = useNavigate();
+
+  const goToProductPage = id => {
+    const queryString = `/${id}`;
+    navigate(`/ProductList${queryString}`);
+  };
 
   useEffect(() => {
     fetch('/data/mainProductList.json', {
@@ -14,7 +21,6 @@ function MainProductList() {
       .then(res => res.json())
       .then(data => {
         setMainProductList(data);
-        // setMainProductList(data.results);
       });
   }, []);
 
@@ -45,42 +51,65 @@ function MainProductList() {
   return (
     <div className="productListBox">
       <div className="productSlide" ref={cardRef}>
-        {mainProductList.map(
-          ({ id, img_url, name, price, sale_or_not, discount_rate }) => (
-            <div
-              key={id}
-              className={
-                cardSlide === id + 1 ? 'cardActiveAnim' : 'slideWrapper'
-              }
-            >
-              <div className="swiperSlide">
-                <div className="productThumb">
-                  <MainProductImg img={img_url} />
-                </div>
-                <div className="productText">
-                  <div className="productInfo">
-                    <p className="productName">{name}</p>
-                    <div className="productPrice">
-                      <p className="priceOrigin">{price}원</p>
-                      <div className="saleBox">
-                        <p className="priceResult">{sale_or_not}</p>
-                        <div className="priceBox">
-                          <p className="resultPrice">
-                            {{ sale_or_not } === true
-                              ? (price * (100 - discount_rate)) / 100
-                              : ''}
-                          </p>
-                          <p className="salePercent">{discount_rate}</p>
+        {mainProductList &&
+          mainProductList.map(
+            ({
+              id,
+              img_url,
+              name,
+              price,
+              novel,
+              sale_or_not,
+              discount_rate,
+            }) => (
+              <div
+                key={id}
+                className={
+                  cardSlide === id + 1 ? 'cardActiveAnim' : 'slideWrapper'
+                }
+              >
+                <div className="swiperSlide">
+                  <div
+                    className="productThumb"
+                    onClick={() => {
+                      goToProductPage(id);
+                    }}
+                  >
+                    <MainProductImg img={img_url} />
+                  </div>
+                  <div className="productText">
+                    <div
+                      className="productInfo"
+                      onClick={() => {
+                        goToProductPage(id);
+                      }}
+                    >
+                      <p className="productName">{name}</p>
+                      <div className="productPrice">
+                        <p className="priceOrigin">{price}원</p>
+                        <div className="saleBox">
+                          <div className="priceBox">
+                            <p className="resultPrice">
+                              {sale_or_not === true
+                                ? ((100 - discount_rate) * price) / 100 + '원'
+                                : ''}
+                            </p>
+
+                            <p className="salePercent">
+                              {discount_rate ? discount_rate + '%' : ''}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div className={novel ? `prdTag` : `disprdTag`}>
+                      {novel ? '신제품' : ''}
+                    </div>
                   </div>
-                  <div className="prdTag" />
                 </div>
               </div>
-            </div>
-          )
-        )}
+            )
+          )}
       </div>
       <div className="move">
         <FaAngleLeft onClick={prevCard} className="movePrev" direction="next" />

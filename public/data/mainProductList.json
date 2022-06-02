@@ -7,8 +7,8 @@
     ],
     "name": "영귤섬 아이스티",
     "price": 13000,
-    "new": false,
-    "sale_or_not": true,
+    "novel": true,
+    "sale_or_not": false,
     "discount_rate": ""
   },
   {
@@ -19,7 +19,7 @@
     ],
     "name": "그린티 아이스크림 4입 세트",
     "price": 23500,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -31,8 +31,8 @@
     ],
     "name": "산호섬 아이스티",
     "price": 13500,
-    "new": false,
-    "sale_or_not": true,
+    "novel": false,
+    "sale_or_not": false,
     "discount_rate": ""
   },
   {
@@ -44,7 +44,7 @@
     ],
     "name": "제주 동백꽃 티",
     "price": 9500,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 10
   },
@@ -56,7 +56,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -68,7 +68,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -80,7 +80,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -92,7 +92,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -104,7 +104,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -116,7 +116,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   },
@@ -128,7 +128,7 @@
     ],
     "name": "웨딩 그린티 10개입",
     "price": 15000,
-    "new": false,
+    "novel": false,
     "sale_or_not": true,
     "discount_rate": 15
   }

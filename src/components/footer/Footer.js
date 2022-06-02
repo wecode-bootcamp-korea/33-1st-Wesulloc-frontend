@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Footer.scss';
+import AuthContext from '../../Context/authContext';
 
 function Footer() {
+  const authContext = useContext(AuthContext);
   return (
     <div className="footer">
       <div className="topSection">
         <div className="footerBar">
           <div className="loginSns">
-            <button className="loginBtn">로그인</button>
+            {!authContext.isLoggedIn && (
+              <button className="loginBtn">로그인</button>
+            )}
+            {authContext.isLoggedIn && (
+              <button
+                className="loginBtn"
+                onClick={() => {
+                  authContext.logout();
+                }}
+              >
+                로그아웃
+              </button>
+            )}
             <div className="sns">
               <img
                 className="fb"

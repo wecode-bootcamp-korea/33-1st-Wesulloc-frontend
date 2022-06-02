@@ -46,12 +46,12 @@ export const NAV_LIST = [
       {
         id: 1,
         subtitle: '',
-        subcategory: '',
+        subcategory: [],
       },
     ],
   },
   {
-    id: 3,
+    id: 2,
     link: '/',
     title: '다다일상',
     category: [

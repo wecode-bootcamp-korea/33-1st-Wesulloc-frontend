@@ -46,6 +46,21 @@
               }
             }
           }
+          .prdTag {
+            background-color: #a89079;
+            height: 22px;
+            width: 60px;
+            line-height: 22px;
+            padding: 0 9px;
+            margin-top: 10px;
+            font-size: 13px;
+            border-radius: 4px;
+            color: $bgWhite;
+            font-weight: 600;
+          }
+          .disprdTag {
+            display: none;
+          }
         }
       }
     }

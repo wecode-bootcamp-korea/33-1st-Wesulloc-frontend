@@ -4,30 +4,51 @@
   @include flexCenter;
   width: 35rem;
   padding-left: 40px;
-}
 
-.navItems {
-  width: 25rem;
-  padding: 0 0 0 6rem;
-  color: white;
-
-  .navTitle {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
+  .navItems {
+    width: 25rem;
     color: $bgWhite;
-  }
+    padding: 0 0 0 6rem;
 
-  .dropDownMenu {
-    position: absolute;
-    left: 0;
-    top: 4rem;
-    width: 100%;
-    background: $textBlack;
+    .navTitle {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      color: $textBlack;
+    }
 
-    .dropNavListWarp {
-      .dropNavList {
-        padding-right: 1rem;
+    .dropDownMenu {
+      position: absolute;
+      left: 0;
+      top: 5rem;
+      width: 100%;
+      background: $bgWhite;
+
+      .dropNavListWarp {
+        display: flex;
+        position: absolute;
+        left: 400px;
+        width: 100px;
+        color: rgb(88, 88, 88);
+
+        .dropNavList {
+          width: 600px;
+          text-align: center;
+          padding: 20px;
+          background-color: rgba(203, 228, 175, 0.856);
+          font-weight: 700;
+          cursor: pointer;
+          ul {
+            padding: 10px;
+            .subNavList {
+              width: 110px;
+              margin: 10px;
+              cursor: pointer;
+
+              font-weight: 500px;
+            }
+          }
+        }
       }
     }
   }
