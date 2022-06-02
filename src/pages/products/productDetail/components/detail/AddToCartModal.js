@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AddToCartModal.scss';
 
 const AddToCartModal = ({ setCartModal, amount, productId }) => {
+  const navigate = useNavigate();
   const addToCart = () => {
-    let token = localStorage.getItem('access_token') || '';
-    fetch('http://10.58.0.93:8000/carts', {
+    let token = localStorage.getItem('token') || '';
+    fetch('http://10.58.2.25:8000/carts', {
       headers: {
         Authorization: token,
       },
@@ -20,16 +22,12 @@ const AddToCartModal = ({ setCartModal, amount, productId }) => {
         }
       })
       .then(data => {
-        if (data.message === 'SUCCESS') {
+        if (data) {
           setCartModal(false);
-          // 장바구니로 이동
+          navigate('/cart');
         }
-        // setCartModal(false);
       });
   };
-
-  console.log(productId);
-  console.log(amount);
 
   useEffect(() => {
     document.body.style.cssText = `

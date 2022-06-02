@@ -13,16 +13,9 @@ const Review = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
     false,
   ]);
 
-  const handleReviewedStar = e => {
-    let copy = [...reviewedStarState];
-    copy.fill(true, 0, rating);
-    copy.fill(false, rating, 5);
-    setReviewedStarState(copy);
-  };
-
   const deleteReview = () => {
-    const token = localStorage.getItem('access_token') || '';
-    fetch(`http://10.58.0.93:8000/products/${productId}/reviews/${reviewId}`, {
+    const token = localStorage.getItem('token') || '';
+    fetch(`http://10.58.2.25:8000/products/${productId}/reviews/${reviewId}`, {
       headers: {
         Authorization: token,
       },
@@ -34,14 +27,19 @@ const Review = ({ review, deleteReviewUpdate, setDeleteReviewUpdate }) => {
         }
       })
       .then(data => {
-        if (data.message === 'DELETE_SUCCESS') {
+        if (data) {
           setDeleteReviewUpdate(!deleteReviewUpdate);
         }
-        // setDeleteReviewUpdate(!deleteReviewUpdate);
       });
   };
 
   useEffect(() => {
+    const handleReviewedStar = e => {
+      let copy = [...reviewedStarState];
+      copy.fill(true, 0, rating);
+      copy.fill(false, rating, 5);
+      setReviewedStarState(copy);
+    };
     handleReviewedStar();
   }, []);
 

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProductDetail from './pages/products/productDetail/ProductDetail';
 import Main from './pages/main/Main';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/SignUp';
@@ -27,7 +26,7 @@ const Router = () => {
         <Route path="/ProductList" element={<ProductList />} />
         <Route path="/WeeklyBest" element={<WeeklyBest />} />
         <Route path="/SummerGift" element={<SummerGift />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/productDetail/:id" element={<ProductDetail />} />
         {authContext.isLoggedIn && <Route path="/cart" element={<Cart />} />}
       </Routes>
     </BrowserRouter>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import AddToCartModal from './AddToCartModal';
 import './Detail.scss';
@@ -5,6 +6,31 @@ import './Detail.scss';
 const Detail = ({ product }) => {
   const [amount, setAmount] = useState(1);
   const [cartModal, setCartModal] = useState(false);
+
+  const navigate = useNavigate();
+  const goToMainCategory = () => {
+    navigate('/ProductList');
+  };
+  const goToSubCategory = () => {
+    let categoryNum = 2;
+    if (product.subCategory === '티세트') {
+      categoryNum = 3;
+    } else if (product.subCategory === '명차') {
+      categoryNum = 4;
+    } else if (product.subCategory === '녹차/말차') {
+      categoryNum = 5;
+    } else if (product.subCategory === '발효차/홍차') {
+      categoryNum = 6;
+    } else if (product.subCategory === '블렌디드티') {
+      categoryNum = 7;
+    } else if (product.subCategory === '허브티') {
+      categoryNum = 8;
+    } else if (product.subCategory === '밀크티/아이스티') {
+      categoryNum = 9;
+    }
+    const queryString = `?category=${categoryNum}`;
+    navigate(`/ProductList${queryString}`);
+  };
 
   return (
     <div className="detail">
@@ -45,9 +71,9 @@ const Detail = ({ product }) => {
           </div>
           <div className="detailRight">
             <ul className="detailCategory">
-              <li>{product.mainCategory}</li>
+              <li onClick={goToMainCategory}>{product.mainCategory}</li>
               <i className="fa-solid fa-angle-right" />
-              <li>{product.subCategory}</li>
+              <li onClick={goToSubCategory}>{product.subCategory}</li>
             </ul>
             <p className="detailRightTitle">{product.name}</p>
             <p className="detailRightDescription">{product.description}</p>

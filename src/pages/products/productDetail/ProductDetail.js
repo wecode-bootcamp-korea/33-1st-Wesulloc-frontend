@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import Reviews from './components/review/Reviews';
 import Detail from './components/detail/Detail';
 import Inform from './components/detail/Inform';
+import Nav from '../../../components/nav/Nav';
+import Footer from '../../../components/footer/Footer';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -17,17 +20,14 @@ const ProductDetail = () => {
     });
   };
 
-  // const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    // 동적라우팅
-    // fetch(`http://0.4.50/products/${id}`)
-    fetch('http://10.58.0.93:8000/products/1')
-      // fetch('/data/productDetail/product.json')
+    fetch(`http://10.58.2.25:8000/products/${id}`)
       .then(res => {
         if (res.ok) {
           return res.json();
-        } else console.log('no');
+        }
       })
       .then(data => {
         setProduct(data.results);
@@ -36,11 +36,12 @@ const ProductDetail = () => {
 
   return (
     <div className="productDetail">
+      <Nav />
       {product.id && <Detail product={product} />}
 
       <div className="sortMenu">
         <ul>
-          <li>상품추천</li>
+          <li>옵션상품</li>
           <li
             onClick={() => {
               scrollTargetView(reviewTarget);
@@ -60,6 +61,7 @@ const ProductDetail = () => {
 
       {product.id && <Reviews reviewTarget={reviewTarget} product={product} />}
       <Inform informTarget={informTarget} />
+      <Footer />
     </div>
   );
 };

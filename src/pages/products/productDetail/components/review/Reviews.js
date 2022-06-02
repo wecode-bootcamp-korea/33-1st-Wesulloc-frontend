@@ -23,26 +23,24 @@ const Reviews = ({ reviewTarget, product }) => {
   const [postsPerPage] = useState(5);
 
   const starNumArray = [0, 1, 2, 3, 4];
-  const token = localStorage.getItem('access_token') || '';
+  const token = localStorage.getItem('token') || '';
   const navigate = useNavigate();
 
-  const handleAverageStar = e => {
-    const copy = [...averageStar];
-    copy.fill(true, 0, Math.round(averageRate));
-    copy.fill(false, Math.round(averageRate), 5);
-    setAverageStar(copy);
-  };
-
   useEffect(() => {
+    const handleAverageStar = e => {
+      const copy = [...averageStar];
+      copy.fill(true, 0, Math.round(averageRate));
+      copy.fill(false, Math.round(averageRate), 5);
+      setAverageStar(copy);
+    };
     handleAverageStar();
   }, [averageRate]);
 
   const location = useLocation();
 
   useEffect(() => {
-    // fetch('/data/productDetail/review.json')
     fetch(
-      `http://10.58.0.93:8000/products/1/reviews${
+      `http://10.58.2.25:8000/products/${product.id}/reviews${
         location.search || `?limit=${postsPerPage}&offset=0`
       }`
     )

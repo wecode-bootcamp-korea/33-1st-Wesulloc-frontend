@@ -25,8 +25,8 @@ const ReviewModal = ({ setModal, product }) => {
   };
 
   const postReview = () => {
-    let token = localStorage.getItem('access_token') || '';
-    fetch(`http://10.58.0.93:8000/products/${product.id}/reviews`, {
+    let token = localStorage.getItem('token') || '';
+    fetch(`http://10.58.2.25:8000/products/${product.id}/reviews`, {
       headers: {
         Authorization: token,
       },
@@ -39,21 +39,16 @@ const ReviewModal = ({ setModal, product }) => {
       .then(res => {
         if (res.ok) {
           return res.json();
-        } else console.log(res.message);
+        }
       })
       .then(res => {
-        if (res.message === 'SUCCESS') {
+        if (res) {
           setStar([false, false, false, false, false]);
           setStarNum(0);
           setInput('');
           setModal(false);
         }
-        // setStar([false, false, false, false, false]);
-        // setStarNum(0);
-        // setInput('');
-        // setModal(false);
-      })
-      .catch(error => console.log(error));
+      });
   };
 
   useEffect(() => {
