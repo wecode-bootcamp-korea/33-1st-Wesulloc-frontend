@@ -26,7 +26,6 @@ const Router = () => {
         <Route path="/SummerGift" element={<SummerGift />} />
         <Route path="/productDetail" element={<ProductDetail />} />
         {authContext.isLoggedIn && <Route path="/cart" element={<Cart />} />}
-        <Route path="/cart" element={<Cart />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>

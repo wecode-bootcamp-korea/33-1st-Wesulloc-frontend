@@ -2,6 +2,8 @@
 
 .cartCheck {
   @include flexSpaceBetween;
+  align-items: center;
+  height: 3.5rem;
   padding: 1rem 0.5rem;
   border-bottom: 2px solid $textBlack;
 
@@ -33,9 +35,11 @@
     }
   }
 
-  button {
+  .selectedItemDeleteBtn {
+    width: 5rem;
     background-color: transparent;
     border: none;
+    border-radius: 0;
     border-left: $border;
     color: $textGray;
     font-size: 0.813rem;

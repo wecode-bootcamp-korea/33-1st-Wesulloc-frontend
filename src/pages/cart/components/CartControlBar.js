@@ -26,7 +26,9 @@ const CartControlBar = ({ onChecked, onClicked, checked }) => {
           전체선택
         </label>
       </div>
-      <button onClick={deleteItem}>선택 삭제</button>
+      <button className="selectedItemDeleteBtn" onClick={deleteItem}>
+        선택 삭제
+      </button>
     </div>
   );
 };
