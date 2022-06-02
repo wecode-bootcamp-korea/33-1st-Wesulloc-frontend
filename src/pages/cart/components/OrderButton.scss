@@ -1,0 +1,25 @@
+@import '../../../styles/variables.scss';
+
+.orderSelectedBtn {
+  border: $border;
+  border-radius: 0.3rem;
+  width: 10rem;
+  height: 3rem;
+  margin: 0 0.25rem;
+  background-color: $bgWhite;
+  color: $textBlack;
+  font-weight: $fontBold;
+  cursor: pointer;
+}
+
+.orderAllBtn {
+  border: $border;
+  border-radius: 0.3rem;
+  width: 10rem;
+  height: 3rem;
+  margin: 0 0.25rem;
+  background-color: $primaryColor;
+  color: $bgWhite;
+  font-weight: $fontBold;
+  cursor: pointer;
+}

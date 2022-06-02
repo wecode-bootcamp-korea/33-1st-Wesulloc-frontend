@@ -31,18 +31,18 @@ function Nav() {
         <div className="rightBox">
           <ul className="navUtility">
             <li className="item">
-              <i class="fa-solid fa-magnifying-glass" />
+              <i className="fa-solid fa-magnifying-glass" />
             </li>
             <li className="item">
-              <i class="fa-solid fa-cart-shopping" />
+              <i className="fa-solid fa-cart-shopping" />
             </li>
             <li className="item itemMore">
-              <i class="fa-solid fa-ellipsis-vertical" />
+              <i className="fa-solid fa-ellipsis-vertical" />
             </li>
           </ul>
           <ul className="navDrop">
             <li className="item">
-              <Link to="/" className="loginTitle">
+              <Link to="/login" className="loginTitle">
                 로그인
               </Link>
             </li>
@@ -70,4 +70,5 @@ const NAV_LIST = [
     title: '다다일상',
   },
 ];
+
 export default Nav;
