@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const buttonHandler = event => {
-    navigate('/terms');
+    navigate('/signup');
   };
 
   return (

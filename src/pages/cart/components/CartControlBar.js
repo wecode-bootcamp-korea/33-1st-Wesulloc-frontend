@@ -20,11 +20,15 @@ const CartControlBar = ({ onChecked, onClicked, checked }) => {
           onChange={checkboxHandler}
         />
         <label htmlFor="checkAll">
-          <div />
+          <div>
+            <img src="/images/iconCheckWhite.png" alt="iconCheck" />
+          </div>
           전체선택
         </label>
       </div>
-      <button onClick={deleteItem}>선택 삭제</button>
+      <button className="selectedItemDeleteBtn" onClick={deleteItem}>
+        선택 삭제
+      </button>
     </div>
   );
 };

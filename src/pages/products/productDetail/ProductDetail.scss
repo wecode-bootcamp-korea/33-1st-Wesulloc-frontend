@@ -1,0 +1,29 @@
+@import '../../../styles/variables.scss';
+
+.productDetail {
+  button {
+    background: none;
+    border: none;
+  }
+
+  .sortMenu {
+    position: sticky;
+    top: 5rem;
+    padding: 0 1.87rem;
+    border-bottom: 2px solid #ececec;
+    background: transparent;
+    z-index: 3;
+
+    ul {
+      display: flex;
+      justify-content: center;
+
+      li {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        margin: 0 3.75rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../../styles/variables.scss';
+
+input {
+  width: 23.625rem;
+  height: 3rem;
+  margin: 1rem 0 0.5rem 0;
+  border: $border;
+  border-radius: 0.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input.valid {
+  border-color: $secondaryColor;
+}
+
+input.invalid {
+  border-color: $accentColor;
+}
+
+p.valid {
+  width: 23.625rem;
+  color: $secondaryColor;
+  font-size: 0.875rem;
+  font-weight: $fontBold;
+}
+
+p.invalid {
+  width: 23.625rem;
+  color: $accentColor;
+  font-size: 0.875rem;
+  font-weight: $fontBold;
+}
+
+button {
+  width: 23.625rem;
+  height: 3rem;
+  margin: 1rem 0;
+  border: $border;
+  border-radius: 0.5rem;
+  background-color: $primaryColor;
+  color: $bgWhite;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: $bgGray;
+    color: $textGray;
+    cursor: auto;
+  }
+}
