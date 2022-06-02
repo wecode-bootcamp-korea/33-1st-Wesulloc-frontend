@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .orderSelectedBtn {
   border: $border;
@@ -7,6 +7,7 @@
   height: 3rem;
   margin: 0 0.25rem;
   background-color: $bgWhite;
+  color: $textBlack;
   font-weight: $fontBold;
   cursor: pointer;
 }

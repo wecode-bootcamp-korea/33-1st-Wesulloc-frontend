@@ -1,6 +1,4 @@
-@import '../../styles/variables.scss';
-
-$urlCheckIcon: url(./images/chk_icon.png);
+@import '../../../styles/variables.scss';
 
 .cartItem {
   @include flexCenter;
@@ -28,14 +26,13 @@ $urlCheckIcon: url(./images/chk_icon.png);
     align-items: flex-start;
 
     div {
-      display: inline-block;
+      @include flexCenter;
+      justify-content: center;
       width: 1.375rem;
       height: 1.375rem;
       margin-right: 0.625rem;
       border: $border;
       border-radius: 0.2rem;
-      background: $urlCheckIcon 0 0 no-repeat;
-      background-position: center center;
       background-color: $bgWhite;
       vertical-align: middle;
     }
@@ -57,11 +54,6 @@ $urlCheckIcon: url(./images/chk_icon.png);
       a {
         color: $textBlack;
         font-size: 1rem;
-      }
-
-      p {
-        color: $textGray;
-        font-size: 0.8rem;
       }
     }
   }
