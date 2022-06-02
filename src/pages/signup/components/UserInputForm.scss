@@ -1,0 +1,6 @@
+@import '../../../styles/variables.scss';
+
+.signupSubmitForm {
+  @include flexColumn;
+  align-items: center;
+}
