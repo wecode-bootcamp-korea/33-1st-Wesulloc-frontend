@@ -47,7 +47,7 @@ const LoginInputForm = () => {
 
   async function login(input) {
     try {
-      const response = await fetch('http://10.58.0.93:8000/user/login', {
+      const response = await fetch('http://10.58.2.25:8000/user/login', {
         method: 'POST',
         body: JSON.stringify({
           user_account: input.id,

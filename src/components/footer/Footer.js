@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Footer.scss';
+import AuthContext from '../../Context/authContext';
 
 function Footer() {
+  const authContext = useContext(AuthContext);
   return (
     <div className="footer">
       <div className="topSection">
         <div className="footerBar">
           <div className="loginSns">
-            <button className="loginBtn">로그인</button>
+            {!authContext.isLoggedIn && (
+              <button className="loginBtn">로그인</button>
+            )}
+            {authContext.isLoggedIn && (
+              <button
+                className="loginBtn"
+                onClick={() => {
+                  authContext.logout();
+                }}
+              >
+                로그아웃
+              </button>
+            )}
             <div className="sns">
               <img
                 className="fb"
@@ -105,7 +119,7 @@ function Footer() {
         <div className="bottomInfo">
           <div className="smallInfo">
             <img
-              src="https://www.osulloc.com/kr/ko/static_renew/images/f_logo.png?quality=80"
+              src="/images/footerLogoGray.png"
               alt="footerLogo"
               className="footerLogo"
             />
@@ -128,7 +142,7 @@ function Footer() {
                     통신판매업신고번호:2019-서울용산-1173호 호스팅제공자:
                     ㈜오설록
                   </span>
-                  <button>사업자 정보확인</button>
+                  <button>사업자 정보확인 </button>
                 </div>
                 <div className="bottomText">
                   <span>

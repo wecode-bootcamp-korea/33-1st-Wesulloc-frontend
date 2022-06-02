@@ -8,7 +8,7 @@
   width: 100%;
   height: 5rem;
   background-color: $border;
-  background: linear-gradient(to top, transparent, rgb(153, 153, 153));
+  background: linear-gradient(to top, transparent, #a8a8a8);
   z-index: 100;
 
   .navInnerBox {
@@ -18,35 +18,6 @@
 
     .leftBox {
       @include flexCenter;
-
-      .navList {
-        @include flexCenter;
-        padding-left: 40px;
-
-        .navTitle {
-          color: $bgWhite;
-          padding: 0 0 0 6rem;
-        }
-      }
-      .navSubList {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1rem;
-        width: 5rem;
-        text-align: center;
-        background-color: #f1c40f;
-        .subItems {
-          position: relative;
-          width: 50rem;
-          background-color: aquamarine;
-          left: 7rem;
-          top: 5.7rem;
-          .navItems {
-            padding-bottom: 0.5rem;
-          }
-        }
-      }
     }
 
     .rightBox {
@@ -55,19 +26,70 @@
 
       .navUtility {
         @include flexSpaceBetween;
-        width: 5rem;
-      }
+        align-items: center;
+        position: relative;
 
-      .navDrop {
-        display: flex;
-        padding-left: 1rem;
-
-        .loginTitle {
-          color: $bgWhite;
+        .item {
+          width: 35px;
+          padding-right: 10px;
+          margin-left: 15px;
         }
+        .itemMore {
+          margin-left: 20px;
+          &:hover .dropBox1 {
+            display: block;
+          }
 
-        .loginTitle {
-          padding: 0 1rem 0 3rem;
+          .dropBox1 {
+            position: absolute;
+            margin-top: 10px;
+            padding: 10px;
+            color: black;
+            background: white;
+            border-radius: 3px;
+            font-size: 15px;
+            display: none;
+
+            .dropItems {
+              width: 100px;
+              top: 40px;
+              padding-bottom: 10px;
+            }
+          }
+        }
+      }
+      .navDrop {
+        margin-top: 25px;
+        display: flex;
+        .item {
+          width: 70px;
+          margin-bottom: 21px;
+          .loginTitle {
+            color: $bgWhite;
+          }
+        }
+        .dropItems {
+          .loginTitle2 {
+            width: 300px;
+            margin-bottom: 20px;
+            color: $bgWhite;
+          }
+        }
+        .item {
+          .logOut {
+            background-color: transparent;
+            border-style: hidden;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+          }
+        }
+      }
+      .lang {
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+        .itemArr {
         }
       }
     }
