@@ -61,9 +61,16 @@ const Cart = () => {
   };
 
   async function orderHandler(list) {
-    await fetch('https://fir-40252-default-rtdb.firebaseio.com/cart.json', {
+    const modifiedList = list.map(ele => {
+      return { product_id: ele.id, quantity: ele.amount };
+    });
+    await fetch('http://10.58.2.25:8000/carts', {
       method: 'POST',
-      body: JSON.stringify(list),
+      body: JSON.stringify(modifiedList),
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+      },
     });
   }
 

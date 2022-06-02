@@ -13,21 +13,15 @@ const CartItemList = ({
   const [error, setError] = useState(null);
   const [totalCheckboxisChecked, setTotalCheckboxisChecked] = useState(true);
 
-  const fetchItemsHandler = useCallback(async () => {
+  const getFetchItems = useCallback(async () => {
     setError(null);
     try {
-      const response = await fetch(
-        // 목데이터 검증용
-        // 'https://fir-40252-default-rtdb.firebaseio.com/cart.json'
-        'http://10.58.0.93:8000/carts',
-        {
-          headers: {
-            Authorization:
-              // 아래 키는 임시 키로 추후 삭제할 것
-              'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
-          },
-        }
-      );
+      const response = await fetch('http://10.58.2.25:8000/carts', {
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+        },
+      });
       if (!response.ok) {
         throw new Error('상품을 불러오는 과정에서 문제가 발생했습니다.');
       }
@@ -35,24 +29,117 @@ const CartItemList = ({
       const data = await response.json();
       const list = data.results.map(obj => {
         return {
+          cartId: obj.cart_id,
           id: obj.product_id,
           name: obj.product_name,
           price: +obj.price,
           amount: +obj.quantity,
           src: obj.product_img,
+          isChecked: true,
         };
       });
+
       setItemList(list);
     } catch (error) {
       setError(error.message);
     }
   }, []);
 
-  async function deleteItemHandler(list) {
-    await fetch('https://fir-40252-default-rtdb.firebaseio.com/cart.json', {
-      method: 'PUT',
-      body: JSON.stringify(list),
+  async function patchAmount(cartId, amount) {
+    const response = await fetch(`http://10.58.2.25:8000/carts/${cartId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ quantity: amount }),
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+      },
     });
+
+    const data = await response.json();
+
+    if (data.message === 'SUCCESS') {
+      const response = await fetch(`http://10.58.2.25:8000/carts`, {
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+        },
+      });
+
+      const data = await response.json();
+      const patcheditem = data.results
+        .map(obj => {
+          return {
+            cartId: obj.cart_id,
+            id: obj.product_id,
+            name: obj.product_name,
+            price: +obj.price,
+            amount: +obj.quantity,
+            src: obj.product_img,
+            isChecked: true,
+          };
+        })
+        .filter(obj => {
+          return obj.cartId === cartId;
+        });
+
+      setItemList(prevState => {
+        return prevState.map(obj => {
+          if (obj.cartId === cartId) {
+            return patcheditem[0];
+          } else {
+            return obj;
+          }
+        });
+      });
+    }
+  }
+
+  async function deleteFetchItem(list) {
+    const queryDeleteCartId = list.map(ele => {
+      return ele.cartId;
+    });
+    const response = await fetch(
+      `http://10.58.2.25:8000/carts?cart_id=${queryDeleteCartId.join(
+        '&cart_id='
+      )}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+        },
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.message === 'SUCCESS') {
+      const response = await fetch('http://10.58.2.25:8000/carts', {
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+        },
+      });
+
+      const data = await response.json();
+      const filteredlist = data.results
+        .filter(ele => {
+          return !queryDeleteCartId.includes(ele.cart_id);
+        })
+        .map(obj => {
+          return {
+            cartId: obj.cart_id,
+            id: obj.product_id,
+            name: obj.product_name,
+            price: +obj.price,
+            amount: +obj.quantity,
+            src: obj.product_img,
+            isChecked: true,
+          };
+        });
+
+      setItemList(filteredlist);
+    }
   }
 
   const totalCheckboxHandler = value => {
@@ -65,19 +152,14 @@ const CartItemList = ({
   };
 
   const deleteItems = () => {
-    setItemList(prevState => {
-      return prevState.filter(obj => {
-        return !obj.isChecked;
-      });
+    const deleteItemList = itemList.filter(obj => {
+      return obj.isChecked;
     });
-    deleteItemHandler(
-      itemList.filter(obj => {
-        return !obj.isChecked;
-      })
-    );
+
+    deleteFetchItem(deleteItemList);
   };
 
-  const onChangeProps = (id, key, value) => {
+  const onChangecheck = (id, key, value) => {
     setItemList(prevState => {
       return prevState.map(obj => {
         if (obj.id === id) {
@@ -98,8 +180,8 @@ const CartItemList = ({
   }, [itemList, onChangeCost, onChangeList]);
 
   useEffect(() => {
-    fetchItemsHandler();
-  }, [fetchItemsHandler]);
+    getFetchItems();
+  }, [getFetchItems]);
 
   return (
     <div className="cartItemList">
@@ -118,7 +200,8 @@ const CartItemList = ({
             <CartItem
               key={item.id}
               item={item}
-              onChangeProps={onChangeProps}
+              onChangecheck={onChangecheck}
+              onChangeAmount={patchAmount}
               onErrorInput={onErrorInput}
               onClickBtn={onClickBtn}
             />
