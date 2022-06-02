@@ -9,51 +9,84 @@ import './ProductList.scss';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState('');
-  const [sort, setSort] = useState('');
+  const [category, setCategory] = useState('전체상품');
+  const [filterColor, setFilterColor] = useState(1);
+  const [sortStyle, setSortStyle] = useState(1);
+  const [filterValue, setFilterValue] = useState({
+    categoryValue: '',
+    sortValue: '',
+    offsetValue: '',
+  });
+
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://10.58.0.93:8000/products`)
-      .then(res => res.json())
-      .then(productsData => setProducts(productsData.results));
-  }, []);
-
-  useEffect(() => {
-    fetch(`http://10.58.0.93:8000/products${location.search}`)
+    fetch(`http://10.58.2.25:8000/products${location.search}`)
       .then(res => res.json())
       .then(data => {
         setProducts(data.results);
-        setCategory(data.results);
-        setSort(data.results);
       });
   }, [location.search]);
 
-  const goToDetail = id => {
-    navigate(`/ProductList/${id}`);
-  };
+  useEffect(() => {
+    const queryString = `?${
+      filterValue.categoryValue
+        ? `${
+            filterValue.categoryValue === 1
+              ? `main_categories=${filterValue.categoryValue}`
+              : `category=${filterValue.categoryValue}`
+          }`
+        : ''
+    }${filterValue.sortValue ? `&sort=${filterValue.sortValue}` : ''}${
+      filterValue.offsetValue ? `${filterValue.offsetValue}` : ''
+    }`;
+    navigate(queryString);
+  }, [
+    filterValue.categoryValue,
+    filterValue.sortValue,
+    filterValue.offsetValue,
+  ]);
 
   const getButtonIndex = buttonIndex => {
     const limit = 12;
     const offset = buttonIndex * limit;
-    const paginationQueryString = `?offset=${offset}&limit=${limit}`;
-    navigate(`${paginationQueryString}`);
+    const queryString = `&offset=${offset}&limit=${limit}`;
+    setFilterValue(prev => {
+      return { ...prev, offsetValue: queryString };
+    });
   };
 
-  const getCategoryIndex = categoryIndex => {
-    const category = Number(categoryIndex) + 1;
+  const checkFilter = (value, name) => {
+    if (value < 2) {
+      setFilterValue(prev => {
+        return { ...prev, categoryValue: Number(value) };
+      });
+    } else {
+      const pageButtons = document.querySelector('.paginationButtons');
 
-    if (Number(categoryIndex) === 1) {
-      const categoryQueryString = `?main_categories=${category}`;
-      navigate(`${categoryQueryString}`);
-    } else if (Number(categoryIndex) !== 1) {
-      const categoryQueryString = `?category=${category}`;
-      navigate(`${categoryQueryString}`);
+      setFilterValue(prev => {
+        return { ...prev, categoryValue: Number(value) + 1 };
+      });
+      pageButtons.style.display = 'none';
     }
+    setCategory(name);
+    setFilterColor('');
   };
 
-  const getSortIndex = sortIndex => {};
+  const checkSort = value => {
+    setFilterValue(prev => {
+      return { ...prev, sortValue: value };
+    });
+  };
+
+  const filterColorChange = value => {
+    setFilterColor(value);
+  };
+
+  const sortStyleChange = value => {
+    setSortStyle(value);
+  };
 
   return (
     <>
@@ -62,13 +95,21 @@ const ProductList = () => {
         <div className="productCategoryOption">
           <span>티 제품</span>
           <ul>
-            <CategoryFilterTab getCategoryIndex={getCategoryIndex} />
+            <CategoryFilterTab
+              checkFilter={checkFilter}
+              filterColor={filterColor}
+              filterColorChange={filterColorChange}
+            />
           </ul>
         </div>
         <article className="contentWrapper">
           <div className="sortTabs">
-            <span>티세트</span>
-            <ProductSortTab getSortIndex={getSortIndex} />
+            <span>{category}</span>
+            <ProductSortTab
+              checkSort={checkSort}
+              sortStyle={sortStyle}
+              sortStyleChange={sortStyleChange}
+            />
           </div>
           <span className="productNumberText">
             총 {products.length}개의 상품이 있습니다.
@@ -76,11 +117,7 @@ const ProductList = () => {
           <ul className="productList">
             {products[0] &&
               products.map(productsData => (
-                <ProductItems
-                  key={productsData.id}
-                  data={productsData}
-                  onClick={goToDetail}
-                />
+                <ProductItems key={productsData.id} data={productsData} />
               ))}
           </ul>
           <Pagination getButtonIndex={getButtonIndex} />

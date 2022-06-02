@@ -1,47 +1,57 @@
 import React from 'react';
 
-const ProductSortTab = ({ getSortIndex }) => {
+const ProductSortTab = ({ checkSort, sortStyle, sortStyleChange }) => {
   return (
-    <ul>
-      {SORTING_LIST.map(data => (
-        <li key={data.id}>
-          <button
-            type="button"
-            className="sortButton"
-            value={data.id}
-            onClick={e => {
-              console.log(e.target.value);
-              getSortIndex(e.target.value);
-            }}
-          >
-            {data.sortingItem}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <span>{SORTING_LIST.name}</span>
+      <ul>
+        {SORTING_LIST.map(data => (
+          <li key={data.id}>
+            <button
+              type="button"
+              className={
+                sortStyle === data.id ? `styleChangedSortButton` : `sortButton`
+              }
+              value={data.value}
+              onClick={e => {
+                checkSort(e.target.value);
+                sortStyleChange(data.id);
+              }}
+            >
+              {data.name}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
 const SORTING_LIST = [
   {
     id: 1,
-    sortingItem: '리뷰많은순',
+    name: '리뷰많은순',
+    value: 'reviews',
   },
   {
     id: 2,
-    sortingItem: '판매순',
+    name: '판매순',
+    value: 'sales',
   },
   {
     id: 3,
-    sortingItem: '신상품순',
+    name: '신상품순',
+    value: 'new',
   },
   {
     id: 4,
-    sortingItem: '높은 가격순',
+    name: '높은 가격순',
+    value: 'price_desc',
   },
   {
     id: 5,
-    sortingItem: '낮은 가격순',
+    name: '낮은 가격순',
+    value: 'price_asc',
   },
 ];
 

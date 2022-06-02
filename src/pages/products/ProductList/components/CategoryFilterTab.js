@@ -1,16 +1,22 @@
 import React from 'react';
 
-const CategoryFilterTab = ({ getCategoryIndex }) => {
+const CategoryFilterTab = ({ checkFilter, filterColor, filterColorChange }) => {
   return (
     <form>
       {CATEGORY_LIST.map(data => (
         <li key={data.id}>
           <button
             type="button"
-            className="categoryButton"
+            className={
+              filterColor === data.id
+                ? `activedCategoryButton`
+                : `categoryButton`
+            }
             value={data.id}
+            name={data.categoryName}
             onClick={e => {
-              getCategoryIndex(e.target.value);
+              checkFilter(e.target.value, e.target.name);
+              filterColorChange(data.id);
             }}
           >
             {data.categoryName}

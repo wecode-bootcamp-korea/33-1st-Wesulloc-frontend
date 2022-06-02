@@ -108,7 +108,17 @@
       li {
         margin: 0 0 1.275rem 0.5rem;
 
+        .activedCategoryButton {
+          color: $primaryColor;
+          font-size: 1.125rem;
+          font-weight: $fontBold;
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
         .categoryButton {
+          color: $textBlack;
           font-size: 1.125rem;
           border: 0;
           background-color: transparent;
@@ -122,11 +132,12 @@
     width: 55rem;
     display: flex;
     flex-direction: column;
+    margin-bottom: 5rem;
 
     .sortTabs {
       @include flexSpaceBetween;
       margin-bottom: 2rem;
-      padding-bottom: 1.25rem;
+      // padding-bottom: 1.25rem;
       font-size: 1.25rem;
       font-weight: 500;
       border-bottom: $border;
@@ -136,6 +147,20 @@
         li {
           float: left;
           margin-left: 1rem;
+
+          .styleChangedSortButton {
+            font-size: 1.125rem;
+            color: $primaryColor;
+            border: 0;
+            padding-bottom: 1rem;
+            background-color: transparent;
+            border-bottom: 2px solid $primaryColor;
+            cursor: pointer;
+
+            &:first-child {
+              margin-left: 0;
+            }
+          }
 
           .sortButton {
             font-size: 1.125rem;
@@ -158,11 +183,11 @@
 
     .productList {
       position: relative;
+      margin-bottom: 3rem;
 
       .product {
         position: relative;
         float: left;
-        padding-bottom: 3.75rem;
         padding-right: 1.3%;
         padding-left: 1.3%;
         width: 25%;
@@ -221,10 +246,10 @@
       }
     }
     .paginationButtons {
-      margin: 3rem 0;
+      margin: 0 0 3rem 0;
       text-align: center;
 
-      button {
+      .pageButton {
         width: 2.5rem;
         height: 2.5rem;
         border: 0;

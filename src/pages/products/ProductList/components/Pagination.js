@@ -3,22 +3,28 @@ import React from 'react';
 const Pagination = ({ getButtonIndex }) => {
   return (
     <div className="paginationButtons">
-      <button
-        onClick={e => {
-          getButtonIndex(e.target.innerHTML - 1);
-        }}
-      >
-        1
-      </button>
-      <button
-        onClick={e => {
-          getButtonIndex(e.target.innerHTML - 1);
-        }}
-      >
-        2
-      </button>
+      {PAGINATION_LIST.map(data => (
+        <button
+          className="pageButton"
+          key={data.id}
+          onClick={e => {
+            getButtonIndex(e.target.innerHTML - 1);
+          }}
+        >
+          {data.id}
+        </button>
+      ))}
     </div>
   );
 };
+
+const PAGINATION_LIST = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+];
 
 export default Pagination;
