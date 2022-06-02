@@ -58,7 +58,7 @@ const CATEGORY_LIST = [
   },
   {
     id: 8,
-    categoryName: '티밀크티/아이스티',
+    categoryName: '밀크티/아이스티',
   },
 ];
 

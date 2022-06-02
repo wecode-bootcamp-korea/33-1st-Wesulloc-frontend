@@ -5,14 +5,15 @@ const BestProductItems = ({ data }) => {
 
   return (
     <li className="product" key={id}>
-      <div className="productImageBox">
-        <span>{id}</span>
-        <img className="productImage" src={img_url} alt={name} />
-      </div>
-      <div className="productTextBox">
-        <p>{name}</p>
-        <p>{price}</p>
-      </div>
+      <button>
+        <div className="productImageBox">
+          <img className="productImage" src={img_url} alt={name} />
+        </div>
+        <div className="productTextBox">
+          <p>{name}</p>
+          <p>{price}원</p>
+        </div>
+      </button>
     </li>
   );
 };
