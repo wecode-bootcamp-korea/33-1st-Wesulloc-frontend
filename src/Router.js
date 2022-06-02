@@ -21,8 +21,8 @@ const Router = () => {
           <Route path="/signup" element={<Signup />} />
         )}
         <Route path="/ProductList" element={<ProductList />} />
+        <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/Product" element={<BestProductList />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
         {authContext.isLoggedIn && <Route path="/cart" element={<Cart />} />}
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
