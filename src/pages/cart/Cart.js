@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import CartItemList from './CartItemList';
-import OrderButton from './OrderButton';
-import SideBar from './SideBar';
-import FreeGift from './FreeGift';
+import CartItemList from './components/CartItemList';
+import OrderButton from './components/OrderButton';
+import SideBar from './components/SideBar';
+import FreeGift from './components/FreeGift';
 import ErrorModal from './components/ErrorModal';
+import Nav from '../../components/nav/Nav';
+import Footer from '../../components/footer/Footer';
 import './Cart.scss';
 
 const Cart = () => {
@@ -31,6 +33,7 @@ const Cart = () => {
         return item.id === id;
       });
       alert(`${orderedItemList[0].name} 제품을 주문합니다.`);
+      orderHandler(orderedItemList);
       return;
     }
 
@@ -49,17 +52,34 @@ const Cart = () => {
           orderedItemList = obj.isOrderAll
             ? [...itemList]
             : [...checkedItemList];
+
           alert(obj.message);
+          orderHandler(orderedItemList);
         }
       }
     });
   };
+
+  async function orderHandler(list) {
+    const modifiedList = list.map(ele => {
+      return { product_id: ele.id, quantity: ele.amount };
+    });
+    await fetch('http://10.58.2.25:8000/carts', {
+      method: 'POST',
+      body: JSON.stringify(modifiedList),
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+      },
+    });
+  }
 
   return (
     <>
       {isError && (
         <ErrorModal message={ERROR[isError]} errorHandler={errorHandler} />
       )}
+      <Nav />
       <section className="cart">
         <div className="cartPageTitle">
           <div className="cartTitleWrapper">
@@ -83,6 +103,7 @@ const Cart = () => {
           <SideBar totalPrice={totalPrice} onClickBtn={onClickBtn} />
         </div>
       </section>
+      <Footer />
     </>
   );
 };

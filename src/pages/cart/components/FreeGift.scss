@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .freeGift {
   .title {
@@ -24,7 +24,8 @@
         font-weight: $fontBold;
       }
 
-      button {
+      .toggleBtn {
+        width: 1rem;
         margin-left: 1rem;
         border: none;
         background-color: transparent;
@@ -50,8 +51,10 @@
         margin-right: 2.5rem;
 
         img {
-          width: 6.25rem;
-          height: 6.25rem;
+          width: 6rem;
+          height: 6rem;
+          margin-bottom: 0.5rem;
+          object-fit: cover;
         }
 
         p {

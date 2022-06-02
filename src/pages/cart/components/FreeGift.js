@@ -15,7 +15,7 @@ const FreeGift = () => {
         <p>사은품 증정</p>
         <div className="buttonWrapper">
           <p>3만원 이상 (시트마스크 2입)외 2종</p>
-          <button onClick={btnHandler}>
+          <button className="toggleBtn" onClick={btnHandler}>
             {isOpen && <i className="fa-solid fa-angle-up" />}
             {!isOpen && <i className="fa-solid fa-angle-down" />}
           </button>
@@ -25,12 +25,12 @@ const FreeGift = () => {
         <div className="contentBox">
           <div className="giftList">
             <div className="imgWrapper">
-              <img src="" alt="gift" />
-              <p>3만원 이상 (시트마스크 2입)</p>
+              <img src="images/CartFreeGift01.jpeg" alt="gift" />
+              <p>3만원 이상 (찻잔)</p>
             </div>
             <div className="imgWrapper">
-              <img src="" alt="gift" />
-              <p>5만원 이상 (워터플러스 2입)</p>
+              <img src="images/CartFreeGift02.jpeg" alt="gift" />
+              <p>5만원 이상 (녹차 로션)</p>
             </div>
           </div>
           <div className="description">

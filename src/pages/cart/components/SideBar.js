@@ -14,10 +14,6 @@ const SideBar = ({ totalPrice, onClickBtn }) => {
         return `+${totalPrice.toLocaleString('en')}원`;
       case '상품 할인':
         return '-0원';
-      case '포장비':
-        return '+0원';
-      case '부가 쇼핑백':
-        return '+0원';
       case '배송비':
         return `+${deliveryCost.toLocaleString('en')}원`;
       default:
@@ -64,14 +60,6 @@ const PRICE_CATEGORY_LIST = [
   },
   {
     id: 3,
-    title: '포장비',
-  },
-  {
-    id: 4,
-    title: '부가 쇼핑백',
-  },
-  {
-    id: 5,
     title: '배송비',
   },
 ];
