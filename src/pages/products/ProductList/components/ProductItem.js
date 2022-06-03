@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const ProductItem = ({ data }) => {
+const ProductItem = ({ data, goToDetail }) => {
   const { id, name, price, img_url } = data;
+  const [isHover, setIsHover] = useState(false);
 
   return (
-    <li className="product" key={id}>
+    <li className="product" key={id} onClick={() => goToDetail(id)}>
       <button>
         <div className="productImageBox">
-          <img className="productImage" src={img_url} alt={name} />
+          <img
+            className="productImage"
+            src={isHover ? img_url[1] : img_url[0]}
+            onMouseOver={() => setIsHover(true)}
+            onMouseOut={() => setIsHover(false)}
+            alt={name}
+          />
         </div>
         <div className="productTextBox">
           <p>{name}</p>

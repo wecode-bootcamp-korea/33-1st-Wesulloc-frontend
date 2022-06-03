@@ -39,21 +39,3 @@ p.invalid {
   font-size: 0.875rem;
   font-weight: $fontBold;
 }
-
-button {
-  width: 23.625rem;
-  height: 3rem;
-  margin: 1rem 0;
-  border: $border;
-  border-radius: 0.5rem;
-  background-color: $primaryColor;
-  color: $bgWhite;
-  font-size: 1rem;
-  cursor: pointer;
-
-  &:disabled {
-    background-color: $bgGray;
-    color: $textGray;
-    cursor: auto;
-  }
-}
