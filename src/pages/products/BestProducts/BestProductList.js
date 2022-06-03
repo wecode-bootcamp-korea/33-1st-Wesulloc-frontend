@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Nav from '../../../components/nav/Nav';
 import BestButtons from './components/BestButtons';
 import BestProductItems from './components/BestProductItems';
+import Footer from '../../../components/footer/Footer';
 import './BestProductsList.scss';
 
 const WeeklyBest = () => {
@@ -36,20 +38,24 @@ const WeeklyBest = () => {
   };
 
   return (
-    <article className="recommendContents">
-      <BestButtons
-        checkBestValue={checkBestValue}
-        buttonColor={buttonColor}
-        buttonColorChange={buttonColorChange}
-      />
-      <div className="productListWrapper">
-        <ul className="productList">
-          {productList.map(productsData => (
-            <BestProductItems key={productsData.id} data={productsData} />
-          ))}
-        </ul>
-      </div>
-    </article>
+    <>
+      <Nav />
+      <article className="recommendContents">
+        <BestButtons
+          checkBestValue={checkBestValue}
+          buttonColor={buttonColor}
+          buttonColorChange={buttonColorChange}
+        />
+        <div className="productListWrapper">
+          <ul className="productList">
+            {productList.map(productsData => (
+              <BestProductItems key={productsData.id} data={productsData} />
+            ))}
+          </ul>
+        </div>
+      </article>
+      <Footer />
+    </>
   );
 };
 

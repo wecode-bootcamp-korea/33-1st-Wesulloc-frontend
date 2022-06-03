@@ -23,10 +23,13 @@
         position: relative;
         float: left;
         color: $bgWhite;
-        background-color: orange;
 
-        &:nth-child(2n) {
-          background-color: blue;
+        .slideCoverImage {
+          position: absolute;
+          top: 0;
+          object-fit: cover;
+          width: 100%;
+          z-index: -1;
         }
 
         .slideTextBox {
@@ -211,6 +214,8 @@
             .productImage {
               height: 14rem;
               overflow: hidden;
+              width: 100%;
+              object-fit: cover;
             }
 
             span {

@@ -8,7 +8,7 @@ function NavItems({ currentMenuId, setCurrentId }) {
   //경로설정
   const moveToProduct = id => {
     const queryString = `?main_category=${id}`;
-    navigate(`products${queryString}`);
+    navigate(`/products${queryString}`);
   };
 
   const goToSubCategory = (id, subtitle) => {
@@ -17,7 +17,7 @@ function NavItems({ currentMenuId, setCurrentId }) {
       navigate(`/products${queryString}`);
     } else if (subtitle === '티제품') {
       const subQueryString = `?category=${id + 2}`;
-      navigate(`/products${subQueryString}`);
+      navigate(`/ProductList${subQueryString}`);
     }
     //티제품은 3부터시작
   };

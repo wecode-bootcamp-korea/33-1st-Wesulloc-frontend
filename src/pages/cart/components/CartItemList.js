@@ -18,8 +18,7 @@ const CartItemList = ({
     try {
       const response = await fetch('http://10.58.2.25:8000/carts', {
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+          Authorization: localStorage.getItem('token'),
         },
       });
       if (!response.ok) {
@@ -50,8 +49,7 @@ const CartItemList = ({
       method: 'PATCH',
       body: JSON.stringify({ quantity: amount }),
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+        Authorization: localStorage.getItem('token'),
       },
     });
 
@@ -60,8 +58,7 @@ const CartItemList = ({
     if (data.message === 'SUCCESS') {
       const response = await fetch(`http://10.58.2.25:8000/carts`, {
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+          Authorization: localStorage.getItem('token'),
         },
       });
 
@@ -105,8 +102,7 @@ const CartItemList = ({
       {
         method: 'DELETE',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+          Authorization: localStorage.getItem('token'),
         },
       }
     );
@@ -116,8 +112,7 @@ const CartItemList = ({
     if (data.message === 'SUCCESS') {
       const response = await fetch('http://10.58.2.25:8000/carts', {
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+          Authorization: localStorage.getItem('token'),
         },
       });
 
