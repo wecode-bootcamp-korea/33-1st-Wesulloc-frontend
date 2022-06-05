@@ -81,6 +81,11 @@ const Slides = () => {
                 <span className="slideContent">{data.content1}</span>
                 <span className="slideContent">{data.content2}</span>
               </div>
+              <img
+                className="slideCoverImage"
+                src={data.img_url}
+                alt={data.name}
+              />
             </li>
           ))}
         </ul>
@@ -100,7 +105,8 @@ const SLIDE_LIST = [
     name: '명차',
     content1: '고귀하고 품격 있는 티 라이프를 위한',
     content2: '오설록의 명차 라인입니다.',
-    img_url: '',
+    img_url:
+      'https://images.unsplash.com/photo-1546852199-2d8e8c4aaada?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
   },
 
   {
@@ -108,18 +114,24 @@ const SLIDE_LIST = [
     name: '녹차/발효차/홍차',
     content1: '유기농 제주 차밭에서 자란',
     content2: '우리 녹차 발효차 라인입니다.',
+    img_url:
+      'https://images.unsplash.com/photo-1582793988951-9aed5509eb97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
   },
   {
     id: 3,
     name: '허브티',
     content1: '꽃잎, 과일향이 가득한',
     content2: '풍미가 돋보이는 라인입니다.',
+    img_url:
+      'https://images.unsplash.com/photo-1514733670139-4d87a1941d55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2678&q=80',
   },
   {
     id: 4,
     name: '블렌디드티',
     content1: '제주의 다양한 품경과',
     content2: '꽃내음을 담았습니다.',
+    img_url:
+      'https://images.unsplash.com/38/QoR8Bv1S2SEqH6UcSJCA_Tea.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
   },
 ];
 

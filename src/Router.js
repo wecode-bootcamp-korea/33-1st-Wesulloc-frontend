@@ -22,7 +22,7 @@ const Router = () => {
         )}
         <Route path="/ProductList" element={<ProductList />} />
         <Route path="/productDetail/:id" element={<ProductDetail />} />
-        <Route path="/Product" element={<BestProductList />} />
+        <Route path="/Products" element={<BestProductList />} />
         {authContext.isLoggedIn && <Route path="/cart" element={<Cart />} />}
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>

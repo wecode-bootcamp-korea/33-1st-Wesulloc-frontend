@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Nav from '../../../components/nav/Nav';
 import Slides from './components/Slides';
 import CategoryFilterTab from './components/CategoryFilterTab';
 import ProductSortTab from './components/ProductSortTab';
 import ProductItems from './components/ProductItem';
 import Pagination from './components/Pagination';
+import Footer from '../../../components/footer/Footer';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -20,6 +22,10 @@ const ProductList = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const goToDetail = id => {
+    navigate(`/productdetail/${id}`);
+  };
 
   useEffect(() => {
     fetch(`http://10.58.2.25:8000/products${location.search}`)
@@ -90,6 +96,7 @@ const ProductList = () => {
 
   return (
     <>
+      <Nav />
       <Slides />
       <section className="productContentsWrapper">
         <div className="productCategoryOption">
@@ -117,12 +124,17 @@ const ProductList = () => {
           <ul className="productList">
             {products[0] &&
               products.map(productsData => (
-                <ProductItems key={productsData.id} data={productsData} />
+                <ProductItems
+                  key={productsData.id}
+                  data={productsData}
+                  goToDetail={goToDetail}
+                />
               ))}
           </ul>
           <Pagination getButtonIndex={getButtonIndex} />
         </article>
       </section>
+      <Footer />
     </>
   );
 };
