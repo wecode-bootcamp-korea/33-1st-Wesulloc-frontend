@@ -68,8 +68,7 @@ const Cart = () => {
       method: 'POST',
       body: JSON.stringify(modifiedList),
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ODN9.pgdnKZESQ3f1OdGWYZ4KHpmNjb0vwYJDhxYHTEbkONY',
+        Authorization: localStorage.getItem('token'),
       },
     });
   }

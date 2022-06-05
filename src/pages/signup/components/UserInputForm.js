@@ -65,7 +65,7 @@ const UserInputForm = ({ termsAgreementList, isAgreeTerms }) => {
 
   async function signupHandler(submitData) {
     try {
-      const response = await fetch('http://10.58.0.93:8000/user/signup', {
+      const response = await fetch('http://10.58.2.25:8000/user/signup', {
         method: 'POST',
         body: JSON.stringify({
           user_account: submitData.id,
