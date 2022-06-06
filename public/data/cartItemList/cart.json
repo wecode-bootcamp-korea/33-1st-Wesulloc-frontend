@@ -1,0 +1,83 @@
+[
+  {
+    "user_id": 83,
+    "cart_id": 33,
+    "product_id": 1,
+    "product_name": "영귤섬 아이스티",
+    "product_img": "www.naver.com",
+    "price": "13000",
+    "quantity": 1
+  },
+  {
+    "user_id": 83,
+    "cart_id": 34,
+    "product_id": 2,
+    "product_name": "프리미엄 티 컬렉션",
+    "product_img": "www.naver.com",
+    "price": "28000",
+    "quantity": 2
+  },
+  {
+    "user_id": 83,
+    "cart_id": 35,
+    "product_id": 3,
+    "product_name": "러블리 티 박스",
+    "product_img": "www.naver.com",
+    "price": "20000",
+    "quantity": 3
+  },
+  {
+    "user_id": 83,
+    "cart_id": 36,
+    "product_id": 4,
+    "product_name": "제주 동백꽃 티",
+    "product_img": "www.naver.com",
+    "price": "9500",
+    "quantity": 4
+  },
+  {
+    "user_id": 83,
+    "cart_id": 37,
+    "product_id": 5,
+    "product_name": "산호섬 아이스티",
+    "product_img": "www.naver.com",
+    "price": "13000",
+    "quantity": 5
+  },
+  {
+    "user_id": 83,
+    "cart_id": 38,
+    "product_id": 6,
+    "product_name": "일로향 60g",
+    "product_img": "www.naver.com",
+    "price": "170000",
+    "quantity": 6
+  },
+  {
+    "user_id": 83,
+    "cart_id": 39,
+    "product_id": 7,
+    "product_name": "홍우전 60g",
+    "product_img": "www.naver.com",
+    "price": "90000",
+    "quantity": 7
+  },
+  {
+    "user_id": 83,
+    "cart_id": 40,
+    "product_id": 8,
+    "product_name": "달빛걷기 20입",
+    "product_img": "www.naver.com",
+    "price": "23000",
+    "quantity": 8
+  },
+  {
+    "user_id": 83,
+    "cart_id": 41,
+    "product_id": 9,
+    "product_name": "제주숲홍차 80g",
+    "product_img": "www.naver.com",
+    "price": "40000",
+    "quantity": 9
+  }
+]

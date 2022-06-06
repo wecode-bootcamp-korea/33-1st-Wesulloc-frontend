@@ -1,13 +1,17 @@
+import { useContext } from 'react';
+import CartContext from '../../../Context/cartContext';
 import './CartControlBar.scss';
 
-const CartControlBar = ({ onChecked, onClicked, checked }) => {
+const CartControlBar = () => {
+  const cartContext = useContext(CartContext);
+
   const checkboxHandler = event => {
-    onChecked(event.target.checked);
+    cartContext.totalCheckboxCheck(event.target.checked);
   };
 
   const deleteItem = event => {
     event.preventDefault();
-    onClicked();
+    cartContext.deleteItems();
   };
 
   return (
@@ -16,7 +20,7 @@ const CartControlBar = ({ onChecked, onClicked, checked }) => {
         <input
           id="checkAll"
           type="checkbox"
-          checked={checked}
+          checked={cartContext.totalCheckboxisChecked}
           onChange={checkboxHandler}
         />
         <label htmlFor="checkAll">

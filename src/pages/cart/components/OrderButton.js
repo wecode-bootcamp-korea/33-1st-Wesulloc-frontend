@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+import CartContext from '../../../Context/cartContext';
 import './OrderButton.scss';
 
-const OrderButton = ({ category, onClickBtn }) => {
+const OrderButton = ({ category }) => {
+  const cartContext = useContext(CartContext);
+
   const orderHandler = event => {
     event.preventDefault();
-    onClickBtn(null, event.target.className);
+    cartContext.orderItems(null, event.target.className);
   };
 
   return (

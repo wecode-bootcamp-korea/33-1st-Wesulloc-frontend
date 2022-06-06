@@ -52,7 +52,11 @@ const UserInputForm = ({ termsAgreementList, isAgreeTerms }) => {
 
   const submitHandler = event => {
     event.preventDefault();
-    signupHandler({ ...userInfo, ...personalInfo });
+    // signupHandler({ ...userInfo, ...personalInfo });
+    // 프론트 검증을 위한 코드 (확인 후 삭제)
+    alert(`${userInfo.id}님 환영합니다.`);
+    navigate('/main');
+    // **
   };
 
   const listToObj = list => {
