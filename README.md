@@ -50,11 +50,6 @@ https://www.youtube.com/watch?v=hi08z17A2s0
     - 토큰 유무에 따른 로그인 및 로그아웃 액션 변화
     ```
   
- <img class="main" width="500" src="https://velog.velcdn.com/images/ka0son/post/ab231b47-4763-4c78-96f2-9fdb404fe807/image.gif"/>
- 
-![](https://velog.velcdn.com/images/ka0son/post/ab231b47-4763-4c78-96f2-9fdb404fe807/image.gif)
- 
-  
   * 메인페이지
 
     ```
