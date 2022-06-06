@@ -36,7 +36,7 @@ https://www.youtube.com/watch?v=hi08z17A2s0
 ## 구현 기능
 
 * Nav Bar & Footer, 메인페이지 (손가영)
-* 
+
   <img width="500" src="https://velog.velcdn.com/images/ka0son/post/6d025d21-7b81-4d1f-b152-6aeb5bcea78b/image.gif"/>
   
   * Nav Bar & Footer
