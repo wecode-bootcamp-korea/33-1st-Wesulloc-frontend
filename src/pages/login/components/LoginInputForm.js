@@ -28,7 +28,12 @@ const LoginInputForm = () => {
 
   const loginHandler = event => {
     event.preventDefault();
-    login(input);
+    // login(input);
+    // 프론트 검증을 위한 코드 부분 (확인 후 삭제)
+    authContext.login('token');
+    alert(`${input.id}님 환영합니다.`);
+    navigate('/');
+    // **
   };
 
   const checkValidate = (id, pwd) => {

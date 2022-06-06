@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Card from '../../../components/UI/Card';
+import CartContext from '../../../Context/cartContext';
 
 import './ErrorModal.scss';
 
-const ErrorModal = ({ message, errorHandler }) => {
+const ErrorModal = () => {
+  const cartContext = useContext(CartContext);
+
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
@@ -20,10 +23,10 @@ const ErrorModal = ({ message, errorHandler }) => {
     <div className="backdrop">
       <Card className="errorModal">
         <div>
-          <p>{message}</p>
+          <p>{ERROR[cartContext.error]}</p>
           <button
             onClick={() => {
-              errorHandler(null);
+              cartContext.changeError(null);
             }}
           >
             확인
@@ -35,3 +38,8 @@ const ErrorModal = ({ message, errorHandler }) => {
 };
 
 export default ErrorModal;
+
+const ERROR = {
+  inputValueExceeded: '더이상 숫자를 늘릴 수 없습니다.',
+  nothingSelected: '선택한 상품이 없습니다.',
+};

@@ -1,42 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import CartContext from '../../../Context/cartContext';
 import './CartItem.scss';
 
-const CartItem = ({
-  item,
-  onChangeAmount,
-  onChangecheck,
-  onErrorInput,
-  onClickBtn,
-}) => {
+const CartItem = ({ itemList }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
 
-  const { cartId, id, name, price, amount, isChecked, src } = item;
+  const cartContext = useContext(CartContext);
+
+  const { id, name, price, amount, isChecked } = itemList;
 
   const amountInputHandler = event => {
     if (event.target.value.length >= 3) {
-      onChangeAmount(cartId, 99);
-      onErrorInput('inputValueExceeded');
+      cartContext.changeItems(id, 'amount', 99);
+      cartContext.changeError('inputValueExceeded');
     } else {
       +event.target.value === 0
-        ? onChangeAmount(cartId, 1)
-        : onChangeAmount(cartId, +event.target.value);
+        ? cartContext.changeItems(id, 'amount', 1)
+        : cartContext.changeItems(id, 'amount', +event.target.value);
     }
   };
 
   const amountIncreaseHandler = event => {
     event.preventDefault();
     if (amount === 99) {
-      onErrorInput('inputValueExceeded');
+      cartContext.changeItems(id, 'amount', 99);
+      cartContext.changeError('inputValueExceeded');
     } else {
-      onChangeAmount(cartId, amount + 1);
-      onChangeAmount();
+      cartContext.changeItems(id, 'amount', amount + 1);
     }
   };
 
   const amountDecreaseHandler = event => {
     event.preventDefault();
-    onChangeAmount(cartId, amount - 1);
-    onChangeAmount();
+    cartContext.changeItems(id, 'amount', amount - 1);
   };
 
   useEffect(() => {
@@ -44,12 +40,12 @@ const CartItem = ({
   }, [amount]);
 
   const checkboxHandler = () => {
-    onChangecheck(id, 'isChecked', !isChecked);
+    cartContext.changeItems(id, 'isChecked', !isChecked);
   };
 
   const orderHandler = event => {
     event.preventDefault();
-    onClickBtn(id, null);
+    cartContext.orderItems(id, null);
   };
 
   return (
@@ -68,7 +64,7 @@ const CartItem = ({
         </label>
       </div>
       <div className="itemInfo">
-        <img src={src} alt="product" />
+        <img src={`images/cartItemListImg/00${id}.png`} alt="product" />
         <div className="itemInfoText">
           <a href="$">{name}</a>
         </div>
