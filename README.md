@@ -62,6 +62,8 @@ https://www.youtube.com/watch?v=hi08z17A2s0
   
 * 상품 리스트 (이윤섭)
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/102455161/172119866-b6b40805-1cdf-4bb3-80fb-fec69909af55.gif)
+
   ```
   - 페이지 상단의 캐러셀 구현
   - 카테고리 선택시 해당 카테고리에 맞는 상품 리스트 정렬
