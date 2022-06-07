@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import API from '../../Config';
 
 const CartContext = React.createContext({
   itemList: [],
@@ -56,7 +57,7 @@ export const CartContextProvider = props => {
   const getFetchItems = useCallback(async () => {
     setError(null);
     try {
-      const response = await fetch('data/cartItemList/cart.json', {});
+      const response = await fetch(`${API.carts}`, {});
       if (!response.ok) {
         throw new Error('상품을 불러오는 과정에서 문제가 발생했습니다.');
       }

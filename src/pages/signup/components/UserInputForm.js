@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import InputUserInfo from './InputUserInfo';
 import InputPersonalInfo from './InputPersonalInfo';
+import API from '../../../../Config';
 
 import './UserInputForm.scss';
 
@@ -69,7 +70,7 @@ const UserInputForm = ({ termsAgreementList, isAgreeTerms }) => {
 
   async function signupHandler(submitData) {
     try {
-      const response = await fetch('http://10.58.2.25:8000/user/signup', {
+      const response = await fetch(`${API.signup}`, {
         method: 'POST',
         body: JSON.stringify({
           user_account: submitData.id,

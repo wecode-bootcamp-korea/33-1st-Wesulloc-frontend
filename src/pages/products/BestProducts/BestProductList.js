@@ -4,6 +4,7 @@ import Nav from '../../../components/nav/Nav';
 import BestButtons from './components/BestButtons';
 import BestProductItems from './components/BestProductItems';
 import Footer from '../../../components/footer/Footer';
+import API from '../../../../Config';
 import './BestProductsList.scss';
 
 const WeeklyBest = () => {
@@ -15,7 +16,7 @@ const WeeklyBest = () => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://10.58.2.25:8000/products${location.search}`)
+    fetch(`${API.products}${location.search}`)
       .then(res => res.json())
       .then(data => {
         setProductList(data.results);

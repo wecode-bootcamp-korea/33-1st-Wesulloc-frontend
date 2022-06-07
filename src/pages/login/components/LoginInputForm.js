@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../../Context/authContext';
+import API from '../../../../Config';
 import './LoginInputForm.scss';
 
 let regExpForId = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{4,12}$/;
@@ -52,7 +53,7 @@ const LoginInputForm = () => {
 
   async function login(input) {
     try {
-      const response = await fetch('http://10.58.2.25:8000/user/login', {
+      const response = await fetch(`${API.login}`, {
         method: 'POST',
         body: JSON.stringify({
           user_account: input.id,
